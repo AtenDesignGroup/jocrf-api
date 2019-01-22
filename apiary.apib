@@ -219,51 +219,44 @@ defaults to "this week"
         }
 
 # Group Clients
+
 ## Client collection [/api/clients]
 
 ### Fetch multiple clients [GET]
 
-+ Request (application/json)
++ Response 200 (application/json)
 
-        {
-            "email": "test@aten.io",
-            "phone": "555-555-1212",
-            "first_name": "Test",
-            "last_name": "Aten"
-        }
-
-+ Response 201 (application/json)
-
-        {
-            "id": "1234",
-            "email": "test@aten.io",
-            "phone": "555-555-1212",
-            "first_name": "Test",
-            "last_name": "Aten"
-        }
-
-## Create client [/api/client]
-
-### Create client [POST]
-
-+ Request (application/json)
-
-        {
-            "email": "test@aten.io",
-            "phone": "555-555-1212",
-            "first_name": "Test",
-            "last_name": "Aten"
-        }
-
-+ Response 201 (application/json)
-
-        {
-            "id": "1234",
-            "email": "test@aten.io",
-            "phone": "555-555-1212",
-            "first_name": "Test",
-            "last_name": "Aten"
-        }
+        [
+            {
+                "id": 199,
+                "name": "Leroy Shelton",
+                "folder": "23088-18",
+                "appointments": [
+                    {
+                        "appointment": 1,
+                        "date": "2018-07-02T09:30:00-600",
+                        "completed": true
+                    },
+                    {
+                        "appointment": 2,
+                        "date": "2018-07-02T13:00:00-600",
+                        "completed": false
+                    },
+                    {
+                        "appointment": 3,
+                        "date": "2018-07-03T09:30:00-600",
+                        "completed": false
+                    }
+                ],
+                "info": {
+                    "completed": true
+                },
+                "payment": {
+                    "amount": 700,
+                    "completed": true
+                }
+            }
+        ]
 
 ## Client individual [/api/client/{id}]
 
@@ -272,13 +265,81 @@ defaults to "this week"
 + Response 200 (application/json)
 
         {
-            "id": "3478",
-            "email": "sortiz@example.com",
-            "phone": "555-555-1212",
-            "first_name": "Sophie",
-            "middle_name": "Ann",
-            "last_name": "Ortiz"
+            "id": 199,
+            "name": "Leroy Shelton",
+            "folder": "23088-18",
+            "appointments": [
+                {
+                    "appointment": 1,
+                    "date": "2018-07-02T09:30:00-600",
+                    "completed": true
+                },
+                {
+                    "appointment": 2,
+                    "date": "2018-07-02T13:00:00-600",
+                    "completed": false
+                },
+                {
+                    "appointment": 3,
+                    "date": "2018-07-03T09:30:00-600",
+                    "completed": false
+                }
+            ],
+            "info": {
+                "completed": true
+            },
+            "payment": {
+                "amount": 700,
+                "completed": true
+            }
         }
+
+
+## Create client [/api/client]
+
+### Create client [POST]
+
+Post 1 - 3 "contact" objects. The first is the client.
+Optional 2nd and 3rd objects are Parent / Guardian contact info.
+
++ Request (application/json)
+
+        {
+            "contact": [
+                {
+                    "email": "test@example.com",
+                    "phone": "555-555-1212",
+                    "first_name": "Test",
+                    "last_name": "Aten"
+                },
+                {
+                    "email": "dad@example.com",
+                    "phone": "555-555-1213",
+                    "first_name": "Dad",
+                    "last_name": "Aten"
+                },
+                {
+                    "email": "mom@example.com",
+                    "phone": "555-555-1214",
+                    "first_name": "Mom",
+                    "last_name": "Aten"
+                }
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /api/client/1345
+
+    + Body
+
+            {
+                "id": "1234",
+            }
+
+
 
 # Group Locations
 
