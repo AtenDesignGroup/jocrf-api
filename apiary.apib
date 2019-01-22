@@ -31,7 +31,7 @@ API Endpoints and resources for JOCRF dashboard app.
                 "password": "12345",
                 "scope": "ta"
             }
-            
+
 + Response 200 (application/json)
 
         {
@@ -129,87 +129,95 @@ defaults to "this week"
                     "id": 3706,
                     "appointment": 1,
                     "date": "2018-07-02T09:30:00-600",
-                    "name": "Leroy Shelton",
-                    "ta": 309,
+                    "client": {
+                        "id": 199,
+                        "name": "Leroy Shelton",
+                        "folder": "23088-18"
+                    }
+                    "ta": {
+                        "id": 309,
+                        "name": "Rodney Schwartz",
+                        "image": "http://example.com/bio/309.jpg"
+                    }
                     "room": 25
                 },
                 {
                     "id": 3709,
                     "appointment": 2,
                     "date": "2018-07-02T13:00:00-600",
-                    "name": "Leroy Shelton",
-                    "ta": 309,
+                    "client": {
+                        "id": 199,
+                        "name": "Leroy Shelton",
+                        "folder": "23088-18"
+                    }
+                    "ta": {
+                        "id": 309,
+                        "name": "Rodney Schwartz",
+                        "image": "http://example.com/bio/309.jpg"
+                    }
                     "room": 28
                 },
                 {
                     "id": 3713,
                     "appointment": 3,
                     "date": "2018-07-03T09:30:00-600",
-                    "name": "Leroy Shelton",
-                    "ta": 309,
+                    "client": {
+                        "id": 199,
+                        "name": "Leroy Shelton",
+                        "folder": "23088-18"
+                    }
+                    "ta": {
+                        "id": 309,
+                        "name": "Rodney Schwartz",
+                        "image": "http://example.com/bio/309.jpg"
+                    }
                     "room": 28
                 },
                 {
                     "id": 3719,
                     "appointment": 1,
                     "date": "2018-07-03T09:30:00-600",
-                    "name": "Melvin Doyle",
-                    "ta": 211,
+                    "client": {
+                        "id": 201,
+                        "name": "Melvin Doyle",
+                        "folder": "23088-18"
+                    }
+                    "ta": {
+                        "id": 211,
+                        "name": "Lillie Gibson",
+                        "image": "http://example.com/bio/211.jpg"
+                    }
                     "room": 26
                 },
-                {
-                    "id": 3721,
-                    "appointment": 3,
-                    "date": "2018-07-03T13:00:00-600",
-                    "name": "Maud Flowers",
-                    "ta": 309,
-                    "room": 28
-                },
-                {
-                    "id": 3725,
-                    "appointment": 1,
-                    "date": "2018-07-05T09:30:00-600",
-                    "name": "Ryan Simon",
-                    "ta": 309,
-                    "room": 28
-                },
-                {
-                    "id": 3727,
-                    "appointment": 2,
-                    "date": "2018-07-05T09:30:00-600",
-                    "name": "Sophie Ortiz",
-                    "ta": 211,
-                    "room": 26
-                },
-                {
-                    "id": 3728,
-                    "appointment": 3,
-                    "date": "2018-07-05T13:00:00-600",
-                    "name": "Sophie Ortiz",
-                    "ta": 211,
-                    "room": 26
-                }
             ],
         }
-        
+
 ## Appointment [/appointments/{id}]
 
 + Parameters
-    + id: 3 (number) - Appointment ID
-    
+    + id: 3719 (number) - Appointment ID
+
 ### Single Appointment [GET]
 
 + Response 200 (application/json)
 
         {
-            "id": 3728,
-            "appointment": 3,
-            "date": "2018-07-05T13:00:00-600",
-            "name": "Sophie Ortiz",
-            "ta": 211,
+            "id": 3719,
+            "appointment": 1,
+            "date": "2018-07-03T09:30:00-600",
+            "client": {
+                "id": 201,
+                "name": "Melvin Doyle",
+                "folder": "23088-18"
+            }
+            "ta": {
+                "id": 211,
+                "name": "Lillie Gibson",
+                "image": "http://example.com/bio/211.jpg"
+            }
             "room": 26
         }
-        
+
 # Group Clients
 ## Client collection [/api/clients]
 
@@ -233,7 +241,7 @@ defaults to "this week"
             "first_name": "Test",
             "last_name": "Aten"
         }
-        
+
 ## Create client [/api/client]
 
 ### Create client [POST]
