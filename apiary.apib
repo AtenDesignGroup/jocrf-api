@@ -77,19 +77,19 @@ defaults to "this week"
                 "id": 1,
                 "dateMin": "2018-07-02T00:00:00-4:00",
                 "dateMax": "2018-07-06T11:59:59-4:00",
-                "count": 12,
+                "count": 12
             },
             {
                 "id": 2,
                 "dateMin": "2018-07-02T00:00:00-7:00",
                 "dateMax": "2018-07-06T11:59:59-7:00",
-                "count": 4,
+                "count": 4
             },
             {
                 "id": 3,
                 "dateMin": "2018-07-02T00:00:00-6:00",
                 "dateMax": "2018-07-06T11:59:59-6:00",
-                "count": 8,
+                "count": 8
             }
         ]
 
@@ -111,10 +111,7 @@ defaults to "this week"
             "count": 8
         }
 
-## Appointments [/calendars/{id}/appointments]
-
-+ Parameters
-    + id: 3 (number) - Location ID
+## Appointments [/api/appointments]
 
 ### Appointments for single Location [GET]
 
@@ -192,7 +189,7 @@ defaults to "this week"
             ]
         }
 
-## Appointment [/appointments/{id}]
+## Appointment [/api/appointments/{id}]
 
 + Parameters
     + id: 3719 (number) - Appointment ID
@@ -215,7 +212,11 @@ defaults to "this week"
                 "name": "Lillie Gibson",
                 "image": "http://example.com/bio/211.jpg"
             },
-            "room": 26
+            "location": {
+                "id": 1,
+                "name": "Denver"
+            },
+            "complete": true
         }
 
 # Group Clients
@@ -235,121 +236,29 @@ defaults to "this week"
                     {
                         "appointment": 1,
                         "date": "2018-07-02T09:30:00-600",
-                        "completed": true
+                        "complete": true
                     },
                     {
                         "appointment": 2,
                         "date": "2018-07-02T13:00:00-600",
-                        "completed": false
+                        "complete": false
                     },
                     {
                         "appointment": 3,
                         "date": "2018-07-03T09:30:00-600",
-                        "completed": false
+                        "complete": false
                     }
                 ],
                 "info": {
-                    "completed": true
+                    "complete": true
                 },
                 "payment": {
                     "amount": 700,
                     "remaining": 0,
-                    "completed": true
+                    "complete": true
                 }
             }
         ]
-
-## Client individual [/api/client/{id}]
-
-### Fetch client [GET]
-
-+ Response 200 (application/json)
-
-        {
-            "id": 199,
-            "name": "Leroy Shelton",
-            "folder": "23088-18",
-            "appointments": [
-                {
-                    "appointment": 1,
-                    "date": "2018-07-02T09:30:00-600",
-                    "location": {
-                        "id": 1,
-                        "name": Denver,
-                    },
-                    "completed": true
-                },
-                {
-                    "appointment": 2,
-                    "date": "2018-07-02T13:00:00-600",
-                    "location": {
-                        "id": 1,
-                        "name": Denver,
-                    },
-                    "completed": false
-                },
-                {
-                    "appointment": 3,
-                    "date": "2018-07-03T09:30:00-600",
-                    "location": {
-                        "id": 1,
-                        "name": Denver,
-                    },
-                    "completed": false
-                }
-            ],
-            "info": {
-                "completed": true,
-                "contact": [
-                    {
-                        "email": "test@example.com",
-                        "phone": "555-555-1212",
-                        "first_name": "Leroy",
-                        "last_name": "Shelton"
-                    },
-                    {
-                        "email": "dad@example.com",
-                        "phone": "555-555-1213",
-                        "first_name": "Dad",
-                        "last_name": "Aten"
-                    },
-                    {
-                        "email": "mom@example.com",
-                        "phone": "555-555-1214",
-                        "first_name": "Mom",
-                        "last_name": "Aten"
-                    },
-                ],
-                "name": {
-                    "first": "Leroy",
-                    "middle": "",
-                    "last": "Shelton"
-                },
-                "sex": "male",
-                "pronouns": "He, Him",
-                "birthdayte": {
-                    "day": "12",
-                    "month": "10",
-                    "year": "1988"
-                },
-                "preferred": "email",
-                "address": "123 Anystreet",
-                "city": "Denver",
-                "state": "CO",
-                "zip": "80202"
-            },
-            "education": {
-
-            },
-            "payment": {
-                "amount": 750,
-                "remaining": 0,
-                "completed": true
-            }
-        }
-
-
-## Create client [/api/client]
 
 ### Create client [POST]
 
@@ -386,7 +295,7 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
 
     + Headers
 
-            Location: /api/client/1345
+            Location: /api/clients/1345
 
     + Body
 
@@ -396,22 +305,176 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
 
 
 
+## Client individual [/api/clients/{id}]
+
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch client [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 199,
+            "name": "Leroy Shelton",
+            "folder": "23088-18",
+            "appointments": [
+                {
+                    "appointment": 1,
+                    "date": "2018-07-02T09:30:00-600",
+                    "location": {
+                        "id": 1,
+                        "name": "Denver"
+                    },
+                    "complete": true
+                },
+                {
+                    "appointment": 2,
+                    "date": "2018-07-02T13:00:00-600",
+                    "location": {
+                        "id": 1,
+                        "name": "Denver"
+                    },
+                    "complete": false
+                },
+                {
+                    "appointment": 3,
+                    "date": "2018-07-03T09:30:00-600",
+                    "location": {
+                        "id": 1,
+                        "name": "Denver"
+                    },
+                    "complete": false
+                }
+            ],
+            "info": {
+                "complete": true,
+                "contact": [
+                    {
+                        "email": "test@example.com",
+                        "phone": "555-555-1212",
+                        "first_name": "Leroy",
+                        "last_name": "Shelton"
+                    },
+                    {
+                        "email": "dad@example.com",
+                        "phone": "555-555-1213",
+                        "first_name": "Dad",
+                        "last_name": "Aten"
+                    },
+                    {
+                        "email": "mom@example.com",
+                        "phone": "555-555-1214",
+                        "first_name": "Mom",
+                        "last_name": "Aten"
+                    },
+                ],
+                "name": {
+                    "first": "Leroy",
+                    "middle": "",
+                    "last": "Shelton"
+                },
+                "sex": "male",
+                "pronouns": "He, Him",
+                "birthdate": "1988-10-12",
+                "preferred": "email",
+                "address": "123 Anystreet",
+                "city": "Denver",
+                "state": "CO",
+                "zip": "80202"
+            },
+            "education": {
+                "gradeCompleted": "college-4",
+                "lastSchool": "University of Pittsburgh",
+                "degree": "Bachelor's of Science",
+                "fieldOfStudy": "Biology",
+                "likelyToChangeMajor": 3,
+                "changeMajorTo": "",
+                "fieldOfStudy2": "Chemistry",
+                "likelyToContinueEdu": 5
+            },
+            "family": {
+                "parents": [
+                    {
+                        "occupation": "Landscaper",
+                        "education": "college-some"
+                    },
+                    {
+                        "occupation": "Professor",
+                        "education": "advanced"
+                    }
+                ],
+                "twin": false,
+                "triplet": false,
+                "familyTested": "yes",
+                "name": "Fred Shelton",
+                "relationship": "Uncle",
+                "yearTested": "1977"
+            }
+            "employment": {
+                "job": {
+                    "title": "Coordinating Manager",
+                    "years": 4,
+                    "liked": 4
+                },
+                "roles": [
+                    {
+                        "title": "Supervising",
+                        "liked": 5
+                    },
+                    {
+                        "title": "Managing",
+                        "liked": 3
+                    }
+                ],
+                "prevJobs": [
+                    {
+                        "title": "Coordinating Assistant",
+                        "years": 2,
+                        "liked": 3
+                    },
+                    {
+                        "title": "Assistant Coordinater",
+                        "years": 3,
+                        "liked": 2
+                    }
+                ]
+            },
+            "interests": [
+                {
+                    "title": "Bike Riding",
+                    "duration": "10 years"
+                },
+                {
+                    "title": "Amateur Rocketry",
+                    "duration": "5 months"
+                }
+            ],
+            "final": {
+                "referred": "familyMemberTested",
+                "details": "Uncle got tested and recommended I try it out"
+            },
+            "payment": {
+                "amount": 750,
+                "remaining": 0,
+                "complete": true
+            }
+        }
+
+### Edit Client [POST]
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+
 # Group Locations
 
 ## Location collection [/api/locations]
 
 ### Fetch multiple locations [GET]
 
-+ Request (application/json)
-
-        {
-            "email": "test@aten.io",
-            "phone": "555-555-1212",
-            "first_name": "Test",
-            "last_name": "Aten"
-        }
-
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
         {
             "1": {
