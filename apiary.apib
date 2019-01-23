@@ -253,6 +253,7 @@ defaults to "this week"
                 },
                 "payment": {
                     "amount": 700,
+                    "remaining": 0,
                     "completed": true
                 }
             }
@@ -272,24 +273,77 @@ defaults to "this week"
                 {
                     "appointment": 1,
                     "date": "2018-07-02T09:30:00-600",
+                    "location": {
+                        "id": 1,
+                        "name": Denver,
+                    }
                     "completed": true
                 },
                 {
                     "appointment": 2,
                     "date": "2018-07-02T13:00:00-600",
+                    "location": {
+                        "id": 1,
+                        "name": Denver,
+                    }
                     "completed": false
                 },
                 {
                     "appointment": 3,
                     "date": "2018-07-03T09:30:00-600",
+                    "location": {
+                        "id": 1,
+                        "name": Denver,
+                    }
                     "completed": false
                 }
             ],
             "info": {
-                "completed": true
+                "completed": true,
+                "contact": [
+                    {
+                        "email": "test@example.com",
+                        "phone": "555-555-1212",
+                        "first_name": "Leroy",
+                        "last_name": "Shelton"
+                    },
+                    {
+                        "email": "dad@example.com",
+                        "phone": "555-555-1213",
+                        "first_name": "Dad",
+                        "last_name": "Aten"
+                    },
+                    {
+                        "email": "mom@example.com",
+                        "phone": "555-555-1214",
+                        "first_name": "Mom",
+                        "last_name": "Aten"
+                    },
+                ],
+                "name": {
+                    "first": "Leroy",
+                    "middle": "",
+                    "last": "Shelton"
+                },
+                "sex": "male",
+                "pronouns": "He, Him",
+                "birthdayte": {
+                    "day": "12",
+                    "month": "10",
+                    "year": "1988"
+                },
+                "preferred": "email",
+                "address": "123 Anystreet",
+                "city": "Denver",
+                "state": "CO",
+                "zip": "80202"
+            }
+            "education": {
+
             },
             "payment": {
-                "amount": 700,
+                "amount": 750,
+                "remaining": 0,
                 "completed": true
             }
         }
@@ -305,12 +359,12 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
 + Request (application/json)
 
         {
-            "contact": [
+            "contacts": [
                 {
                     "email": "test@example.com",
                     "phone": "555-555-1212",
                     "first_name": "Test",
-                    "last_name": "Aten"
+                    "last_name": "Aten",
                 },
                 {
                     "email": "dad@example.com",
@@ -324,7 +378,8 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
                     "first_name": "Mom",
                     "last_name": "Aten"
                 }
-            ]
+            ],
+            "preferred": "email"
         }
 
 + Response 201 (application/json)
