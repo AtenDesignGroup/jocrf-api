@@ -170,7 +170,7 @@ dateMin and dateMax must be submitted together, defaults to current week.
 + Parameters
     + id: 3719 (number) - Appointment ID
 
-### Single Appointment [GET]
+### Fetch Appointment [GET]
 
 + Response 200 (application/json)
 
@@ -221,8 +221,40 @@ dateMin and dateMax must be submitted together, defaults to current week.
 
         {
             "id": 3719,
+            "date": {
+                "start": "2018-07-03T08:30:00-600",
+                "end": "2018-07-03T12:00:00-600",
+            },
         }
 
+### Edit Appointment [POST]
+
++ Request (application/json)
+
+        {
+            "appointment": 1,
+            "client": {
+                "id": 201
+            },
+            "location": {
+                "id": 1,
+            },
+            "date": {
+                "start": "2018-07-04T08:30:00-600",
+                "end": "2018-07-04T12:00:00-600",
+            },
+
+        }
+
++ Response 201 (application/json)
+
+        {
+            "id": 3719,
+            "date": {
+                "start": "2018-07-04T08:30:00-600",
+                "end": "2018-07-04T12:00:00-600",
+            },
+        }
 
 # Group Clients
 
