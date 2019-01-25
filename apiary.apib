@@ -232,6 +232,7 @@ dateMin and dateMax must be submitted together, defaults to current week.
 + Request (application/json)
 
         {
+            "id": 3719,
             "appointment": 1,
             "client": {
                 "id": 201
@@ -250,6 +251,7 @@ dateMin and dateMax must be submitted together, defaults to current week.
 
         {
             "id": 3719,
+            "appointment": 1,
             "date": {
                 "start": "2018-07-04T08:30:00-600",
                 "end": "2018-07-04T12:00:00-600",
@@ -367,9 +369,7 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
                 "id": "1234"
             }
 
-
-
-## Client individual [/api/clients/{id}]
+## Client [/api/clients/{id}]
 
 + Parameters
     + id: 199 (number) - Client ID
