@@ -79,8 +79,6 @@ dateMin and dateMax must be submitted together, defaults to current week.
 + Response 200 (application/json)
 
         {
-            "dateMin": "2018-07-02T00:00:00-6:00",
-            "dateMax": "2018-07-06T11:59:59-6:00",
             "appointments": [
                 {
                     "id": 3706,
@@ -159,9 +157,40 @@ dateMin and dateMax must be submitted together, defaults to current week.
                     "room": 26
                 }
             ],
+            "dateMin": "2018-07-02T00:00:00-6:00",
+            "dateMax": "2018-07-06T11:59:59-6:00",
             "location": {
                 "id": 1,
                 "name": "Denver"
+            },
+        }
+
+### Create Appointment [POST]
+
++ Request (application/json)
+
+        {
+            "appointment": 1,
+            "client": {
+                "id": 201
+            },
+            "location": {
+                "id": 1,
+            },
+            "date": {
+                "start": "2018-07-03T08:30:00-600",
+                "end": "2018-07-03T12:00:00-600",
+            },
+
+        }
+
++ Response 201 (application/json)
+
+        {
+            "id": 3719,
+            "date": {
+                "start": "2018-07-03T08:30:00-600",
+                "end": "2018-07-03T12:00:00-600",
             },
         }
 
@@ -198,35 +227,6 @@ dateMin and dateMax must be submitted together, defaults to current week.
             "complete": true
         }
 
-### Create Appointment [POST]
-
-+ Request (application/json)
-
-        {
-            "appointment": 1,
-            "client": {
-                "id": 201
-            },
-            "location": {
-                "id": 1,
-            },
-            "date": {
-                "start": "2018-07-03T08:30:00-600",
-                "end": "2018-07-03T12:00:00-600",
-            },
-
-        }
-
-+ Response 201 (application/json)
-
-        {
-            "id": 3719,
-            "date": {
-                "start": "2018-07-03T08:30:00-600",
-                "end": "2018-07-03T12:00:00-600",
-            },
-        }
-
 ### Edit Appointment [POST]
 
 + Request (application/json)
@@ -253,49 +253,76 @@ dateMin and dateMax must be submitted together, defaults to current week.
             "date": {
                 "start": "2018-07-04T08:30:00-600",
                 "end": "2018-07-04T12:00:00-600",
-            },
+            }
         }
 
 # Group Clients
 
-## Client collection [/api/clients]
+## Client collection [/api/clients{?page,location,dateMin,dateMax}]
+
+Example: ?start=2019-01-28&end=2019-02-03&page=2
+Page is optional, defaults to 1.
+Location is optional, defaults to User location.
+dateMin and dateMax must be submitted together, defaults to current month.
+
 
 ### Fetch multiple clients [GET]
 
++ Parameters
+    + page (optional) - the page of results
+    + location (optional) - The location id
+    + dateMin (optional) - Start range YYYY-MM-DD
+    + dateMax (optional) - End range YYYY-MM-DD
+
 + Response 200 (application/json)
 
-        [
-            {
-                "id": 199,
-                "name": "Leroy Shelton",
-                "folder": "23088-18",
-                "appointments": [
-                    {
-                        "appointment": 1,
-                        "date": "2018-07-02T09:30:00-600",
+        {
+            "clients": [
+                {
+                    "id": 199,
+                    "name": "Leroy Shelton",
+                    "folder": "23088-18",
+                    "appointments": [
+                        {
+                            "appointment": 1,
+                            "date": "2018-07-02T09:30:00-600",
+                            "complete": true
+                        },
+                        {
+                            "appointment": 2,
+                            "date": "2018-07-02T13:00:00-600",
+                            "complete": false
+                        },
+                        {
+                            "appointment": 3,
+                            "date": "2018-07-03T09:30:00-600",
+                            "complete": false
+                        }
+                    ],
+                    "info": {
                         "complete": true
                     },
-                    {
-                        "appointment": 2,
-                        "date": "2018-07-02T13:00:00-600",
-                        "complete": false
-                    },
-                    {
-                        "appointment": 3,
-                        "date": "2018-07-03T09:30:00-600",
-                        "complete": false
+                    "payment": {
+                        "amount": 700,
+                        "remaining": 0,
+                        "complete": true
                     }
-                ],
-                "info": {
-                    "complete": true
-                },
-                "payment": {
-                    "amount": 700,
-                    "remaining": 0,
-                    "complete": true
                 }
+            ],
+            "dateMin": "2018-07-02T00:00:00-6:00",
+            "dateMax": "2018-07-06T11:59:59-6:00",
+            "location": {
+                "id": 1,
+                "name": "Denver"
+            },
+            "links": {
+                "self": "https://admin.jocrf.org/api/clients?page=3",
+                "prev": "https://admin.jocrf.org/api/clients?page=2",
+                "next": "https://admin.jocrf.org/api/clients?page=4",
+                "first": "https://admin.jocrf.org/api/clients?page=1",
+                "last": "https://admin.jocrf.org/api/clients?page=12",
             }
-        ]
+        }
 
 ### Create client [POST]
 
@@ -337,7 +364,7 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
     + Body
 
             {
-                "id": "1234",
+                "id": "1234"
             }
 
 
