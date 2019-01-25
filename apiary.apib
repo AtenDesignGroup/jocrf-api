@@ -85,7 +85,10 @@ dateMin and dateMax must be submitted together, defaults to current week.
                 {
                     "id": 3706,
                     "appointment": 1,
-                    "date": "2018-07-02T09:30:00-600",
+                    "date": {
+                        "start": "2018-07-02T08:30:00-600",
+                        "end": "2018-07-02T12:00:00-600",
+                    },
                     "client": {
                         "id": 199,
                         "name": "Leroy Shelton",
@@ -101,7 +104,10 @@ dateMin and dateMax must be submitted together, defaults to current week.
                 {
                     "id": 3709,
                     "appointment": 2,
-                    "date": "2018-07-02T13:00:00-600",
+                    "date": {
+                        "start": "2018-07-02T13:00:00-600",
+                        "end": "2018-07-02T16:30:00-600",
+                    },
                     "client": {
                         "id": 199,
                         "name": "Leroy Shelton",
@@ -117,7 +123,10 @@ dateMin and dateMax must be submitted together, defaults to current week.
                 {
                     "id": 3713,
                     "appointment": 3,
-                    "date": "2018-07-03T09:30:00-600",
+                    "date": {
+                        "start": "2018-07-03T08:30:00-600",
+                        "end": "2018-07-03T12:00:00-600",
+                    },
                     "client": {
                         "id": 199,
                         "name": "Leroy Shelton",
@@ -133,7 +142,10 @@ dateMin and dateMax must be submitted together, defaults to current week.
                 {
                     "id": 3719,
                     "appointment": 1,
-                    "date": "2018-07-03T09:30:00-600",
+                    "date": {
+                        "start": "2018-07-03T08:30:00-600",
+                        "end": "2018-07-03T12:00:00-600",
+                    },
                     "client": {
                         "id": 201,
                         "name": "Melvin Doyle",
@@ -165,7 +177,10 @@ dateMin and dateMax must be submitted together, defaults to current week.
         {
             "id": 3719,
             "appointment": 1,
-            "date": "2018-07-03T09:30:00-600",
+            "date": {
+                "start": "2018-07-03T08:30:00-600",
+                "end": "2018-07-03T12:00:00-600",
+            },
             "client": {
                 "id": 201,
                 "name": "Melvin Doyle",
@@ -182,6 +197,32 @@ dateMin and dateMax must be submitted together, defaults to current week.
             },
             "complete": true
         }
+
+### Create Appointment [POST]
+
++ Request (application/json)
+
+        {
+            "appointment": 1,
+            "client": {
+                "id": 201
+            },
+            "location": {
+                "id": 1,
+            },
+            "date": {
+                "start": "2018-07-03T08:30:00-600",
+                "end": "2018-07-03T12:00:00-600",
+            },
+
+        }
+
++ Response 201 (application/json)
+
+        {
+            "id": 3719,
+        }
+
 
 # Group Clients
 
