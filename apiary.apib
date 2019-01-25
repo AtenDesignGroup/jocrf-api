@@ -63,62 +63,22 @@ API Endpoints and resources for JOCRF dashboard app.
 
 # Group Scheduling
 
-## Calendars [/calendars]
+## Appointments [/api/appointments{?location,dateMin,dateMax}]
 
-## Calendars for all locations for time range
-defaults to "this week"
-
-### Calendars for all Locations [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": 1,
-                "dateMin": "2018-07-02T00:00:00-4:00",
-                "dateMax": "2018-07-06T11:59:59-4:00",
-                "count": 12
-            },
-            {
-                "id": 2,
-                "dateMin": "2018-07-02T00:00:00-7:00",
-                "dateMax": "2018-07-06T11:59:59-7:00",
-                "count": 4
-            },
-            {
-                "id": 3,
-                "dateMin": "2018-07-02T00:00:00-6:00",
-                "dateMax": "2018-07-06T11:59:59-6:00",
-                "count": 8
-            }
-        ]
-
-
-
-## Calendar [/calendars/{id}]
-
-+ Parameters
-    + id: 3 (number) - Location ID
-
-### Calendar for single Location [GET]
-
-+ Response 200 (application/json)
-
-        {
-            "id": 3,
-            "dateMin": "2018-07-02T00:00:00-6:00",
-            "dateMax": "2018-07-06T11:59:59-6:00",
-            "count": 8
-        }
-
-## Appointments [/api/appointments]
+Example: ?start=2019-01-28&end=2019-02-03
+Location is optional, defaults to User location.
+dateMin and dateMax must be submitted together, defaults to current week.
 
 ### Appointments for single Location [GET]
 
++ Parameters
+    + location (optional) - The location id
+    + dateMin (optional) - Start range of week YYYY-MM-DD
+    + dateMax (optional) - End range of week YYYY-MM-DD
+
 + Response 200 (application/json)
 
         {
-            "id": 3,
             "dateMin": "2018-07-02T00:00:00-6:00",
             "dateMax": "2018-07-06T11:59:59-6:00",
             "appointments": [
@@ -186,7 +146,11 @@ defaults to "this week"
                     },
                     "room": 26
                 }
-            ]
+            ],
+            "location": {
+                "id": 1,
+                "name": "Denver"
+            },
         }
 
 ## Appointment [/api/appointments/{id}]
