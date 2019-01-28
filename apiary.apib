@@ -619,6 +619,101 @@ Edit client should match Create client
                 "id": "1234"
             }
 
+## Client Payment [/api/clients/{id}/payments]
+
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch client Payments [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 199,
+            "amount": 750,
+            "remaining": 0,
+            "complete": true,
+            "payments": [
+                {
+                    "date": "2018-07-03T17:35:00-600,
+                    "method": "8444",
+                    "amount": 100
+                },
+                {
+                    "date": "2018-07-04T08:30:00-600,
+                    "method": "8444",
+                    "amount": 650
+                }
+            ]
+        }
+
+### Add Client Payment [POST]
+
++ Request (application/json)
+
+        {
+            "date": "2018-07-03T17:35:00-600,
+            "method": "8444",
+            "amount": 100
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "199"
+            }
+
+## Client Payment Methods [/api/clients/{id}/payment-methods]
+
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch client Payment Methods [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 199,
+            "methods": [
+                "8444",
+                "5566"
+            ]
+        }
+
+
+### Create Client Payment Methods [POST]
+
++ Request (application/json)
+
+        {
+            "id": 199,
+            "name": {
+                "first": "Leroy",
+                "last": "Shelton"
+            },
+            "address": "123 Anystreet",
+            "city": "Denver",
+            "state": "CO",
+            "zip": "80202"
+            card: {
+                number: "4444 5555 6666 7777",
+                expiration: "12 / 25",
+                cvc: "808"
+            }
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "199",
+                "method": "7777"
+            }
+
+
 ## Client [/api/clients/{id}/personal]
 
 + Parameters
@@ -651,6 +746,11 @@ Edit client should match Create client
 
         {
             "id": 199,
+            "name": {
+                "first": "Leroy",
+                "middle": "",
+                "last": "Shelton"
+            },
             "sex": "male",
             "pronouns": "He, Him",
             "birthdate": "1988-10-12",
@@ -672,7 +772,6 @@ Edit client should match Create client
             {
                 "id": "199"
             }
-
 
 
 # Group Locations
