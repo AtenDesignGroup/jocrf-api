@@ -959,7 +959,7 @@ Edit client should match Create client
                 "id": "199"
             }
 
-## Client Interests [/api/clients/{id}/Interests]
+## Client Interests [/api/clients/{id}/interests]
 
 + Parameters
     + id: 199 (number) - Client ID
@@ -977,7 +977,7 @@ Edit client should match Create client
                 "title": "Amateur Rocketry",
                 "duration": "5 months"
             }
-        ],
+        ]
 
 ### Create/Edit Client Interests [POST]
 
@@ -992,7 +992,38 @@ Edit client should match Create client
                 "title": "Amateur Rocketry",
                 "duration": "5 months"
             }
-        ],
+        ]
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "199"
+            }
+
+## Client Final [/api/clients/{id}/final]
+
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch Client Final [GET]
+
++ Response 200 (application/json)
+
+        {
+            "referred": "familyMemberTested",
+            "notes": "Uncle got tested and recommended I try it out"
+        }
+
+### Create/Edit Client Final [POST]
+
++ Request (application/json)
+
+        {
+            "referred": "familyMemberTested",
+            "notes": "Uncle got tested and recommended I try it out"
+        }
 
 + Response 201 (application/json)
 
