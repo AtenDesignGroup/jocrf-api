@@ -876,6 +876,90 @@ Edit client should match Create client
                 "id": "199"
             }
 
+## Client Employment [/api/clients/{id}/employment]
+
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch Client Employment [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 199,
+            "job": {
+                "title": "Coordinating Manager",
+                "years": 4,
+                "liked": 4
+            },
+            "roles": [
+                {
+                    "title": "Supervising",
+                    "liked": 5
+                },
+                {
+                    "title": "Managing",
+                    "liked": 3
+                }
+            ],
+            "prevJobs": [
+                {
+                    "title": "Coordinating Assistant",
+                    "years": 2,
+                    "liked": 3
+                },
+                {
+                    "title": "Assistant Coordinater",
+                    "years": 3,
+                    "liked": 2
+                }
+            ]
+        }
+
+### Create/Edit Client Employment [POST]
+
++ Request (application/json)
+
+        {
+            "id": 199,
+            "job": {
+                "title": "Coordinating Manager",
+                "years": 4,
+                "liked": 4
+            },
+            "roles": [
+                {
+                    "title": "Supervising",
+                    "liked": 5
+                },
+                {
+                    "title": "Managing",
+                    "liked": 3
+                }
+            ],
+            "prevJobs": [
+                {
+                    "title": "Coordinating Assistant",
+                    "years": 2,
+                    "liked": 3
+                },
+                {
+                    "title": "Assistant Coordinater",
+                    "years": 3,
+                    "liked": 2
+                }
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "199"
+            }
+
+
 # Group Locations
 
 ## Location collection [/api/locations]
