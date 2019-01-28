@@ -959,6 +959,50 @@ Edit client should match Create client
                 "id": "199"
             }
 
+## Client Interests [/api/clients/{id}/Interests]
+
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch Client Interests [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "title": "Bike Riding",
+                "duration": "10 years"
+            },
+            {
+                "title": "Amateur Rocketry",
+                "duration": "5 months"
+            }
+        ],
+
+### Create/Edit Client Interests [POST]
+
++ Request (application/json)
+
+        [
+            {
+                "title": "Bike Riding",
+                "duration": "10 years"
+            },
+            {
+                "title": "Amateur Rocketry",
+                "duration": "5 months"
+            }
+        ],
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "199"
+            }
+
+
 
 # Group Locations
 
