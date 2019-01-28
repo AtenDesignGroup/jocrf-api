@@ -463,26 +463,8 @@ This should return the full client object for the detail page.
             ],
             "info": {
                 "complete": true,
-                "contacts": [
-                    {
-                        "email": "test@example.com",
-                        "phone": "555-555-1212",
-                        "first_name": "Leroy",
-                        "last_name": "Shelton"
-                    },
-                    {
-                        "email": "dad@example.com",
-                        "phone": "555-555-1213",
-                        "first_name": "Dad",
-                        "last_name": "Aten"
-                    },
-                    {
-                        "email": "mom@example.com",
-                        "phone": "555-555-1214",
-                        "first_name": "Mom",
-                        "last_name": "Aten"
-                    }
-                ],
+            },
+            "personal": {
                 "name": {
                     "first": "Leroy",
                     "middle": "",
@@ -497,6 +479,26 @@ This should return the full client object for the detail page.
                 "state": "CO",
                 "zip": "80202"
             },
+            "contacts": [
+                {
+                    "email": "test@example.com",
+                    "phone": "555-555-1212",
+                    "first_name": "Leroy",
+                    "last_name": "Shelton"
+                },
+                {
+                    "email": "dad@example.com",
+                    "phone": "555-555-1213",
+                    "first_name": "Dad",
+                    "last_name": "Aten"
+                },
+                {
+                    "email": "mom@example.com",
+                    "phone": "555-555-1214",
+                    "first_name": "Mom",
+                    "last_name": "Aten"
+                }
+            ],
             "education": {
                 "gradeCompleted": "college-4",
                 "lastSchool": "University of Pittsburgh",
@@ -615,6 +617,60 @@ Edit client should match Create client
 
             {
                 "id": "1234"
+            }
+
+## Client [/api/clients/{id}/personal]
+
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch client [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 199,
+            "name": {
+                "first": "Leroy",
+                "middle": "",
+                "last": "Shelton"
+            },
+            "sex": "male",
+            "pronouns": "He, Him",
+            "birthdate": "1988-10-12",
+            "preferred": "email",
+            "address": "123 Anystreet",
+            "city": "Denver",
+            "state": "CO",
+            "zip": "80202"
+        }
+
+### Create/Edit Client Personal [POST]
+
++ Request (application/json)
+
+        {
+            "id": 199,
+            "sex": "male",
+            "pronouns": "He, Him",
+            "birthdate": "1988-10-12",
+            "preferred": "email",
+            "address": "123 Anystreet",
+            "city": "Denver",
+            "state": "CO",
+            "zip": "80202"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /api/clients/1345
+
+    + Body
+
+            {
+                "id": "199"
             }
 
 
