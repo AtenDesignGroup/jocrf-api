@@ -413,7 +413,7 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
 + Parameters
     + id: 199 (number) - Client ID
 
-### Fetch client [GET]
+### Fetch Client [GET]
 
 This should return the full client object for the detail page.
 
@@ -568,7 +568,7 @@ This should return the full client object for the detail page.
             ],
             "final": {
                 "referred": "familyMemberTested",
-                "details": "Uncle got tested and recommended I try it out"
+                "notes": "Uncle got tested and recommended I try it out"
             },
             "payment": {
                 "amount": 750,
@@ -584,6 +584,7 @@ Edit client should match Create client
 + Request (application/json)
 
         {
+            "id": 199,
             "contacts": [
                 {
                     "email": "test@example.com",
@@ -611,12 +612,12 @@ Edit client should match Create client
 
     + Headers
 
-            Location: /api/clients/1345
+            Location: /api/clients/199
 
     + Body
 
             {
-                "id": "1234"
+                "id": "199"
             }
 
 ## Client Payment [/api/clients/{id}/payments]
@@ -624,7 +625,7 @@ Edit client should match Create client
 + Parameters
     + id: 199 (number) - Client ID
 
-### Fetch client Payments [GET]
+### Fetch Client Payments [GET]
 
 + Response 200 (application/json)
 
@@ -670,7 +671,7 @@ Edit client should match Create client
 + Parameters
     + id: 199 (number) - Client ID
 
-### Fetch client Payment Methods [GET]
+### Fetch Client Payment Methods [GET]
 
 + Response 200 (application/json)
 
@@ -714,12 +715,12 @@ Edit client should match Create client
             }
 
 
-## Client [/api/clients/{id}/personal]
+## Client Personal [/api/clients/{id}/personal]
 
 + Parameters
     + id: 199 (number) - Client ID
 
-### Fetch client [GET]
+### Fetch Client Personal [GET]
 
 + Response 200 (application/json)
 
@@ -763,22 +764,18 @@ Edit client should match Create client
 
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /api/clients/1345
-
     + Body
 
             {
                 "id": "199"
             }
 
-## Client [/api/clients/{id}/education]
+## Client Education [/api/clients/{id}/education]
 
 + Parameters
     + id: 199 (number) - Client ID
 
-### Fetch client [GET]
+### Fetch Client Education [GET]
 
 + Response 200 (application/json)
 
@@ -794,7 +791,7 @@ Edit client should match Create client
             "likelyToContinueEdu": 5
         }
 
-### Create/Edit Client Personal [POST]
+### Create/Edit Client Education [POST]
 
 + Request (application/json)
 
@@ -818,7 +815,66 @@ Edit client should match Create client
                 "id": "199"
             }
 
+## Client Family [/api/clients/{id}/family]
 
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch Client Family [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 199,
+            "parents": [
+                {
+                    "occupation": "Landscaper",
+                    "education": "college-some"
+                },
+                {
+                    "occupation": "Professor",
+                    "education": "advanced"
+                }
+            ],
+            "twin": false,
+            "triplet": false,
+            "familyTested": "yes",
+            "name": "Fred Shelton",
+            "relationship": "Uncle",
+            "yearTested": "1977"
+        }
+
+### Create/Edit Client Family [POST]
+
++ Request (application/json)
+
+        {
+            "id": 199,
+            "parents": [
+                {
+                    "occupation": "Landscaper",
+                    "education": "college-some"
+                },
+                {
+                    "occupation": "Professor",
+                    "education": "advanced"
+                }
+            ],
+            "twin": false,
+            "triplet": false,
+            "familyTested": "yes",
+            "name": "Fred Shelton",
+            "relationship": "Uncle",
+            "yearTested": "1977"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "199"
+            }
 
 # Group Locations
 
