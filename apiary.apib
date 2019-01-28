@@ -773,6 +773,52 @@ Edit client should match Create client
                 "id": "199"
             }
 
+## Client [/api/clients/{id}/education]
+
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch client [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 199,
+            "gradeCompleted": "college-4",
+            "lastSchool": "University of Pittsburgh",
+            "degree": "Bachelor's of Science",
+            "fieldOfStudy": "Biology",
+            "likelyToChangeMajor": 3,
+            "changeMajorTo": "",
+            "fieldOfStudy2": "Chemistry",
+            "likelyToContinueEdu": 5
+        }
+
+### Create/Edit Client Personal [POST]
+
++ Request (application/json)
+
+        {
+            "id": 199,
+            "gradeCompleted": "college-4",
+            "lastSchool": "University of Pittsburgh",
+            "degree": "Bachelor's of Science",
+            "fieldOfStudy": "Biology",
+            "likelyToChangeMajor": 3,
+            "changeMajorTo": "",
+            "fieldOfStudy2": "Chemistry",
+            "likelyToContinueEdu": 5
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "199"
+            }
+
+
 
 # Group Locations
 
