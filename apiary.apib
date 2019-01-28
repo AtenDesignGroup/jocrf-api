@@ -287,17 +287,26 @@ dateMin and dateMax must be submitted together, defaults to current month.
                     "appointments": [
                         {
                             "appointment": 1,
-                            "date": "2018-07-02T09:30:00-600",
+                            "date": {
+                                "start": "2018-07-02T08:30:00-600",
+                                "end": "2018-07-02T12:00:00-600",
+                            },
                             "complete": true
                         },
                         {
                             "appointment": 2,
-                            "date": "2018-07-02T13:00:00-600",
+                            "date": {
+                                "start": "2018-07-02T13:00:00-600",
+                                "end": "2018-07-02T16:30:00-600",
+                            },
                             "complete": false
                         },
                         {
                             "appointment": 3,
-                            "date": "2018-07-03T09:30:00-600",
+                            "date": {
+                                "start": "2018-07-03T08:30:00-600",
+                                "end": "2018-07-03T12:00:00-600",
+                            },
                             "complete": false
                         }
                     ],
@@ -385,7 +394,10 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
             "appointments": [
                 {
                     "appointment": 1,
-                    "date": "2018-07-02T09:30:00-600",
+                    "date": {
+                        "start": "2018-07-02T08:30:00-600",
+                        "end": "2018-07-02T12:00:00-600",
+                    },
                     "location": {
                         "id": 1,
                         "name": "Denver"
@@ -394,7 +406,10 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
                 },
                 {
                     "appointment": 2,
-                    "date": "2018-07-02T13:00:00-600",
+                    "date": {
+                        "start": "2018-07-02T13:00:00-600",
+                        "end": "2018-07-02T16:30:00-600",
+                    },
                     "location": {
                         "id": 1,
                         "name": "Denver"
@@ -403,7 +418,10 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
                 },
                 {
                     "appointment": 3,
-                    "date": "2018-07-03T09:30:00-600",
+                    "date": {
+                        "start": "2018-07-03T08:30:00-600",
+                        "end": "2018-07-03T12:00:00-600",
+                    },
                     "location": {
                         "id": 1,
                         "name": "Denver"
