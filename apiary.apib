@@ -1012,6 +1012,7 @@ Edit client should match Create client
 + Response 200 (application/json)
 
         {
+            "id": 199,
             "referred": "familyMemberTested",
             "notes": "Uncle got tested and recommended I try it out"
         }
@@ -1032,6 +1033,223 @@ Edit client should match Create client
             {
                 "id": "199"
             }
+
+## Client Scores [/api/clients/{id}/scores]
+
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch Client Scores [GET]
+
+The object received should contain config information, such as test "options" like alternate codes or numbers.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "test": {
+                    "number": "703",
+                    "code": "AB",
+                    "name": "Graphoria"
+                },
+                "score": "",
+                "norm": "",
+                "date": "11/28/2018",
+                "admin": 'Lisa Cook',
+                "inc": false,
+                "nt": false,
+                "nfr": false,
+                "tried": ""
+            },
+            {
+                "test": {
+                    "number": "161",
+                    "code": "",
+                    "name": "Ideaphoria",
+                    "options": {
+                        "code": [
+                            "",
+                            "AO",
+                            "GO"
+                        ]
+                    }
+                },
+                "score": "800",
+                "norm": "75",
+                "date": "11/27/2018",
+                "admin": 'Lisa Cook',
+                "inc": false,
+                "nt": false,
+                "nfr": false,
+                "tried": ""
+            },
+            {
+                "test": {
+                    "number": "307",
+                    "code": "EQ",
+                    "name": "Foresight"
+                },
+                "score": "185",
+                "norm": "85",
+                "date": "11/28/2018",
+                "admin": 'Lisa Cook',
+                "inc": false,
+                "nt": false,
+                "nfr": false,
+                "tried": ""
+            },
+            {
+                "test": {
+                    "number": "",
+                    "code": "EN",
+                    "name": 'Wiggly Block',
+                    "options": {
+                        "number": [
+                            "",
+                            "4",
+                            "45",
+                            "455",
+                            "555",
+                            "556"
+                        ]
+                    }
+                },
+                "score": "185",
+                "norm": "85",
+                "date": "11/28/2018",
+                "admin": 'Lisa Cook',
+                "inc": false,
+                "nt": false,
+                "nfr": false,
+                "tried": ""
+            }
+        ]
+
+### Create/Edit Client Scores [POST]
+
+The object sent matches the received object exactly, except with additional values filled in.
+
++ Request (application/json)
+
+        [
+            {
+                "test": {
+                "number": "703",
+                "code": "AB",
+                "name": "Graphoria"
+                },
+                "score": "220",
+                "norm": "85",
+                "date": "11/28/2018",
+                "admin": "Lisa Cook",
+                "inc": false,
+                "nt": false,
+                "nfr": false,
+                "tried": ""
+            },
+            {
+                "test": {
+                    "number": "161",
+                    "code": "AO",
+                    "name": "Ideaphoria",
+                    "options": {
+                    "code": [
+                        "",
+                        "AO",
+                        "GO"
+                    ]
+                }
+            },
+                "score": "800",
+                "norm": "75",
+                "date": "11/27/2018",
+                "admin": "Lisa Cook",
+                "inc": true,
+                "nt": false,
+                "nfr": false,
+                "tried": 50
+            },
+            {
+                "test": {
+                    "number": "307",
+                    "code": "EQ",
+                    "name": "Foresight"
+                },
+                "score": "185",
+                "norm": "85",
+                "date": "11/28/2018",
+                "admin": "Lisa Cook",
+                "inc": false,
+                "nt": false,
+                "nfr": true,
+                "tried": ""
+            },
+            {
+                "test": {
+                    "number": "455",
+                    "code": "EN",
+                    "name": "Wiggly Block",
+                "options": {
+                    "number": [
+                        "",
+                        "4",
+                        "45",
+                        "455",
+                        "555",
+                        "556"
+                    ]
+                }
+            },
+                "score": "185",
+                "norm": "85",
+                "date": "11/28/2018",
+                "admin": "Lisa Cook",
+                "inc": false,
+                "nt": true,
+                "nfr": false,
+                "tried": ""
+            }
+        ]
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "199"
+            }
+
+## Client Final [/api/clients/{id}/final]
+
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch Client Final [GET]
+
++ Response 200 (application/json)
+
+        {
+            "referred": "familyMemberTested",
+            "notes": "Uncle got tested and recommended I try it out"
+        }
+
+### Create/Edit Client Final [POST]
+
++ Request (application/json)
+
+        {
+            "referred": "familyMemberTested",
+            "notes": "Uncle got tested and recommended I try it out"
+        }
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "199"
+            }
+
 
 
 
