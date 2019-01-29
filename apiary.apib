@@ -1219,12 +1219,15 @@ The object sent matches the received object exactly, except with additional valu
                 "id": "199"
             }
 
-## Client Summary Aptitudes [/api/clients/{id}/summary-aptitudes]
+## Client Summary Pattern [/api/clients/{id}/summary-patterns]
 
 + Parameters
     + id: 199 (number) - Client ID
 
-### Fetch Client Summary Aptitudes [GET]
+### Fetch Client Summary Pattern [GET]
+
+This defines the interface for the Report Aptitude UI.
+It cannot be edited via the API (no POST)
 
 + Response 200 (application/json)
 
@@ -1789,25 +1792,1631 @@ The object sent matches the received object exactly, except with additional valu
             }
         ]
 
-### Create/Edit Client Final [POST]
+## Client Summary Report [/api/clients/{id}/summary-report]
+
++ Parameters
+    + id: 199 (number) - Client ID
+
+### Fetch Client Summary Report [GET]
+
+These values come from the Aptitude UI
 
 + Request (application/json)
 
         {
-            "referred": "familyMemberTested",
-            "notes": "Uncle got tested and recommended I try it out"
+            "personality": "int",
+            "vocab": "high",
+            "sv": "high",
+            "id": "avg",
+            "ir": "low",
+            "ar": "avg",
+            "ns": "high",
+            "nf": "low",
+            "nm": "low",
+            "gra": "low",
+            "md": "high",
+            "obs": "low",
+            "vdt1": "low",
+            "vdt2": "low",
+            "cd": "high",
+            "tm": "high",
+            "pd": "avg",
+            "rm": "low",
+            "td": "high",
+            "fd": "avg",
+            "fo": "high",
+            "silo": "low",
+            "color-vision": "normal",
+            "grip-left": "high",
+            "grip-right": "high"
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Body
 
             {
-                "id": "199"
+                "summary": [
+                    {
+                        "label": "Core",
+                        "value": [
+                            "Structural Visualization",
+                            "Intermediate Personality"
+                        ]
+                    },
+                    {
+                        "label": "Emphasis",
+                        "value": [
+                            "Visual"
+                        ]
+                    },
+                    {
+                        "label": "Personality",
+                        "value": [
+                            "Intermediate Personality"
+                        ]
+                    },
+                    {
+                        "label": "Vocabulary",
+                        "value": [
+                            "Vocabulary"
+                        ]
+                    }
+                ],
+                "primary": [
+                    {
+                        "id": 2507,
+                        "abbvr": "SV",
+                        "label": "Structural Visualization",
+                        "pattern": "SV",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2747,
+                                    "label": "Chief Tactics Representative"
+                                },
+                                {
+                                    "id": 2216,
+                                    "label": "Human Program Architect"
+                                },
+                                {
+                                    "id": 1775,
+                                    "label": "Human Data Director"
+                                },
+                                {
+                                    "id": 3201,
+                                    "label": "Forward Implementation Developer"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 3198,
+                                    "label": "Dynamic Optimization Facilitator"
+                                },
+                                {
+                                    "id": 2567,
+                                    "label": "Product Identity Associate"
+                                },
+                                {
+                                    "id": 2422,
+                                    "label": "National Intranet Manager"
+                                },
+                                {
+                                    "id": 2804,
+                                    "label": "Future Program Administrator"
+                                },
+                                {
+                                    "id": 2785,
+                                    "label": "District Quality Facilitator"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 2453,
+                        "abbvr": "int",
+                        "label": "Intermediate Personality",
+                        "pattern": "Intermediate",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2585,
+                                    "label": "Internal Security Producer"
+                                },
+                                {
+                                    "id": 3196,
+                                    "label": "District Paradigm Representative"
+                                },
+                                {
+                                    "id": 2967,
+                                    "label": "Legacy Implementation Director"
+                                },
+                                {
+                                    "id": 3199,
+                                    "label": "Dynamic Functionality Specialist"
+                                },
+                                {
+                                    "id": 2413,
+                                    "label": "Regional Research Liaison"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2562,
+                                    "label": "Senior Usability Associate"
+                                },
+                                {
+                                    "id": 1990,
+                                    "label": "Dynamic Factors Agent"
+                                },
+                                {
+                                    "id": 2344,
+                                    "label": "Product Mobility Officer"
+                                },
+                                {
+                                    "id": 2241,
+                                    "label": "Customer Accounts Agent"
+                                },
+                                {
+                                    "id": 2756,
+                                    "label": "Chief Interactions Executive"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    }
+                ],
+                "emphasis": [
+                    {
+                        "id": 628,
+                        "abbvr": "vis",
+                        "label": "Visual",
+                        "pattern": "MD+CD",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2667,
+                                    "label": "Forward Intranet Specialist"
+                                },
+                                {
+                                    "id": 3007,
+                                    "label": "Dynamic Quality Representative"
+                                },
+                                {
+                                    "id": 1883,
+                                    "label": "Legacy Metrics Agent"
+                                },
+                                {
+                                    "id": 3214,
+                                    "label": "Regional Interactions Strategist"
+                                },
+                                {
+                                    "id": 2330,
+                                    "label": "Central Brand Strategist"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2866,
+                                    "label": "Internal Integration Designer"
+                                },
+                                {
+                                    "id": 2017,
+                                    "label": "Central Quality Agent"
+                                },
+                                {
+                                    "id": 2290,
+                                    "label": "Future Group Strategist"
+                                },
+                                {
+                                    "id": 2255,
+                                    "label": "Senior Response Planner"
+                                },
+                                {
+                                    "id": 2955,
+                                    "label": "Principal Paradigm Coordinator"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    }
+                ],
+                "discussion": [
+                    {
+                        "id": 1445,
+                        "abbvr": "personality",
+                        "label": "INT Personality",
+                        "pattern": "PERSONALITY int",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 3284,
+                                    "label": "Internal Accountability Associate"
+                                },
+                                {
+                                    "id": 3012,
+                                    "label": "Direct Applications Supervisor"
+                                },
+                                {
+                                    "id": 3302,
+                                    "label": "Global Integration Representative"
+                                },
+                                {
+                                    "id": 2257,
+                                    "label": "Regional Web Supervisor"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 1973,
+                                    "label": "Chief Program Officer"
+                                },
+                                {
+                                    "id": 3143,
+                                    "label": "District Optimization Assistant"
+                                },
+                                {
+                                    "id": 2858,
+                                    "label": "International Markets Manager"
+                                },
+                                {
+                                    "id": 3267,
+                                    "label": "Customer Solutions Administrator"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1368,
+                        "abbvr": "vocab",
+                        "label": "HIGH Vocabulary",
+                        "pattern": "VOCAB high",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2450,
+                                    "label": "Product Research Producer"
+                                },
+                                {
+                                    "id": 3398,
+                                    "label": "Corporate Accountability Associate"
+                                },
+                                {
+                                    "id": 3132,
+                                    "label": "National Integration Supervisor"
+                                },
+                                {
+                                    "id": 3758,
+                                    "label": "International Intranet Representative"
+                                },
+                                {
+                                    "id": 2220,
+                                    "label": "Dynamic Metrics Planner"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2571,
+                                    "label": "Human Factors Orchestrator"
+                                },
+                                {
+                                    "id": 3358,
+                                    "label": "Investor Integration Orchestrator"
+                                },
+                                {
+                                    "id": 3066,
+                                    "label": "Legacy Interactions Facilitator"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 2827,
+                        "abbvr": "sv",
+                        "label": "HIGH Structural Visualization",
+                        "pattern": "SV high",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 3214,
+                                    "label": "Regional Infrastructure Director"
+                                },
+                                {
+                                    "id": 2313,
+                                    "label": "Dynamic Mobility Manager"
+                                },
+                                {
+                                    "id": 2962,
+                                    "label": "Direct Accountability Director"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2296,
+                                    "label": "Global Tactics Associate"
+                                },
+                                {
+                                    "id": 2959,
+                                    "label": "Central Paradigm Administrator"
+                                },
+                                {
+                                    "id": 2656,
+                                    "label": "Legacy Tactics Orchestrator"
+                                },
+                                {
+                                    "id": 2709,
+                                    "label": "Product Mobility Consultant"
+                                },
+                                {
+                                    "id": 3174,
+                                    "label": "Human Accountability Facilitator"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1268,
+                        "abbvr": "id",
+                        "label": "AVG Ideaphoria",
+                        "pattern": "ID avg",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2500,
+                                    "label": "Senior Solutions Producer"
+                                },
+                                {
+                                    "id": 2544,
+                                    "label": "Dynamic Intranet Developer"
+                                },
+                                {
+                                    "id": 3211,
+                                    "label": "Internal Infrastructure Engineer"
+                                },
+                                {
+                                    "id": 2858,
+                                    "label": "Dynamic Branding Orchestrator"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2381,
+                                    "label": "Investor Group Developer"
+                                },
+                                {
+                                    "id": 3087,
+                                    "label": "International Creative Producer"
+                                },
+                                {
+                                    "id": 2565,
+                                    "label": "Dynamic Operations Analyst"
+                                },
+                                {
+                                    "id": 2287,
+                                    "label": "Lead Marketing Architect"
+                                },
+                                {
+                                    "id": 2961,
+                                    "label": "Lead Functionality Facilitator"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 2179,
+                        "abbvr": "ir",
+                        "label": "LOW Inductive Reasoning",
+                        "pattern": "IR low",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2787,
+                                    "label": "Senior Factors Administrator"
+                                },
+                                {
+                                    "id": 3168,
+                                    "label": "Regional Configuration Architect"
+                                },
+                                {
+                                    "id": 3150,
+                                    "label": "Future Infrastructure Executive"
+                                },
+                                {
+                                    "id": 2506,
+                                    "label": "Central Branding Associate"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2666,
+                                    "label": "Forward Operations Designer"
+                                },
+                                {
+                                    "id": 2437,
+                                    "label": "Dynamic Quality Architect"
+                                },
+                                {
+                                    "id": 2391,
+                                    "label": "Dynamic Branding Engineer"
+                                },
+                                {
+                                    "id": 2528,
+                                    "label": "Chief Response Facilitator"
+                                },
+                                {
+                                    "id": 2294,
+                                    "label": "Legacy Paradigm Director"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 2246,
+                        "abbvr": "ar",
+                        "label": "AVG Analytical Reasoning",
+                        "pattern": "AR avg",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2778,
+                                    "label": "Legacy Intranet Orchestrator"
+                                },
+                                {
+                                    "id": 2717,
+                                    "label": "Legacy Directives Technician"
+                                },
+                                {
+                                    "id": 2748,
+                                    "label": "Legacy Functionality Officer"
+                                },
+                                {
+                                    "id": 3088,
+                                    "label": "Regional Infrastructure Officer"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2218,
+                                    "label": "Product Tactics Officer"
+                                },
+                                {
+                                    "id": 2665,
+                                    "label": "Chief Identity Orchestrator"
+                                },
+                                {
+                                    "id": 3149,
+                                    "label": "Internal Solutions Orchestrator"
+                                },
+                                {
+                                    "id": 2218,
+                                    "label": "Direct Creative Analyst"
+                                },
+                                {
+                                    "id": 3180,
+                                    "label": "National Paradigm Representative"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1588,
+                        "abbvr": "ns",
+                        "label": "HIGH Number Series",
+                        "pattern": "NS high",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2336,
+                                    "label": "Principal Group Designer"
+                                },
+                                {
+                                    "id": 2198,
+                                    "label": "Dynamic Marketing Agent"
+                                },
+                                {
+                                    "id": 2454,
+                                    "label": "Forward Division Director"
+                                },
+                                {
+                                    "id": 2187,
+                                    "label": "Human Paradigm Engineer"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 3029,
+                                    "label": "Senior Infrastructure Producer"
+                                },
+                                {
+                                    "id": 2626,
+                                    "label": "Chief Applications Director"
+                                },
+                                {
+                                    "id": 3289,
+                                    "label": "International Assurance Associate"
+                                },
+                                {
+                                    "id": 3410,
+                                    "label": "District Accountability Specialist"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1744,
+                        "abbvr": "nf",
+                        "label": "LOW Number Facility",
+                        "pattern": "NF low",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2923,
+                                    "label": "Human Optimization Consultant"
+                                },
+                                {
+                                    "id": 2971,
+                                    "label": "International Division Officer"
+                                },
+                                {
+                                    "id": 2658,
+                                    "label": "Dynamic Creative Strategist"
+                                },
+                                {
+                                    "id": 3223,
+                                    "label": "Future Configuration Coordinator"
+                                },
+                                {
+                                    "id": 3005,
+                                    "label": "Internal Accounts Orchestrator"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2981,
+                                    "label": "Internal Usability Facilitator"
+                                },
+                                {
+                                    "id": 2786,
+                                    "label": "Forward Marketing Consultant"
+                                },
+                                {
+                                    "id": 3223,
+                                    "label": "Product Assurance Representative"
+                                },
+                                {
+                                    "id": 2907,
+                                    "label": "Customer Intranet Coordinator"
+                                },
+                                {
+                                    "id": 2330,
+                                    "label": "Legacy Security Engineer"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1556,
+                        "abbvr": "nm",
+                        "label": "LOW Number Memory",
+                        "pattern": "NM low",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 3171,
+                                    "label": "Principal Implementation Manager"
+                                },
+                                {
+                                    "id": 2761,
+                                    "label": "Dynamic Accounts Coordinator"
+                                },
+                                {
+                                    "id": 2463,
+                                    "label": "Customer Response Officer"
+                                },
+                                {
+                                    "id": 3082,
+                                    "label": "Dynamic Communications Director"
+                                },
+                                {
+                                    "id": 3022,
+                                    "label": "Investor Optimization Engineer"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 3101,
+                                    "label": "International Mobility Director"
+                                },
+                                {
+                                    "id": 2326,
+                                    "label": "Global Security Engineer"
+                                },
+                                {
+                                    "id": 2254,
+                                    "label": "Senior Group Specialist"
+                                },
+                                {
+                                    "id": 2009,
+                                    "label": "Central Web Executive"
+                                },
+                                {
+                                    "id": 2746,
+                                    "label": "National Creative Specialist"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1199,
+                        "abbvr": "gra",
+                        "label": "LOW Graphoria",
+                        "pattern": "GRA low",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 3122,
+                                    "label": "Product Accounts Representative"
+                                },
+                                {
+                                    "id": 2866,
+                                    "label": "Central Assurance Coordinator"
+                                },
+                                {
+                                    "id": 2798,
+                                    "label": "Dynamic Quality Orchestrator"
+                                },
+                                {
+                                    "id": 1873,
+                                    "label": "Lead Tactics Planner"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2641,
+                                    "label": "Regional Mobility Architect"
+                                },
+                                {
+                                    "id": 2567,
+                                    "label": "Product Response Architect"
+                                },
+                                {
+                                    "id": 2423,
+                                    "label": "Direct Accounts Associate"
+                                },
+                                {
+                                    "id": 2892,
+                                    "label": "District Solutions Technician"
+                                },
+                                {
+                                    "id": 2663,
+                                    "label": "Regional Tactics Consultant"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1946,
+                        "abbvr": "md",
+                        "label": "HIGH Memory for Design",
+                        "pattern": "MD high",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 3092,
+                                    "label": "Future Applications Facilitator"
+                                },
+                                {
+                                    "id": 2837,
+                                    "label": "Chief Branding Representative"
+                                },
+                                {
+                                    "id": 1979,
+                                    "label": "District Data Manager"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 3086,
+                                    "label": "Global Infrastructure Associate"
+                                },
+                                {
+                                    "id": 2989,
+                                    "label": "Dynamic Markets Representative"
+                                },
+                                {
+                                    "id": 2872,
+                                    "label": "District Accounts Facilitator"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1438,
+                        "abbvr": "obs",
+                        "label": "LOW Observation",
+                        "pattern": "OBS low",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2435,
+                                    "label": "Dynamic Marketing Analyst"
+                                },
+                                {
+                                    "id": 3011,
+                                    "label": "Product Implementation Analyst"
+                                },
+                                {
+                                    "id": 2450,
+                                    "label": "Senior Directives Planner"
+                                },
+                                {
+                                    "id": 2304,
+                                    "label": "Chief Identity Architect"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 1920,
+                                    "label": "Customer Web Planner"
+                                },
+                                {
+                                    "id": 2119,
+                                    "label": "Lead Metrics Assistant"
+                                },
+                                {
+                                    "id": 2873,
+                                    "label": "Dynamic Configuration Analyst"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 2332,
+                        "abbvr": "cd",
+                        "label": "HIGH Color Discrimination",
+                        "pattern": "CD high",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2121,
+                                    "label": "District Brand Analyst"
+                                },
+                                {
+                                    "id": 3138,
+                                    "label": "Investor Markets Representative"
+                                },
+                                {
+                                    "id": 2965,
+                                    "label": "Investor Solutions Consultant"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2656,
+                                    "label": "Global Interactions Analyst"
+                                },
+                                {
+                                    "id": 2439,
+                                    "label": "Human Security Technician"
+                                },
+                                {
+                                    "id": 3955,
+                                    "label": "International Functionality Facilitator"
+                                },
+                                {
+                                    "id": 3204,
+                                    "label": "District Configuration Developer"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1501,
+                        "abbvr": "tm",
+                        "label": "HIGH Total Memory",
+                        "pattern": "TM high",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2899,
+                                    "label": "Human Mobility Representative"
+                                },
+                                {
+                                    "id": 2901,
+                                    "label": "Principal Mobility Strategist"
+                                },
+                                {
+                                    "id": 2460,
+                                    "label": "Future Identity Architect"
+                                },
+                                {
+                                    "id": 2081,
+                                    "label": "National Data Designer"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 1738,
+                                    "label": "Lead Paradigm Agent"
+                                },
+                                {
+                                    "id": 2684,
+                                    "label": "Forward Branding Supervisor"
+                                },
+                                {
+                                    "id": 2795,
+                                    "label": "Forward Operations Executive"
+                                },
+                                {
+                                    "id": 2331,
+                                    "label": "Legacy Identity Director"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 2259,
+                        "abbvr": "pd",
+                        "label": "AVG Pitch Discrimination",
+                        "pattern": "PD avg",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2443,
+                                    "label": "Human Usability Associate"
+                                },
+                                {
+                                    "id": 2827,
+                                    "label": "Legacy Accountability Manager"
+                                },
+                                {
+                                    "id": 2783,
+                                    "label": "Human Intranet Administrator"
+                                },
+                                {
+                                    "id": 3383,
+                                    "label": "International Research Facilitator"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2639,
+                                    "label": "Lead Applications Executive"
+                                },
+                                {
+                                    "id": 2474,
+                                    "label": "Customer Mobility Liaison"
+                                },
+                                {
+                                    "id": 2796,
+                                    "label": "Corporate Solutions Engineer"
+                                },
+                                {
+                                    "id": 3210,
+                                    "label": "International Accounts Executive"
+                                },
+                                {
+                                    "id": 2540,
+                                    "label": "Global Markets Coordinator"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1575,
+                        "abbvr": "rm",
+                        "label": "LOW Rhythm Memory",
+                        "pattern": "RM low",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2700,
+                                    "label": "Dynamic Intranet Supervisor"
+                                },
+                                {
+                                    "id": 2570,
+                                    "label": "Legacy Identity Consultant"
+                                },
+                                {
+                                    "id": 2920,
+                                    "label": "Corporate Response Strategist"
+                                },
+                                {
+                                    "id": 3103,
+                                    "label": "Lead Functionality Orchestrator"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2912,
+                                    "label": "Customer Identity Coordinator"
+                                },
+                                {
+                                    "id": 3220,
+                                    "label": "National Interactions Consultant"
+                                },
+                                {
+                                    "id": 3465,
+                                    "label": "Product Optimization Administrator"
+                                },
+                                {
+                                    "id": 3376,
+                                    "label": "Regional Communications Technician"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 2056,
+                        "abbvr": "td",
+                        "label": "HIGH Tweezer Dexterity",
+                        "pattern": "TD high",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2177,
+                                    "label": "Legacy Data Facilitator"
+                                },
+                                {
+                                    "id": 2654,
+                                    "label": "Human Paradigm Orchestrator"
+                                },
+                                {
+                                    "id": 2002,
+                                    "label": "Chief Markets Analyst"
+                                },
+                                {
+                                    "id": 2546,
+                                    "label": "Dynamic Creative Assistant"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 3094,
+                                    "label": "Customer Implementation Officer"
+                                },
+                                {
+                                    "id": 3155,
+                                    "label": "Customer Optimization Assistant"
+                                },
+                                {
+                                    "id": 2671,
+                                    "label": "Internal Usability Director"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1851,
+                        "abbvr": "fd",
+                        "label": "AVG Finger Dexterity",
+                        "pattern": "FD avg",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2875,
+                                    "label": "Dynamic Integration Executive"
+                                },
+                                {
+                                    "id": 2673,
+                                    "label": "Forward Usability Developer"
+                                },
+                                {
+                                    "id": 2352,
+                                    "label": "Internal Metrics Analyst"
+                                },
+                                {
+                                    "id": 2406,
+                                    "label": "Dynamic Branding Director"
+                                },
+                                {
+                                    "id": 2658,
+                                    "label": "Principal Response Designer"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2571,
+                                    "label": "Direct Division Consultant"
+                                },
+                                {
+                                    "id": 2746,
+                                    "label": "Dynamic Implementation Agent"
+                                },
+                                {
+                                    "id": 3226,
+                                    "label": "Regional Security Representative"
+                                },
+                                {
+                                    "id": 3127,
+                                    "label": "Customer Functionality Director"
+                                },
+                                {
+                                    "id": 2990,
+                                    "label": "Central Assurance Orchestrator"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1259,
+                        "abbvr": "fo",
+                        "label": "HIGH Foresight",
+                        "pattern": "FO high",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 2309,
+                                    "label": "Dynamic Intranet Manager"
+                                },
+                                {
+                                    "id": 1864,
+                                    "label": "Global Brand Planner"
+                                },
+                                {
+                                    "id": 3237,
+                                    "label": "Product Integration Orchestrator"
+                                },
+                                {
+                                    "id": 2542,
+                                    "label": "Product Directives Manager"
+                                },
+                                {
+                                    "id": 3553,
+                                    "label": "International Mobility Orchestrator"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2219,
+                                    "label": "Chief Factors Assistant"
+                                },
+                                {
+                                    "id": 2222,
+                                    "label": "Investor Branding Agent"
+                                },
+                                {
+                                    "id": 2982,
+                                    "label": "Corporate Division Facilitator"
+                                },
+                                {
+                                    "id": 2202,
+                                    "label": "Human Branding Director"
+                                },
+                                {
+                                    "id": 3545,
+                                    "label": "Regional Optimization Administrator"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    },
+                    {
+                        "id": 1219,
+                        "abbvr": "silo",
+                        "label": "LOW Silograms",
+                        "pattern": "SILO low",
+                        "careers": {
+                            "defaults": [
+                                {
+                                    "id": 3308,
+                                    "label": "National Assurance Representative"
+                                },
+                                {
+                                    "id": 3297,
+                                    "label": "Dynamic Configuration Coordinator"
+                                },
+                                {
+                                    "id": 1891,
+                                    "label": "Central Web Director"
+                                }
+                            ],
+                            "optional": [
+                                {
+                                    "id": 2460,
+                                    "label": "Direct Metrics Strategist"
+                                },
+                                {
+                                    "id": 3079,
+                                    "label": "Dynamic Implementation Director"
+                                },
+                                {
+                                    "id": 2902,
+                                    "label": "Corporate Branding Supervisor"
+                                }
+                            ]
+                        },
+                        "display": {
+                            "all": "show",
+                            "desc": "show",
+                            "careers": "show"
+                        }
+                    }
+                ]
             }
 
+### Create / Edit Client Summary Report [POST]
 
++ Request (application/json)
 
+{
+	"primary": [
+		{
+			"id": 2507,
+			"label": "Structural Visualization",
+			"pattern": "SV",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2298",
+				"2878",
+				"2983",
+				"2986"
+			]
+		},
+		{
+			"id": 2453,
+			"label": "Intermediate Personality",
+			"pattern": "Intermediate",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2204",
+				"2996",
+				"3126"
+			]
+		}
+	],
+	"emphasis": [
+		{
+			"id": 628,
+			"label": "Visual",
+			"pattern": "MD+CD",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2426",
+				"2540",
+				"2871"
+			]
+		}
+	],
+	"discussion": [
+		{
+			"id": 1445,
+			"label": "INT Personality",
+			"pattern": "PERSONALITY int",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2118",
+				"2242",
+				"2352",
+				"2454"
+			]
+		},
+		{
+			"id": 1368,
+			"label": "HIGH Vocabulary",
+			"pattern": "VOCAB high",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2434",
+				"2447",
+				"3110"
+			]
+		},
+		{
+			"id": 2827,
+			"label": "HIGH Structural Visualization",
+			"pattern": "SV high",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2349",
+				"2352",
+				"2902"
+			]
+		},
+		{
+			"id": 1268,
+			"label": "AVG Ideaphoria",
+			"pattern": "ID avg",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2101",
+				"2934",
+				"2974",
+				"3093"
+			]
+		},
+		{
+			"id": 2179,
+			"label": "LOW Inductive Reasoning",
+			"pattern": "IR low",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2359",
+				"2972",
+				"3138"
+			]
+		},
+		{
+			"id": 2246,
+			"label": "AVG Analytical Reasoning",
+			"pattern": "AR avg",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2345",
+				"2381",
+				"2479",
+				"2629"
+			]
+		},
+		{
+			"id": 1588,
+			"label": "HIGH Number Series",
+			"pattern": "NS high",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2147",
+				"2238",
+				"2422"
+			]
+		},
+		{
+			"id": 1744,
+			"label": "LOW Number Facility",
+			"pattern": "NF low",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2302",
+				"2426",
+				"2440",
+				"2709"
+			]
+		},
+		{
+			"id": 1556,
+			"label": "LOW Number Memory",
+			"pattern": "NM low",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": {
+				"2016",
+				"2338",
+				"3018",
+				"3022"
+			}
+		},
+		{
+			"id": 1199,
+			"label": "LOW Graphoria",
+			"pattern": "GRA low",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2109",
+				"2154",
+				"2357",
+				"3139"
+			]
+		},
+		{
+			"id": 1946,
+			"label": "HIGH Memory for Design",
+			"pattern": "MD high",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2400",
+				"2448",
+				"2554",
+				"3094",
+				"3211"
+			]
+		},
+		{
+			"id": 1438,
+			"label": "LOW Observation",
+			"pattern": "OBS low",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2314",
+				"2658",
+				"2781",
+				"3062",
+				"3662"
+			]
+		},
+		{
+			"id": 2332,
+			"label": "HIGH Color Discrimination",
+			"pattern": "CD high",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2468",
+				"2585",
+				"2937"
+			]
+		},
+		{
+			"id": 1501,
+			"label": "HIGH Total Memory",
+			"pattern": "TM high",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2191",
+				"2390",
+				"2433",
+				"2436",
+				"2595"
+			]
+		},
+		{
+			"id": 2259,
+			"label": "AVG Pitch Discrimination",
+			"pattern": "PD avg",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"1918",
+				"2623",
+				"3081",
+				"3212"
+			]
+		},
+		{
+			"id": 1575,
+			"label": "LOW Rhythm Memory",
+			"pattern": "RM low",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"1977",
+				"2196",
+				"2277",
+				"2764"
+			]
+		},
+		{
+			"id": 2056,
+			"label": "HIGH Tweezer Dexterity",
+			"pattern": "TD high",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2238",
+				"2359",
+				"2994",
+				"3029"
+			]
+		},
+		{
+			"id": 1851,
+			"label": "AVG Finger Dexterity",
+			"pattern": "FD avg",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2134",
+				"2146",
+				"2311",
+				"2540"
+			]
+		},
+		{
+			"id": 1259,
+			"label": "HIGH Foresight",
+			"pattern": "FO high",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": [
+				"2462",
+				"2708",
+				"3170"
+			]
+		},
+		{
+			"id": 1219,
+			"label": "LOW Silograms",
+			"pattern": "SILO low",
+			"display": {
+				"all": "show",
+				"desc": "show",
+				"careers": "show"
+			},
+			"careers": {
+				"1695",
+				"2870",
+				"2983",
+				"3210"
+            ]
+		}
+	]
+}
 
 # Group Locations
 
