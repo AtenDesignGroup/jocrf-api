@@ -1219,19 +1219,575 @@ The object sent matches the received object exactly, except with additional valu
                 "id": "199"
             }
 
-## Client Final [/api/clients/{id}/final]
+## Client Summary Aptitudes [/api/clients/{id}/summary-aptitudes]
 
 + Parameters
     + id: 199 (number) - Client ID
 
-### Fetch Client Final [GET]
+### Fetch Client Summary Aptitudes [GET]
 
 + Response 200 (application/json)
 
-        {
-            "referred": "familyMemberTested",
-            "notes": "Uncle got tested and recommended I try it out"
-        }
+        [
+            {
+                "label": "",
+                "divider": "none",
+                "aptitudes": [
+                    {
+                        "id": "personality",
+                        "label": "Personality",
+                        "style": "large",
+                        "score": "7",
+                        "value": "int",
+                        "options": [
+                            {
+                                "label": "SUBJ",
+                                "value": "subj"
+                            },
+                            {
+                                "label": "INT",
+                                "value": "int"
+                            },
+                            {
+                                "label": "OBJ",
+                                "value": "obj"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "",
+                "divider": "line",
+                "aptitudes": [
+                    {
+                        "id": "vocab",
+                        "label": "Vocabulary",
+                        "style": "large",
+                        "score": "85",
+                        "value": "high",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "",
+                "divider": "line",
+                "aptitudes": [
+                    {
+                        "id": "sv",
+                        "label": "SV",
+                        "style": "small",
+                        "score": "80",
+                        "value": "high",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "id",
+                        "label": "ID",
+                        "style": "small",
+                        "score": "55",
+                        "value": "avg",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "ir",
+                        "label": "IR",
+                        "style": "small",
+                        "score": "10",
+                        "value": "low",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "ar",
+                        "label": "AR",
+                        "style": "small",
+                        "score": "55",
+                        "value": "avg",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "Numbers",
+                "divider": "line",
+                "aptitudes": [
+                    {
+                        "id": "ns",
+                        "label": "NS",
+                        "style": "small",
+                        "score": "70",
+                        "value": "high",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "nf",
+                        "label": "NF",
+                        "style": "small",
+                        "score": "30",
+                        "value": "low",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "nm",
+                        "label": "NM",
+                        "style": "small",
+                        "score": "10",
+                        "value": "low",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "gra",
+                        "label": "GRA",
+                        "style": "small",
+                        "score": "15",
+                        "value": "low",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "Visual",
+                "divider": "none",
+                "aptitudes": [
+                    {
+                        "id": "md",
+                        "label": "MD",
+                        "style": "small",
+                        "score": "90",
+                        "value": "high",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "obs",
+                        "label": "OBS",
+                        "style": "small",
+                        "score": "30",
+                        "value": "low",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "vdt1",
+                        "label": "VDT1",
+                        "style": "small",
+                        "score": "30",
+                        "value": "low",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "vdt2",
+                        "label": "VDT2",
+                        "style": "small",
+                        "score": "30",
+                        "value": "low",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "cd",
+                        "label": "CD",
+                        "style": "small",
+                        "score": "70",
+                        "value": "high",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "Auditory",
+                "divider": "none",
+                "aptitudes": [
+                    {
+                        "id": "tm",
+                        "label": "TM",
+                        "style": "small",
+                        "score": "95",
+                        "value": "high",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "pd",
+                        "label": "PD",
+                        "style": "small",
+                        "score": "50",
+                        "value": "avg",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "rm",
+                        "label": "RM",
+                        "style": "small",
+                        "score": "85",
+                        "value": "low",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "Dexterity",
+                "divider": "line",
+                "aptitudes": [
+                    {
+                        "id": "td",
+                        "label": "TD",
+                        "style": "small",
+                        "score": "45",
+                        "value": "high",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "fd",
+                        "label": "FD",
+                        "style": "small",
+                        "score": "10",
+                        "value": "avg",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "label": "",
+                "divider": "line",
+                "aptitudes": [
+                    {
+                        "id": "fo",
+                        "label": "Foresight",
+                        "style": "small",
+                        "score": "80",
+                        "value": "high",
+                            "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "silo",
+                        "label": "Silograms",
+                        "style": "small",
+                        "score": "30",
+                        "value": "low",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "color-vision",
+                        "label": "Red-Green Vision",
+                        "style": "small",
+                        "score": "14",
+                        "value": "normal",
+                        "options": []
+                    },
+                    {
+                        "id": "grip-left",
+                        "label": "Grip Left",
+                        "style": "small",
+                        "score": "70",
+                        "value": "high",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "grip-right",
+                        "label": "Grip Right",
+                        "style": "small",
+                        "score": "90",
+                        "value": "high",
+                        "options": [
+                            {
+                                "label": "LOW",
+                                "value": "low"
+                            },
+                            {
+                                "label": "AVG",
+                                "value": "avg"
+                            },
+                            {
+                                "label": "HIGH",
+                                "value": "high"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
 
 ### Create/Edit Client Final [POST]
 
