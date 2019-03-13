@@ -474,10 +474,12 @@ This should return the full client object for the detail page.
     "pronouns": "He, Him",
     "birthdate": "1988-10-12",
     "preferred": "email",
-    "address": "123 Anystreet",
-    "city": "Denver",
-    "state": "CO",
-    "zip": "80202"
+    "address": {
+      "street1": "123 Anystreet",
+      "city": "Denver",
+      "state": "CO",
+      "zip": "80202"
+    }
   },
   "contacts": [
   {
@@ -709,10 +711,10 @@ number: "4444 5555 6666 7777",
 
   + Body
 
-{
-  "id": "199",
-    "method": "7777"
-}
+    {
+      "id": "199",
+      "method": "7777"
+    }
 
 
 ## Client Personal [/api/clients/{id}/personal]
@@ -724,22 +726,26 @@ number: "4444 5555 6666 7777",
 
 + Response 200 (application/json)
 
-{
-  "id": 199,
-    "name": {
-      "first": "Leroy",
-      "middle": "",
-      "last": "Shelton"
-    },
-    "sex": "male",
-    "pronouns": "He, Him",
-    "birthdate": "1988-10-12",
-    "preferred": "email",
-    "address": "123 Anystreet",
-    "city": "Denver",
-    "state": "CO",
-    "zip": "80202"
-}
+  + Body
+
+    {
+      "id": 199,
+        "name": {
+          "first": "Leroy",
+          "middle": "",
+          "last": "Shelton"
+        },
+        "sex": "male",
+        "pronouns": "He, Him",
+        "birthdate": "1988-10-12",
+        "preferred": "email",
+        "address": {
+          "street1": "123 Anystreet",
+          "city": "Denver",
+          "state": "CO",
+          "zip": "80202"
+        }
+    }
 
 ### Create/Edit Client Personal [POST]
 
