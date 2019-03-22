@@ -63,17 +63,16 @@ API Endpoints and resources for JOCRF dashboard app.
 
 # Group Scheduling
 
-## Appointments [/api/appointments{?location,dateMin,dateMax}]
+## Appointments [/api/appointments{?location,dateStart,dateEnd}]
 Example: `?dateStart=2019-01-28&dateEnd=2019-02-03`
-Location is optional, defaults to User location.
 dateMin and dateMax must be submitted together, defaults to current week.
 
 ### Appointments for single Location [GET]
 
 + Parameters
-  + location (optional) - The location id
-  + dateMin  (optional) - Start range of week YYYY-MM-DD
-  + dateMax  (optional) - End range of week YYYY-MM-DD
+  + location (optional) - The location id (Defaults to current user location)
+  + dateStart  (optional) - Start range of week YYYY-MM-DD
+  + dateEnd  (optional) - End range of week YYYY-MM-DD
   + client   (optional) - The client user id (Defaults to current user)
 
 + Response 200 (application/json)
