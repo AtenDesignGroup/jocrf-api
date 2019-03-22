@@ -12,34 +12,32 @@ API Endpoints and resources for JOCRF dashboard app.
 ### Get access token [POST]
 
 + Attributes
-+ grant_type - "password
-+ client_id - "29ccd144-0752-4fee-99bc-48aa3f87a680"
-+ client_secret (string) - Secret set in OAauth settings
-+ username (string) - Drupal user's username
-+ password (string) - Drupal user's password
-+ scope (string) - Role names separated by spaces
+  + grant_type - "password
+  + client_id - "29ccd144-0752-4fee-99bc-48aa3f87a680"
+  + client_secret (string) - Secret set in OAauth settings
+  + username (string) - Drupal user's username
+  + password (string) - Drupal user's password
+  + scope (string) - Role names separated by spaces
 
 + Request (application/x-www-form-urlencoded)
 
-  + Body
-
-{
-  "grant_type": "password",
-    "client_id": "29ccd144-0752-4fee-99bc-48aa3f87a680",
-    "client_secret": "qu[G9duTBKna",
-    "username": "testuser",
-    "password": "12345",
-    "scope": "ta"
-}
+        + Body {
+            "grant_type": "password",
+            "client_id": "29ccd144-0752-4fee-99bc-48aa3f87a680",
+            "client_secret": "qu[G9duTBKna",
+            "username": "testuser",
+            "password": "12345",
+            "scope": "ta"
+        }
 
 + Response 200 (application/json)
 
-{
-  "token_type": "Bearer",
-    "expires_in": 300,
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNkZTAxZDVhNmI1NjgxMDcxMzgxODNhNWFjYmMyZTQwMzgyOTRhZTQxNGMxNDUwMzE3MTAxZjI0YTJhZGE4MWYxMTUzODIxZTJhOTdiYjEzIn0.eyJhdWQiOiIyOWNjZDE0NC0wNzUyLTRmZWUtOTliYy00OGFhM2Y4N2E2ODAiLCJqdGkiOiIzZGUwMWQ1YTZiNTY4MTA3MTM4MTgzYTVhY2JjMmU0MDM4Mjk0YWU0MTRjMTQ1MDMxNzEwMWYyNGEyYWRhODFmMTE1MzgyMWUyYTk3YmIxMyIsImlhdCI6MTU0MDgzNTE2NSwibmJmIjoxNTQwODM1MTY1LCJleHAiOjE1NDA4MzU0NjUsInN1YiI6IjUxIiwic2NvcGVzIjpbImF1dGhlbnRpY2F0ZWQiLCJhY2NvdW50YW50IiwiY2xpZW50IiwiZGlyZWN0b3IiLCJyZXNlYXJjaGVyIiwidGEiLCJ0ZW1wb3JhcnlfY2xpZW50Il19.Um33uF0As0tMDHFhP7q1tSP1s3mjvbFhbPmAcxRDl3ajgvaV1CFXkQ3D-OsvJNrChLk5BuiQFZdrabYyfeY-soxEqnccYuci1leqxsSSf4cPBJs80o2qdDZwRrp1qgpOcQO1RFhoIfNCflIaPIQkZc6boRfCqMrSnltd0MTr2SVzcQY-sqYef3ajk96EQ_cvTZEa_fkoNns1GF8so0gAgdqGAaOC-aVPvKAMKhaYmVt1jtg7gMQtyxTZILk_4Ua4cWc7PNZIwoJVBqkKVtj9P8NXA8Q25kH_4-4nqEFrwwxMGG_KtvptdqzZuGy8alftpwcJV58yO9cdvlPM2l6sp6VjVZ2DlKzPSssF4oj1dNtXeloJ1l2w6r48ERJ-aV8QSy1KpmCMBFI4b7o1I_cX2Nw91aW0esCOkGJJbPmGVYJVDmpCtl_CuGtc27Cyy1knWfiQM_p2US6tuEw9gutNP_Q1WJGJc83fotXQzxpbF02tHEUXYjV6lTFYQbtU8KdQV0hZe_Ru_VD6bxAOUPhw85dY_zABEnXN3jAZBUDdWgtekQ_hpf6fAb24mmOmuh5UKr_eHxsqDn3o0em9ehUv1oCC4In0fDGJ0Hp5PdUyIyXHfaY-w-xOSwEc5WOkdVwi6WWtE3611unJGqf8wIy9oBeyX7JLEvU5agf9uaFw8NA",
-    "refresh_token": "def50200db55915d8381950cdc523cf5638ad5f545c244d95e09b4d4692e09633f5db28096a3a5e129287c90cb9363d5ee24f63144dd9bd324f5b760cc3df59928ea65f19c41c0a9d7a7cbfc479671aedaeb685aba3db4e259f57361aa69cc0c0c7ef7f394421ca3a72453e8e76dc71bd3893039fdb1338009c2c2ec8834e0f4bfb48703cfaec9db2f28c81f83ebdda7b3c230431b2f06c6a693f4ac55f7dc752b11f591714f953d7ed103317f255b3b7bd818ab5d88d981d24630dca479641c6a4f8be5f122dfb6c7b4fa7eb9062a44b210691e685b2712f9156a7a57d65dc63f8d31cc531bdd82051555e08d4b5147888fe6b4bcc5bda5f470d27170debab97a8812c7344ed0beb13adbd34afcb431b7cfda3a53973c10009b622c65d73f7ce8d3fc8f92289b999c7eb43bc77562926e25514700d455352423225f7f81cfb84e89c5dccbb2d00affa053de754461a7efd589d957db76469365a73d18340bbb7e13b24f1b8d3117e69d89682962ac12ded46cdb1ae31af64af686964d8f6616f8a6ff812a8d4440f4d32cc859eba0590aefbc7c8b826dc09ca32f64878851b78afad89ad66c5c5bc12502b18594e56d2cb7c04077e52ec6508fffc1c115642cd1699d9d7df095edfebf882c4d6844eadbd887ee3a4ab90fabbc425e"
-}
+        + Body {
+          "token_type": "Bearer",
+            "expires_in": 300,
+            "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjNkZTAxZDVhNmI1NjgxMDcxMzgxODNhNWFjYmMyZTQwMzgyOTRhZTQxNGMxNDUwMzE3MTAxZjI0YTJhZGE4MWYxMTUzODIxZTJhOTdiYjEzIn0.eyJhdWQiOiIyOWNjZDE0NC0wNzUyLTRmZWUtOTliYy00OGFhM2Y4N2E2ODAiLCJqdGkiOiIzZGUwMWQ1YTZiNTY4MTA3MTM4MTgzYTVhY2JjMmU0MDM4Mjk0YWU0MTRjMTQ1MDMxNzEwMWYyNGEyYWRhODFmMTE1MzgyMWUyYTk3YmIxMyIsImlhdCI6MTU0MDgzNTE2NSwibmJmIjoxNTQwODM1MTY1LCJleHAiOjE1NDA4MzU0NjUsInN1YiI6IjUxIiwic2NvcGVzIjpbImF1dGhlbnRpY2F0ZWQiLCJhY2NvdW50YW50IiwiY2xpZW50IiwiZGlyZWN0b3IiLCJyZXNlYXJjaGVyIiwidGEiLCJ0ZW1wb3JhcnlfY2xpZW50Il19.Um33uF0As0tMDHFhP7q1tSP1s3mjvbFhbPmAcxRDl3ajgvaV1CFXkQ3D-OsvJNrChLk5BuiQFZdrabYyfeY-soxEqnccYuci1leqxsSSf4cPBJs80o2qdDZwRrp1qgpOcQO1RFhoIfNCflIaPIQkZc6boRfCqMrSnltd0MTr2SVzcQY-sqYef3ajk96EQ_cvTZEa_fkoNns1GF8so0gAgdqGAaOC-aVPvKAMKhaYmVt1jtg7gMQtyxTZILk_4Ua4cWc7PNZIwoJVBqkKVtj9P8NXA8Q25kH_4-4nqEFrwwxMGG_KtvptdqzZuGy8alftpwcJV58yO9cdvlPM2l6sp6VjVZ2DlKzPSssF4oj1dNtXeloJ1l2w6r48ERJ-aV8QSy1KpmCMBFI4b7o1I_cX2Nw91aW0esCOkGJJbPmGVYJVDmpCtl_CuGtc27Cyy1knWfiQM_p2US6tuEw9gutNP_Q1WJGJc83fotXQzxpbF02tHEUXYjV6lTFYQbtU8KdQV0hZe_Ru_VD6bxAOUPhw85dY_zABEnXN3jAZBUDdWgtekQ_hpf6fAb24mmOmuh5UKr_eHxsqDn3o0em9ehUv1oCC4In0fDGJ0Hp5PdUyIyXHfaY-w-xOSwEc5WOkdVwi6WWtE3611unJGqf8wIy9oBeyX7JLEvU5agf9uaFw8NA",
+            "refresh_token": "def50200db55915d8381950cdc523cf5638ad5f545c244d95e09b4d4692e09633f5db28096a3a5e129287c90cb9363d5ee24f63144dd9bd324f5b760cc3df59928ea65f19c41c0a9d7a7cbfc479671aedaeb685aba3db4e259f57361aa69cc0c0c7ef7f394421ca3a72453e8e76dc71bd3893039fdb1338009c2c2ec8834e0f4bfb48703cfaec9db2f28c81f83ebdda7b3c230431b2f06c6a693f4ac55f7dc752b11f591714f953d7ed103317f255b3b7bd818ab5d88d981d24630dca479641c6a4f8be5f122dfb6c7b4fa7eb9062a44b210691e685b2712f9156a7a57d65dc63f8d31cc531bdd82051555e08d4b5147888fe6b4bcc5bda5f470d27170debab97a8812c7344ed0beb13adbd34afcb431b7cfda3a53973c10009b622c65d73f7ce8d3fc8f92289b999c7eb43bc77562926e25514700d455352423225f7f81cfb84e89c5dccbb2d00affa053de754461a7efd589d957db76469365a73d18340bbb7e13b24f1b8d3117e69d89682962ac12ded46cdb1ae31af64af686964d8f6616f8a6ff812a8d4440f4d32cc859eba0590aefbc7c8b826dc09ca32f64878851b78afad89ad66c5c5bc12502b18594e56d2cb7c04077e52ec6508fffc1c115642cd1699d9d7df095edfebf882c4d6844eadbd887ee3a4ab90fabbc425e"
+        }
 
 + Request (application/x-www-form-urlencoded)
 
