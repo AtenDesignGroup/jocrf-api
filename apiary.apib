@@ -41,27 +41,27 @@ API Endpoints and resources for JOCRF dashboard app.
 
 + Request (application/x-www-form-urlencoded)
 
-  + Body
+    + Body
 
-  email=anne%40jjjj.com&password=bbbddd
+            email=anne%40jjjj.com&password=bbbddd
 
 + Response 200 (application/json)
 
-{
-  "id": 112,
-    "name": "Anne M",
-    "email": "anne@jjjj.com",
-    "role": "admin",
-    "avatar": "jpg:data",
-    "location": 2,
-    "access_token": "ACCESS_TOKEN",
-    "refresh_token": "REFRESH_TOKEN",
-    "expires_in": 1604007710
-}
+        {
+          "id": 112,
+            "name": "Anne M",
+            "email": "anne@jjjj.com",
+            "role": "admin",
+            "avatar": "jpg:data",
+            "location": 2,
+            "access_token": "ACCESS_TOKEN",
+            "refresh_token": "REFRESH_TOKEN",
+            "expires_in": 1604007710
+        }
 
 # Group Scheduling
 
-## Appointments [/api/appointments{?location,dateStart,dateEnd}]
+## Appointments [/api/appointments{?location,dateStart,dateEnd,client}]
 Example: `?dateStart=2019-01-28&dateEnd=2019-02-03`
 dateMin and dateMax must be submitted together, defaults to current week.
 
@@ -75,191 +75,190 @@ dateMin and dateMax must be submitted together, defaults to current week.
 
 + Response 200 (application/json)
 
-{
-  "appointments": [
-  {
-    "id": 3706,
-      "appointment": 1,
-      "date": {
-        "start": "2018-07-02T08:30:00-600",
-        "end": "2018-07-02T12:00:00-600",
-      },
-      "client": {
-        "id": 199,
-        "name": "Leroy Shelton",
-        "folder": "23088-18"
-      },
-      "ta": {
-        "id": 309,
-        "name": "Rodney Schwartz",
-        "image": "http://example.com/bio/309.jpg"
-      },
-      "room": 25
-  },
-  {
-    "id": 3709,
-    "appointment": 2,
-    "date": {
-      "start": "2018-07-02T13:00:00-600",
-      "end": "2018-07-02T16:30:00-600",
-    },
-    "client": {
-      "id": 199,
-      "name": "Leroy Shelton",
-      "folder": "23088-18"
-    },
-    "ta": {
-      "id": 309,
-      "name": "Rodney Schwartz",
-      "image": "http://example.com/bio/309.jpg"
-    },
-    "room": 28
-  },
-  {
-    "id": 3713,
-    "appointment": 3,
-    "date": {
-      "start": "2018-07-03T08:30:00-600",
-      "end": "2018-07-03T12:00:00-600",
-    },
-    "client": {
-      "id": 199,
-      "name": "Leroy Shelton",
-      "folder": "23088-18"
-    },
-    "ta": {
-      "id": 309,
-      "name": "Rodney Schwartz",
-      "image": "http://example.com/bio/309.jpg"
-    },
-    "room": 28
-  },
-  {
-    "id": 3719,
-    "appointment": 1,
-    "date": {
-      "start": "2018-07-03T08:30:00-600",
-      "end": "2018-07-03T12:00:00-600",
-    },
-    "client": {
-      "id": 201,
-      "name": "Melvin Doyle",
-      "folder": "23089-18"
-    },
-    "ta": {
-      "id": 211,
-      "name": "Lillie Gibson",
-      "image": "http://example.com/bio/211.jpg"
-    },
-    "room": 26
-  }
-  ],
-  "dateMin": "2018-07-02T00:00:00-6:00",
-  "dateMax": "2018-07-06T11:59:59-6:00",
-  "location": {
-    "id": 1,
-    "name": "Denver"
-  },
-}
+        {
+          "appointments": [
+          {
+            "id": 3706,
+              "appointment": 1,
+              "date": {
+                "start": "2018-07-02T08:30:00-600",
+                "end": "2018-07-02T12:00:00-600"
+              },
+              "client": {
+                "id": 199,
+                "name": "Leroy Shelton",
+                "folder": "23088-18"
+              },
+              "ta": {
+                "id": 309,
+                "name": "Rodney Schwartz",
+                "image": "http://example.com/bio/309.jpg"
+              },
+              "room": 25
+          },
+          {
+            "id": 3709,
+            "appointment": 2,
+            "date": {
+              "start": "2018-07-02T13:00:00-600",
+              "end": "2018-07-02T16:30:00-600"
+            },
+            "client": {
+              "id": 199,
+              "name": "Leroy Shelton",
+              "folder": "23088-18"
+            },
+            "ta": {
+              "id": 309,
+              "name": "Rodney Schwartz",
+              "image": "http://example.com/bio/309.jpg"
+            },
+            "room": 28
+          },
+          {
+            "id": 3713,
+            "appointment": 3,
+            "date": {
+              "start": "2018-07-03T08:30:00-600",
+              "end": "2018-07-03T12:00:00-600"
+            },
+            "client": {
+              "id": 199,
+              "name": "Leroy Shelton",
+              "folder": "23088-18"
+            },
+            "ta": {
+              "id": 309,
+              "name": "Rodney Schwartz",
+              "image": "http://example.com/bio/309.jpg"
+            },
+            "room": 28
+          },
+          {
+            "id": 3719,
+            "appointment": 1,
+            "date": {
+              "start": "2018-07-03T08:30:00-600",
+              "end": "2018-07-03T12:00:00-600"
+            },
+            "client": {
+              "id": 201,
+              "name": "Melvin Doyle",
+              "folder": "23089-18"
+            },
+            "ta": {
+              "id": 211,
+              "name": "Lillie Gibson",
+              "image": "http://example.com/bio/211.jpg"
+            },
+            "room": 26
+          }
+          ],
+          "dateMin": "2018-07-02T00:00:00-6:00",
+          "dateMax": "2018-07-06T11:59:59-6:00",
+          "location": {
+            "id": 1,
+            "name": "Denver"
+          }
+        }
 
 ### Create Appointment [POST]
 
 + Request (application/json)
 
-{
-  "appointment": 1,
-    "client": {
-      "id": 201
-    },
-    "location": {
-      "id": 1,
-    },
-    "date": {
-      "start": "2018-07-03T08:30:00-600",
-      "end": "2018-07-03T12:00:00-600",
-    },
-
-}
+        {
+          "appointment": 1,
+            "client": {
+              "id": 201
+            },
+            "location": {
+              "id": 1,
+            },
+            "date": {
+              "start": "2018-07-03T08:30:00-600",
+              "end": "2018-07-03T12:00:00-600",
+            }
+        }
 
 + Response 201 (application/json)
 
-{
-  "id": 3719,
-    "date": {
-      "start": "2018-07-03T08:30:00-600",
-      "end": "2018-07-03T12:00:00-600",
-    },
-}
+        {
+          "id": 3719,
+            "date": {
+              "start": "2018-07-03T08:30:00-600",
+              "end": "2018-07-03T12:00:00-600",
+            },
+        }
 
 ## Appointment [/api/appointments/{id}]
 
 + Parameters
-+ id: 3719 (number) - Appointment ID
+    + id: 3719 (number) - Appointment ID
 
 ### Fetch Appointment [GET]
 
 + Response 200 (application/json)
 
-{
-  "id": 3719,
-    "appointment": 1,
-    "date": {
-      "start": "2018-07-03T08:30:00-600",
-      "end": "2018-07-03T12:00:00-600",
-    },
-    "client": {
-      "id": 201,
-      "name": "Melvin Doyle",
-      "folder": "23089-18"
-    },
-    "ta": {
-      "id": 211,
-      "name": "Lillie Gibson",
-      "image": "http://example.com/bio/211.jpg"
-    },
-    "location": {
-      "id": 1,
-      "name": "Denver"
-    },
-    "complete": true
-}
+        {
+          "id": 3719,
+            "appointment": 1,
+            "date": {
+              "start": "2018-07-03T08:30:00-600",
+              "end": "2018-07-03T12:00:00-600",
+            },
+            "client": {
+              "id": 201,
+              "name": "Melvin Doyle",
+              "folder": "23089-18"
+            },
+            "ta": {
+              "id": 211,
+              "name": "Lillie Gibson",
+              "image": "http://example.com/bio/211.jpg"
+            },
+            "location": {
+              "id": 1,
+              "name": "Denver"
+            },
+            "complete": true
+        }
 
 ### Edit Appointment [POST]
 
 + Request (application/json)
 
-{
-  "id": 3719,
-    "appointment": 1,
-    "client": {
-      "id": 201
-    },
-    "location": {
-      "id": 1,
-    },
-    "date": {
-      "start": "2018-07-04T08:30:00-600",
-      "end": "2018-07-04T12:00:00-600",
-    },
-
-}
+        {
+          "id": 3719,
+            "appointment": 1,
+            "client": {
+              "id": 201
+            },
+            "location": {
+              "id": 1,
+            },
+            "date": {
+              "start": "2018-07-04T08:30:00-600",
+              "end": "2018-07-04T12:00:00-600",
+            },
+        
+        }
 
 + Response 201 (application/json)
 
-{
-  "id": 3719,
-    "appointment": 1,
-    "date": {
-      "start": "2018-07-04T08:30:00-600",
-      "end": "2018-07-04T12:00:00-600",
-    }
-}
+        {
+          "id": 3719,
+            "appointment": 1,
+            "date": {
+              "start": "2018-07-04T08:30:00-600",
+              "end": "2018-07-04T12:00:00-600",
+            }
+        }
 
 # Group Clients
 
-## Client collection [/api/clients{?page,location,dateMin,dateMax}]
+## Client collection [/api/clients{?page,location}]
 
-Example: ?start=2019-01-28&end=2019-02-03&page=2
+Example: `?location=5&page=2`
 Page is optional, defaults to 1.
 Location is optional, defaults to User location.
 dateMin and dateMax must be submitted together, defaults to current month.
@@ -270,97 +269,95 @@ dateMin and dateMax must be submitted together, defaults to current month.
 Client objects are truncated to info used on clients list page.
 
 + Parameters
-+ page (optional) - the page of results
-+ location (optional) - The location id
-+ dateMin (optional) - Start range YYYY-MM-DD
-+ dateMax (optional) - End range YYYY-MM-DD
+    + page (optional) - the page of results
+    + location (optional) - The location id
 
 + Response 200 (application/json)
 
-{
-  "clients": [
-  {
-    "id": 199,
-      "name": "Leroy Shelton",
-      "folder": "23088-18",
-      "appointments": [
-      {
-        "id": 3706,
-        "appointment": 1,
-        "date": {
-          "start": "2018-07-02T08:30:00-600",
-          "end": "2018-07-02T12:00:00-600",
-        },
-        "complete": true
-      },
-      {
-        "id": 3709,
-        "appointment": 2,
-        "date": {
-          "start": "2018-07-02T13:00:00-600",
-          "end": "2018-07-02T16:30:00-600",
-        },
-        "complete": false
-      },
-      {
-        "id": 3713,
-        "appointment": 3,
-        "date": {
-          "start": "2018-07-03T08:30:00-600",
-          "end": "2018-07-03T12:00:00-600",
-        },
-        "complete": false
-      }
-    ],
-    "info": {
-      "complete": true
-    },
-    "payment": {
-      "amount": 700,
-      "remaining": 0,
-      "complete": true
-    }
-  },
-  {
-    "id": 201,
-    "name": "Melvin Doyle",
-    "folder": "23089-18",
-    "appointments": [
-    {
-      "id": 3719,
-      "appointment": 1,
-      "date": {
-        "start": "2018-07-03T08:30:00-600",
-        "end": "2018-07-03T12:00:00-600",
-      },
-      "complete": false
-    },
-    ],
-    "info": {
-      "complete": false
-    },
-    "payment": {
-      "amount": 100,
-      "remaining": 600,
-      "complete": false
-    }
-  }
-
-  ],
-  "dateMin": "2018-07-02T00:00:00-6:00",
-  "dateMax": "2018-07-06T11:59:59-6:00",
-  "location": {
-    "id": 1,
-    "name": "Denver"
-  },
-  "links": {
-    "self": "https://admin.jocrf.org/api/clients?page=3",
-    "prev": "https://admin.jocrf.org/api/clients?page=2",
-    "next": "https://admin.jocrf.org/api/clients?page=4",
-    "first": "https://admin.jocrf.org/api/clients?page=1",
-    "last": "https://admin.jocrf.org/api/clients?page=12",
-  }
-}
+        {
+          "clients": [
+          {
+            "id": 199,
+              "name": "Leroy Shelton",
+              "folder": "23088-18",
+              "appointments": [
+              {
+                "id": 3706,
+                "appointment": 1,
+                "date": {
+                  "start": "2018-07-02T08:30:00-600",
+                  "end": "2018-07-02T12:00:00-600",
+                },
+                "complete": true
+              },
+              {
+                "id": 3709,
+                "appointment": 2,
+                "date": {
+                  "start": "2018-07-02T13:00:00-600",
+                  "end": "2018-07-02T16:30:00-600",
+                },
+                "complete": false
+              },
+              {
+                "id": 3713,
+                "appointment": 3,
+                "date": {
+                  "start": "2018-07-03T08:30:00-600",
+                  "end": "2018-07-03T12:00:00-600",
+                },
+                "complete": false
+              }
+            ],
+            "info": {
+              "complete": true
+            },
+            "payment": {
+              "amount": 700,
+              "remaining": 0,
+              "complete": true
+            }
+          },
+          {
+            "id": 201,
+            "name": "Melvin Doyle",
+            "folder": "23089-18",
+            "appointments": [
+            {
+              "id": 3719,
+              "appointment": 1,
+              "date": {
+                "start": "2018-07-03T08:30:00-600",
+                "end": "2018-07-03T12:00:00-600",
+              },
+              "complete": false
+            },
+            ],
+            "info": {
+              "complete": false
+            },
+            "payment": {
+              "amount": 100,
+              "remaining": 600,
+              "complete": false
+            }
+          }
+        
+          ],
+          "dateMin": "2018-07-02T00:00:00-6:00",
+          "dateMax": "2018-07-06T11:59:59-6:00",
+          "location": {
+            "id": 1,
+            "name": "Denver"
+          },
+          "links": {
+            "self": "https://admin.jocrf.org/api/clients?page=3",
+            "prev": "https://admin.jocrf.org/api/clients?page=2",
+            "next": "https://admin.jocrf.org/api/clients?page=4",
+            "first": "https://admin.jocrf.org/api/clients?page=1",
+            "last": "https://admin.jocrf.org/api/clients?page=12",
+          }
+        }
 
 ### Create client [POST]
 
@@ -369,46 +366,46 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
 
 + Request (application/json)
 
-{
-  "contacts": [
-  {
-    "email": "test@example.com",
-      "phone": "555-555-1212",
-      "first_name": "Test",
-      "last_name": "Aten",
-  },
-  {
-    "email": "dad@example.com",
-    "phone": "555-555-1213",
-    "first_name": "Dad",
-    "last_name": "Aten"
-  },
-  {
-    "email": "mom@example.com",
-    "phone": "555-555-1214",
-    "first_name": "Mom",
-    "last_name": "Aten"
-  }
-  ],
-  "preferred": "email"
-}
+        {
+          "contacts": [
+          {
+            "email": "test@example.com",
+              "phone": "555-555-1212",
+              "first_name": "Test",
+              "last_name": "Aten",
+          },
+          {
+            "email": "dad@example.com",
+            "phone": "555-555-1213",
+            "first_name": "Dad",
+            "last_name": "Aten"
+          },
+          {
+            "email": "mom@example.com",
+            "phone": "555-555-1214",
+            "first_name": "Mom",
+            "last_name": "Aten"
+          }
+          ],
+          "preferred": "email"
+        }
 
 + Response 201 (application/json)
 
   + Headers
 
-  Location: /api/clients/1345
+            Location: /api/clients/1345
 
   + Body
 
-{
-  "id": "1234"
-}
+            {
+              "id": "1234"
+            }
 
 ## Client [/api/clients/{id}]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client [GET]
 
@@ -416,302 +413,303 @@ This should return the full client object for the detail page.
 
 + Response 200 (application/json)
 
-{
-  "id": 199,
-  "name": "Leroy Shelton",
-  "folder": "23088-18",
-  "appointments": [{
-      "appointment": 1,
-      "date": {
-        "start": "2018-07-02T08:30:00-600",
-        "end": "2018-07-02T12:00:00-600"
-      },
-      "location": {
-        "id": 1,
-        "name": "Denver"
-      },
-      "complete": true
-    },
-    {
-      "appointment": 2,
-      "date": {
-        "start": "2018-07-02T13:00:00-600",
-        "end": "2018-07-02T16:30:00-600"
-      },
-      "location": {
-        "id": 1,
-        "name": "Denver"
-      },
-      "complete": false
-    },
-    {
-      "appointment": 3,
-      "date": {
-        "start": "2018-07-03T08:30:00-600",
-        "end": "2018-07-03T12:00:00-600"
-      },
-      "location": {
-        "id": 1,
-        "name": "Denver"
-      },
-      "complete": false
-    }
-  ],
-  "info": {
-    "complete": true
-  },
-  "personal": {
-    "name": {
-      "first": "Leroy",
-      "middle": "",
-      "last": "Shelton"
-    },
-    "sex": "male",
-    "pronouns": "He, Him",
-    "birthdate": "1988-10-12",
-    "preferred": "email",
-    "address": {
-      "street1": "123 Anystreet",
-      "city": "Denver",
-      "state": "CO",
-      "zip": "80202"
-    }
-  },
-  "contacts": [{
-      "email": "test@example.com",
-      "phone": "555-555-1212",
-      "first_name": "Leroy",
-      "last_name": "Shelton"
-    },
-    {
-      "email": "dad@example.com",
-      "phone": "555-555-1213",
-      "first_name": "Dad",
-      "last_name": "Aten"
-    },
-    {
-      "email": "mom@example.com",
-      "phone": "555-555-1214",
-      "first_name": "Mom",
-      "last_name": "Aten"
-    }
-  ],
-  "education": {
-    "gradeCompleted": "college-4",
-    "lastSchool": "University of Pittsburgh",
-    "degree": "Bachelor's of Science",
-    "fieldOfStudy": "Biology",
-    "likelyToChangeMajor": 3,
-    "changeMajorTo": "",
-    "fieldOfStudy2": "Chemistry",
-    "likelyToContinueEdu": 5
-  },
-  "family": {
-    "parents": [{
-        "occupation": "Landscaper",
-        "education": "college-some"
-      },
-      {
-        "occupation": "Professor",
-        "education": "advanced"
-      }
-    ],
-    "twin": false,
-    "triplet": false,
-    "familyTested": "yes",
-    "name": "Fred Shelton",
-    "relationship": "Uncle",
-    "yearTested": "1977"
-  },
-  "employment": {
-    "job": {
-      "title": "Coordinating Manager",
-      "years": 4,
-      "liked": 4
-    },
-    "roles": [{
-        "title": "Supervising",
-        "liked": 5
-      },
-      {
-        "title": "Managing",
-        "liked": 3
-      }
-    ],
-    "prevJobs": [{
-        "title": "Coordinating Assistant",
-        "years": 2,
-        "liked": 3
-      },
-      {
-        "title": "Assistant Coordinater",
-        "years": 3,
-        "liked": 2
-      }
-    ]
-  },
-  "interests": [{
-      "title": "Bike Riding",
-      "duration": "10 years"
-    },
-    {
-      "title": "Amateur Rocketry",
-      "duration": "5 months"
-    }
-  ],
-  "final": {
-    "referred": "familyMemberTested",
-    "notes": "Uncle got tested and recommended I try it out"
-  },
-  "payment": {
-    "amount": 750,
-    "remaining": 0,
-    "complete": true
-  }
-}
-
-### Edit Client [POST]
-
-Edit client should match Create client
-
-+ Request (application/json)
-
-{
-  "id": 199,
-    "contacts": [
-    {
-      "email": "test@example.com",
-      "phone": "555-555-1212",
-      "first_name": "Test",
-      "last_name": "Aten",
-    },
-    {
-      "email": "dad@example.com",
-      "phone": "555-555-1213",
-      "first_name": "Dad",
-      "last_name": "Aten"
-    },
-    {
-      "email": "mom@example.com",
-      "phone": "555-555-1214",
-      "first_name": "Mom",
-      "last_name": "Aten"
-    }
-    ],
-    "preferred": "email"
-}
+        {
+          "id": 199,
+          "name": "Leroy Shelton",
+          "folder": "23088-18",
+          "appointments": [{
+              "appointment": 1,
+              "date": {
+                "start": "2018-07-02T08:30:00-600",
+                "end": "2018-07-02T12:00:00-600"
+              },
+              "location": {
+                "id": 1,
+                "name": "Denver"
+              },
+              "complete": true
+            },
+            {
+              "appointment": 2,
+              "date": {
+                "start": "2018-07-02T13:00:00-600",
+                "end": "2018-07-02T16:30:00-600"
+              },
+              "location": {
+                "id": 1,
+                "name": "Denver"
+              },
+              "complete": false
+            },
+            {
+              "appointment": 3,
+              "date": {
+                "start": "2018-07-03T08:30:00-600",
+                "end": "2018-07-03T12:00:00-600"
+              },
+              "location": {
+                "id": 1,
+                "name": "Denver"
+              },
+              "complete": false
+            }
+          ],
+          "info": {
+            "complete": true
+          },
+          "personal": {
+            "name": {
+              "first": "Leroy",
+              "middle": "",
+              "last": "Shelton"
+            },
+            "sex": "male",
+            "pronouns": "He, Him",
+            "birthdate": "1988-10-12",
+            "preferred": "email",
+            "address": {
+              "street1": "123 Anystreet",
+              "city": "Denver",
+              "state": "CO",
+              "zip": "80202"
+            }
+          },
+          "contacts": [{
+              "email": "test@example.com",
+              "phone": "555-555-1212",
+              "first_name": "Leroy",
+              "last_name": "Shelton"
+            },
+            {
+              "email": "dad@example.com",
+              "phone": "555-555-1213",
+              "first_name": "Dad",
+              "last_name": "Aten"
+            },
+            {
+              "email": "mom@example.com",
+              "phone": "555-555-1214",
+              "first_name": "Mom",
+              "last_name": "Aten"
+            }
+          ],
+          "education": {
+            "gradeCompleted": "college-4",
+            "lastSchool": "University of Pittsburgh",
+            "degree": "Bachelor's of Science",
+            "fieldOfStudy": "Biology",
+            "likelyToChangeMajor": 3,
+            "changeMajorTo": "",
+            "fieldOfStudy2": "Chemistry",
+            "likelyToContinueEdu": 5
+          },
+          "family": {
+            "parents": [{
+                "occupation": "Landscaper",
+                "education": "college-some"
+              },
+              {
+                "occupation": "Professor",
+                "education": "advanced"
+              }
+            ],
+            "twin": false,
+            "triplet": false,
+            "familyTested": "yes",
+            "name": "Fred Shelton",
+            "relationship": "Uncle",
+            "yearTested": "1977"
+          },
+          "employment": {
+            "job": {
+              "title": "Coordinating Manager",
+              "years": 4,
+              "liked": 4
+            },
+            "roles": [{
+                "title": "Supervising",
+                "liked": 5
+              },
+              {
+                "title": "Managing",
+                "liked": 3
+              }
+            ],
+            "prevJobs": [{
+                "title": "Coordinating Assistant",
+                "years": 2,
+                "liked": 3
+              },
+              {
+                "title": "Assistant Coordinater",
+                "years": 3,
+                "liked": 2
+              }
+            ]
+          },
+          "interests": [{
+              "title": "Bike Riding",
+              "duration": "10 years"
+            },
+            {
+              "title": "Amateur Rocketry",
+              "duration": "5 months"
+            }
+          ],
+          "final": {
+            "referred": "familyMemberTested",
+            "notes": "Uncle got tested and recommended I try it out"
+          },
+          "payment": {
+            "amount": 750,
+            "remaining": 0,
+            "complete": true
+          }
+        }
+        
+        ### Edit Client [POST]
+        
+        Edit client should match Create client
+        
+        + Request (application/json)
+        
+        {
+          "id": 199,
+            "contacts": [
+            {
+              "email": "test@example.com",
+              "phone": "555-555-1212",
+              "first_name": "Test",
+              "last_name": "Aten",
+            },
+            {
+              "email": "dad@example.com",
+              "phone": "555-555-1213",
+              "first_name": "Dad",
+              "last_name": "Aten"
+            },
+            {
+              "email": "mom@example.com",
+              "phone": "555-555-1214",
+              "first_name": "Mom",
+              "last_name": "Aten"
+            }
+            ],
+            "preferred": "email"
+        }
 
 + Response 201 (application/json)
 
-  + Headers
+    + Headers
 
-  Location: /api/clients/199
+            Location: /api/clients/199
 
-  + Body
+    + Body
 
-{
-  "id": "199"
-}
+            {
+              "id": "199"
+            }
 
 ## Client Payment [/api/clients/{id}/payments]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client Payments [GET]
 
 + Response 200 (application/json)
 
-{
-  "id": 199,
-    "amount": 750,
-    "remaining": 0,
-    "complete": true,
-    "payments": [
-    {
-      "date": "2018-07-03T17:35:00-600",
-      "method": "8444",
-      "amount": 100
-    },
-    {
-      "date": "2018-07-04T08:30:00-600",
-      "method": "8444",
-      "amount": 650
-    }
-    ]
-}
+        {
+            "id": 199,
+            "amount": 750,
+            "remaining": 0,
+            "complete": true,
+            "payments": [
+            {
+                "date": "2018-07-03T17:35:00-600",
+                "method": "8444",
+                "amount": 100
+            },
+            {
+                "date": "2018-07-04T08:30:00-600",
+                "method": "8444",
+                "amount": 650
+            }]
+        }
 
 ### Add Client Payment [POST]
 
 + Request (application/json)
 
-{
-  "date": "2018-07-03T17:35:00-600",
-    "method": "8444",
-    "amount": 100
-}
+        {
+          "date": "2018-07-03T17:35:00-600",
+            "method": "8444",
+            "amount": 100
+        }
 
 + Response 201 (application/json)
 
-  + Body
+    + Body
 
-{
-  "id": "199"
-}
+            {
+                "id": "199"
+            }
 
 ## Client Payment Methods [/api/clients/{id}/payment-methods]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client Payment Methods [GET]
 
 + Response 200 (application/json)
 
-{
-  "id": 199,
-    "methods": [
-      "8444",
-    "5566"
-    ]
-}
+    + Body
+
+            {
+                "id": "199",
+                "methods": [
+                    "8444",
+                    "5566"
+                ]
+            }
 
 
 ### Create Client Payment Methods [POST]
 
 + Request (application/json)
 
-{
-  "id": 199,
-    "name": {
-      "first": "Leroy",
-      "last": "Shelton"
-    },
-    "address": "123 Anystreet",
-    "city": "Denver",
-    "state": "CO",
-    "zip": "80202"
-      card: {
-number: "4444 5555 6666 7777",
-        expiration: "12 / 25",
-        cvc: "808"
-      }
-}
+        {
+          "id": 199,
+            "name": {
+              "first": "Leroy",
+              "last": "Shelton"
+            },
+            "address": "123 Anystreet",
+            "city": "Denver",
+            "state": "CO",
+            "zip": "80202",
+            "card": {
+                "number": "4444 5555 6666 7777",
+                "expiration": "12 / 25",
+                "cvv": "808"
+            }
+        }
 
 + Response 201 (application/json)
 
-  + Body
+    + Body
 
-    {
-      "id": "199",
-      "method": "7777"
-    }
+            {
+                "id": "199",
+                "method": "7777"
+            }
 
 
 ## Client Personal [/api/clients/{id}/personal]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client Personal [GET]
 
@@ -719,322 +717,318 @@ number: "4444 5555 6666 7777",
 
   + Body
 
-    {
-      "id": 199,
-        "name": {
-          "first": "Leroy",
-          "middle": "",
-          "last": "Shelton"
-        },
-        "sex": "male",
-        "pronouns": "He, Him",
-        "birthdate": "1988-10-12",
-        "preferred": "email",
-        "address": {
-          "street1": "123 Anystreet",
-          "city": "Denver",
-          "state": "CO",
-          "zip": "80202"
-        }
-    }
+            {
+                "id": 199,
+                "name": {
+                  "first": "Leroy",
+                  "middle": "",
+                  "last": "Shelton"
+                },
+                "sex": "male",
+                "pronouns": "He, Him",
+                "birthdate": "1988-10-12",
+                "preferred": "email",
+                "address": {
+                  "street1": "123 Anystreet",
+                  "city": "Denver",
+                  "state": "CO",
+                  "zip": "80202"
+                }
+            }
 
 ### Create/Edit Client Personal [POST]
 
 + Request (application/json)
 
-{
-  "id": 199,
-    "name": {
-      "first": "Leroy",
-      "middle": "",
-      "last": "Shelton"
-    },
-    "sex": "male",
-    "pronouns": "He, Him",
-    "birthdate": "1988-10-12",
-    "preferred": "email",
-    "address": "123 Anystreet",
-    "city": "Denver",
-    "state": "CO",
-    "zip": "80202"
-}
+            {
+                "id": 199,
+                "name": {
+                  "first": "Leroy",
+                  "middle": "",
+                  "last": "Shelton"
+                },
+                "sex": "male",
+                "pronouns": "He, Him",
+                "birthdate": "1988-10-12",
+                "preferred": "email",
+                "address": "123 Anystreet",
+                "city": "Denver",
+                "state": "CO",
+                "zip": "80202"
+            }
 
 + Response 201 (application/json)
 
   + Body
 
-{
-  "id": "199"
-}
+            {
+              "id": "199"
+            }
 
 ## Client Education [/api/clients/{id}/education]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client Education [GET]
 
 + Response 200 (application/json)
 
-{
-  "id": 199,
-    "gradeCompleted": "college-4",
-    "lastSchool": "University of Pittsburgh",
-    "degree": "Bachelor's of Science",
-    "fieldOfStudy": "Biology",
-    "likelyToChangeMajor": 3,
-    "changeMajorTo": "",
-    "fieldOfStudy2": "Chemistry",
-    "likelyToContinueEdu": 5
-}
+            {
+              "id": 199,
+                "gradeCompleted": "college-4",
+                "lastSchool": "University of Pittsburgh",
+                "degree": "Bachelor's of Science",
+                "fieldOfStudy": "Biology",
+                "likelyToChangeMajor": 3,
+                "changeMajorTo": "",
+                "fieldOfStudy2": "Chemistry",
+                "likelyToContinueEdu": 5
+            }
 
 ### Create/Edit Client Education [POST]
 
 + Request (application/json)
 
-{
-  "id": 199,
-    "gradeCompleted": "college-4",
-    "lastSchool": "University of Pittsburgh",
-    "degree": "Bachelor's of Science",
-    "fieldOfStudy": "Biology",
-    "likelyToChangeMajor": 3,
-    "changeMajorTo": "",
-    "fieldOfStudy2": "Chemistry",
-    "likelyToContinueEdu": 5
-}
+            {
+              "id": 199,
+                "gradeCompleted": "college-4",
+                "lastSchool": "University of Pittsburgh",
+                "degree": "Bachelor's of Science",
+                "fieldOfStudy": "Biology",
+                "likelyToChangeMajor": 3,
+                "changeMajorTo": "",
+                "fieldOfStudy2": "Chemistry",
+                "likelyToContinueEdu": 5
+            }
 
 + Response 201 (application/json)
 
   + Body
 
-{
-  "id": "199"
-}
+            {
+              "id": "199"
+            }
 
 ## Client Family [/api/clients/{id}/family]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client Family [GET]
 
 + Response 200 (application/json)
 
-{
-  "id": 199,
-    "parents": [
-    {
-      "occupation": "Landscaper",
-      "education": "college-some"
-    },
-    {
-      "occupation": "Professor",
-      "education": "advanced"
-    }
-    ],
-    "twin": false,
-    "triplet": false,
-    "familyTested": "yes",
-    "name": "Fred Shelton",
-    "relationship": "Uncle",
-    "yearTested": "1977"
-}
+            {
+                "id": 199,
+                "parents": [
+                    {
+                      "occupation": "Landscaper",
+                      "education": "college-some"
+                    },
+                    {
+                      "occupation": "Professor",
+                      "education": "advanced"
+                    }
+                ],
+                "twin": false,
+                "triplet": false,
+                "familyTested": "yes",
+                "name": "Fred Shelton",
+                "relationship": "Uncle",
+                "yearTested": "1977"
+            }
 
 ### Create/Edit Client Family [POST]
 
 + Request (application/json)
 
-{
-  "id": 199,
-    "parents": [
-    {
-      "occupation": "Landscaper",
-      "education": "college-some"
-    },
-    {
-      "occupation": "Professor",
-      "education": "advanced"
-    }
-    ],
-    "twin": false,
-    "triplet": false,
-    "familyTested": "yes",
-    "name": "Fred Shelton",
-    "relationship": "Uncle",
-    "yearTested": "1977"
-}
+            {
+                "id": 199,
+                "parents": [
+                    {
+                      "occupation": "Landscaper",
+                      "education": "college-some"
+                    },
+                    {
+                      "occupation": "Professor",
+                      "education": "advanced"
+                    }
+                ],
+                "twin": false,
+                "triplet": false,
+                "familyTested": "yes",
+                "name": "Fred Shelton",
+                "relationship": "Uncle",
+                "yearTested": "1977"
+            }
 
 + Response 201 (application/json)
 
   + Body
 
-{
-  "id": "199"
-}
+            {
+              "id": "199"
+            }
 
 ## Client Employment [/api/clients/{id}/employment]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client Employment [GET]
 
 + Response 200 (application/json)
 
-{
-  "id": 199,
-    "job": {
-      "title": "Coordinating Manager",
-      "years": 4,
-      "liked": 4
-    },
-    "roles": [
-    {
-      "title": "Supervising",
-      "liked": 5
-    },
-    {
-      "title": "Managing",
-      "liked": 3
-    }
-    ],
-    "prevJobs": [
-    {
-      "title": "Coordinating Assistant",
-      "years": 2,
-      "liked": 3
-    },
-    {
-      "title": "Assistant Coordinater",
-      "years": 3,
-      "liked": 2
-    }
-    ]
-}
+            {
+                "id": 199,
+                "job": {
+                  "title": "Coordinating Manager",
+                  "years": 4,
+                  "liked": 4
+                },
+                "roles": [
+                {
+                  "title": "Supervising",
+                  "liked": 5
+                },
+                {
+                  "title": "Managing",
+                  "liked": 3
+                }
+                ],
+                "prevJobs": [
+                {
+                  "title": "Coordinating Assistant",
+                  "years": 2,
+                  "liked": 3
+                },
+                {
+                  "title": "Assistant Coordinater",
+                  "years": 3,
+                  "liked": 2
+                }
+                ]
+            }
 
 ### Create/Edit Client Employment [POST]
 
 + Request (application/json)
 
-{
-  "id": 199,
-    "job": {
-      "title": "Coordinating Manager",
-      "years": 4,
-      "liked": 4
-    },
-    "roles": [
-    {
-      "title": "Supervising",
-      "liked": 5
-    },
-    {
-      "title": "Managing",
-      "liked": 3
-    }
-    ],
-    "prevJobs": [
-    {
-      "title": "Coordinating Assistant",
-      "years": 2,
-      "liked": 3
-    },
-    {
-      "title": "Assistant Coordinater",
-      "years": 3,
-      "liked": 2
-    }
-    ]
-}
+            {
+                "id": 199,
+                "job": {
+                  "title": "Coordinating Manager",
+                  "years": 4,
+                  "liked": 4
+                },
+                "roles": [
+                {
+                  "title": "Supervising",
+                  "liked": 5
+                },
+                {
+                  "title": "Managing",
+                  "liked": 3
+                }
+                ],
+                "prevJobs": [
+                {
+                  "title": "Coordinating Assistant",
+                  "years": 2,
+                  "liked": 3
+                },
+                {
+                  "title": "Assistant Coordinater",
+                  "years": 3,
+                  "liked": 2
+                }
+                ]
+            }
 
 + Response 201 (application/json)
 
   + Body
 
-{
-  "id": "199"
-}
+            {
+              "id": "199"
+            }
 
 ## Client Interests [/api/clients/{id}/interests]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client Interests [GET]
 
 + Response 200 (application/json)
 
-  [
-{
-  "title": "Bike Riding",
-    "duration": "10 years"
-},
-{
-  "title": "Amateur Rocketry",
-  "duration": "5 months"
-}
-  ]
+            [{
+                "title": "Bike Riding",
+                "duration": "10 years"
+            },
+            {
+                "title": "Amateur Rocketry",
+                "duration": "5 months"
+            }]
 
 ### Create/Edit Client Interests [POST]
 
 + Request (application/json)
 
-  [
-{
-  "title": "Bike Riding",
-    "duration": "10 years"
-},
-{
-  "title": "Amateur Rocketry",
-  "duration": "5 months"
-}
-  ]
+            [{
+              "title": "Bike Riding",
+                "duration": "10 years"
+            },
+            {
+              "title": "Amateur Rocketry",
+              "duration": "5 months"
+            }]
 
 + Response 201 (application/json)
 
   + Body
 
-{
-  "id": "199"
-}
+            {
+              "id": "199"
+            }
 
 ## Client Final [/api/clients/{id}/final]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client Final [GET]
 
 + Response 200 (application/json)
 
-{
-  "id": 199,
-    "referred": "familyMemberTested",
-    "notes": "Uncle got tested and recommended I try it out"
-}
+            {
+                "id": 199,
+                "referred": "familyMemberTested",
+                "notes": "Uncle got tested and recommended I try it out"
+            }
 
 ### Create/Edit Client Final [POST]
 
 + Request (application/json)
 
-{
-  "referred": "familyMemberTested",
-    "notes": "Uncle got tested and recommended I try it out"
-}
+            {
+                "referred": "familyMemberTested",
+                "notes": "Uncle got tested and recommended I try it out"
+            }
 
 + Response 201 (application/json)
 
   + Body
 
-{
-  "id": "199"
-}
+            {
+              "id": "199"
+            }
 
 ## Client Scores [/api/clients/{id}/scores]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client Scores [GET]
 
@@ -1042,85 +1036,82 @@ The object received should contain config information, such as test "options" li
 
 + Response 200 (application/json)
 
-  [
-{
-  "test": {
-    "number": "703",
-      "code": "AB",
-      "name": "Graphoria"
-  },
-    "score": "",
-    "norm": "",
-    "date": "11/28/2018",
-    "admin": 'Lisa Cook',
-    "inc": false,
-    "nt": false,
-    "nfr": false,
-    "tried": ""
-},
-{
-  "test": {
-    "number": "161",
-    "code": "",
-    "name": "Ideaphoria",
-    "options": {
-      "code": [
-        "",
-      "AO",
-      "GO"
-      ]
-    }
-  },
-  "score": "800",
-  "norm": "75",
-  "date": "11/27/2018",
-  "admin": 'Lisa Cook',
-  "inc": false,
-  "nt": false,
-  "nfr": false,
-  "tried": ""
-},
-{
-  "test": {
-    "number": "307",
-    "code": "EQ",
-    "name": "Foresight"
-  },
-  "score": "185",
-  "norm": "85",
-  "date": "11/28/2018",
-  "admin": 'Lisa Cook',
-  "inc": false,
-  "nt": false,
-  "nfr": false,
-  "tried": ""
-},
-{
-  "test": {
-    "number": "",
-    "code": "EN",
-    "name": 'Wiggly Block',
-    "options": {
-      "number": [
-        "",
-      "4",
-      "45",
-      "455",
-      "555",
-      "556"
-      ]
-    }
-  },
-  "score": "185",
-  "norm": "85",
-  "date": "11/28/2018",
-  "admin": 'Lisa Cook',
-  "inc": false,
-  "nt": false,
-  "nfr": false,
-  "tried": ""
-}
-]
+            [{
+                "test": {
+                    "number": "703",
+                    "code": "AB",
+                    "name": "Graphoria"
+                },
+                "score": "",
+                "norm": "",
+                "date": "11/28/2018",
+                "admin": 'Lisa Cook',
+                "inc": false,
+                "nt": false,
+                "nfr": false,
+                "tried": ""
+            },
+            {
+                "test": {
+                    "number": "161",
+                    "code": "",
+                    "name": "Ideaphoria",
+                    "options": {
+                        "code": [
+                            "",
+                            "AO",
+                            "GO"
+                        ]}
+                },
+                "score": "800",
+                "norm": "75",
+                "date": "11/27/2018",
+                "admin": 'Lisa Cook',
+                "inc": false,
+                "nt": false,
+                "nfr": false,
+                "tried": ""
+            },
+            {
+                "test": {
+                    "number": "307",
+                    "code": "EQ",
+                    "name": "Foresight"
+                },
+                "score": "185",
+                "norm": "85",
+                "date": "11/28/2018",
+                "admin": 'Lisa Cook',
+                "inc": false,
+                "nt": false,
+                "nfr": false,
+                "tried": ""
+            },
+            {
+                "test": {
+                    "number": "",
+                    "code": "EN",
+                    "name": 'Wiggly Block',
+                    "options": {
+                        "number": [
+                            "",
+                            "4",
+                            "45",
+                            "455",
+                            "555",
+                            "556"
+                        ]
+                    }
+                },
+                "score": "185",
+                "norm": "85",
+                "date": "11/28/2018",
+                "admin": 'Lisa Cook',
+                "inc": false,
+                "nt": false,
+                "nfr": false,
+                "tried": ""
+            }]
 
 ### Create/Edit Client Scores [POST]
 
@@ -1128,98 +1119,98 @@ The object sent matches the received object exactly, except with additional valu
 
 + Request (application/json)
 
-  [
-{
-  "test": {
-    "number": "703",
-      "code": "AB",
-      "name": "Graphoria"
-  },
-    "score": "220",
-    "norm": "85",
-    "date": "11/28/2018",
-    "admin": "Lisa Cook",
-    "inc": false,
-    "nt": false,
-    "nfr": false,
-    "tried": ""
-},
-{
-  "test": {
-    "number": "161",
-    "code": "AO",
-    "name": "Ideaphoria",
-    "options": {
-      "code": [
-        "",
-      "AO",
-      "GO"
-      ]
-    }
-  },
-  "score": "800",
-  "norm": "75",
-  "date": "11/27/2018",
-  "admin": "Lisa Cook",
-  "inc": true,
-  "nt": false,
-  "nfr": false,
-  "tried": 50
-},
-{
-  "test": {
-    "number": "307",
-    "code": "EQ",
-    "name": "Foresight"
-  },
-  "score": "185",
-  "norm": "85",
-  "date": "11/28/2018",
-  "admin": "Lisa Cook",
-  "inc": false,
-  "nt": false,
-  "nfr": true,
-  "tried": ""
-},
-{
-  "test": {
-    "number": "455",
-    "code": "EN",
-    "name": "Wiggly Block",
-    "options": {
-      "number": [
-        "",
-      "4",
-      "45",
-      "455",
-      "555",
-      "556"
-      ]
-    }
-  },
-  "score": "185",
-  "norm": "85",
-  "date": "11/28/2018",
-  "admin": "Lisa Cook",
-  "inc": false,
-  "nt": true,
-  "nfr": false,
-  "tried": ""
-}
-]
+          [
+        {
+          "test": {
+            "number": "703",
+              "code": "AB",
+              "name": "Graphoria"
+          },
+            "score": "220",
+            "norm": "85",
+            "date": "11/28/2018",
+            "admin": "Lisa Cook",
+            "inc": false,
+            "nt": false,
+            "nfr": false,
+            "tried": ""
+        },
+        {
+          "test": {
+            "number": "161",
+            "code": "AO",
+            "name": "Ideaphoria",
+            "options": {
+              "code": [
+                "",
+              "AO",
+              "GO"
+              ]
+            }
+          },
+          "score": "800",
+          "norm": "75",
+          "date": "11/27/2018",
+          "admin": "Lisa Cook",
+          "inc": true,
+          "nt": false,
+          "nfr": false,
+          "tried": 50
+        },
+        {
+          "test": {
+            "number": "307",
+            "code": "EQ",
+            "name": "Foresight"
+          },
+          "score": "185",
+          "norm": "85",
+          "date": "11/28/2018",
+          "admin": "Lisa Cook",
+          "inc": false,
+          "nt": false,
+          "nfr": true,
+          "tried": ""
+        },
+        {
+          "test": {
+            "number": "455",
+            "code": "EN",
+            "name": "Wiggly Block",
+            "options": {
+              "number": [
+                "",
+              "4",
+              "45",
+              "455",
+              "555",
+              "556"
+              ]
+            }
+          },
+          "score": "185",
+          "norm": "85",
+          "date": "11/28/2018",
+          "admin": "Lisa Cook",
+          "inc": false,
+          "nt": true,
+          "nfr": false,
+          "tried": ""
+        }
+        ]
 
 + Response 201 (application/json)
 
   + Body
 
-{
-  "id": "199"
-}
+            {
+                "id": "199"
+            }
 
 ## Client Summary Pattern [/api/clients/{id}/summary-patterns]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client Summary Pattern [GET]
 
@@ -1228,571 +1219,571 @@ It cannot be edited via the API (no POST)
 
 + Response 200 (application/json)
 
-  [
-{
-  "label": "",
-    "divider": "none",
-    "aptitudes": [
-    {
-      "id": "personality",
-      "label": "Personality",
-      "style": "large",
-      "score": "7",
-      "value": "int",
-      "options": [
-      {
-        "label": "SUBJ",
-        "value": "subj"
-      },
-      {
-        "label": "INT",
-        "value": "int"
-      },
-      {
-        "label": "OBJ",
-        "value": "obj"
-      }
-      ]
-    }
-  ]
-},
-{
-  "label": "",
-  "divider": "line",
-  "aptitudes": [
-  {
-    "id": "vocab",
-    "label": "Vocabulary",
-    "style": "large",
-    "score": "85",
-    "value": "high",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  }
-  ]
-},
-{
-  "label": "",
-  "divider": "line",
-  "aptitudes": [
-  {
-    "id": "sv",
-    "label": "SV",
-    "style": "small",
-    "score": "80",
-    "value": "high",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "id",
-    "label": "ID",
-    "style": "small",
-    "score": "55",
-    "value": "avg",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "ir",
-    "label": "IR",
-    "style": "small",
-    "score": "10",
-    "value": "low",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "ar",
-    "label": "AR",
-    "style": "small",
-    "score": "55",
-    "value": "avg",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  }
-  ]
-},
-{
-  "label": "Numbers",
-  "divider": "line",
-  "aptitudes": [
-  {
-    "id": "ns",
-    "label": "NS",
-    "style": "small",
-    "score": "70",
-    "value": "high",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "nf",
-    "label": "NF",
-    "style": "small",
-    "score": "30",
-    "value": "low",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "nm",
-    "label": "NM",
-    "style": "small",
-    "score": "10",
-    "value": "low",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "gra",
-    "label": "GRA",
-    "style": "small",
-    "score": "15",
-    "value": "low",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  }
-  ]
-},
-{
-  "label": "Visual",
-  "divider": "none",
-  "aptitudes": [
-  {
-    "id": "md",
-    "label": "MD",
-    "style": "small",
-    "score": "90",
-    "value": "high",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "obs",
-    "label": "OBS",
-    "style": "small",
-    "score": "30",
-    "value": "low",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "vdt1",
-    "label": "VDT1",
-    "style": "small",
-    "score": "30",
-    "value": "low",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "vdt2",
-    "label": "VDT2",
-    "style": "small",
-    "score": "30",
-    "value": "low",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    "label": "AVG",
-    "value": "avg"
-  },
-  "label": "HIGH",
-  "value": "high"
-}
-    ]
-    },
-{
-  "id": "cd",
-  "label": "CD",
-  "style": "small",
-  "score": "70",
-  "value": "high",
-  "options": [
-  {
-    "label": "LOW",
-    "value": "low"
-  },
-  {
-    "label": "AVG",
-    "value": "avg"
-  },
-  {
-    "label": "HIGH",
-    "value": "high"
-  }
-  ]
-}
-]
-},
-{
-  "label": "Auditory",
-  "divider": "none",
-  "aptitudes": [
-  {
-    "id": "tm",
-    "label": "TM",
-    "style": "small",
-    "score": "95",
-    "value": "high",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "pd",
-    "label": "PD",
-    "style": "small",
-    "score": "50",
-    "value": "avg",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "rm",
-    "label": "RM",
-    "style": "small",
-    "score": "85",
-    "value": "low",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  }
-  ]
-},
-{
-  "label": "Dexterity",
-  "divider": "line",
-  "aptitudes": [
-  {
-    "id": "td",
-    "label": "TD",
-    "style": "small",
-    "score": "45",
-    "value": "high",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "fd",
-    "label": "FD",
-    "style": "small",
-    "score": "10",
-    "value": "avg",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  }
-  ]
-},
-{
-  "label": "",
-  "divider": "line",
-  "aptitudes": [
-  {
-    "id": "fo",
-    "label": "Foresight",
-    "style": "small",
-    "score": "80",
-    "value": "high",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "silo",
-    "label": "Silograms",
-    "style": "small",
-    "score": "30",
-    "value": "low",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "color-vision",
-    "label": "Red-Green Vision",
-    "style": "small",
-    "score": "14",
-    "value": "normal",
-    "options": []
-  },
-  {
-    "id": "grip-left",
-    "label": "Grip Left",
-    "style": "small",
-    "score": "70",
-    "value": "high",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  },
-  {
-    "id": "grip-right",
-    "label": "Grip Right",
-    "style": "small",
-    "score": "90",
-    "value": "high",
-    "options": [
-    {
-      "label": "LOW",
-      "value": "low"
-    },
-    {
-      "label": "AVG",
-      "value": "avg"
-    },
-    {
-      "label": "HIGH",
-      "value": "high"
-    }
-    ]
-  }
-  ]
-}
-]
+              [
+            {
+              "label": "",
+                "divider": "none",
+                "aptitudes": [
+                {
+                  "id": "personality",
+                  "label": "Personality",
+                  "style": "large",
+                  "score": "7",
+                  "value": "int",
+                  "options": [
+                  {
+                    "label": "SUBJ",
+                    "value": "subj"
+                  },
+                  {
+                    "label": "INT",
+                    "value": "int"
+                  },
+                  {
+                    "label": "OBJ",
+                    "value": "obj"
+                  }
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "",
+              "divider": "line",
+              "aptitudes": [
+              {
+                "id": "vocab",
+                "label": "Vocabulary",
+                "style": "large",
+                "score": "85",
+                "value": "high",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              }
+              ]
+            },
+            {
+              "label": "",
+              "divider": "line",
+              "aptitudes": [
+              {
+                "id": "sv",
+                "label": "SV",
+                "style": "small",
+                "score": "80",
+                "value": "high",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "id",
+                "label": "ID",
+                "style": "small",
+                "score": "55",
+                "value": "avg",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "ir",
+                "label": "IR",
+                "style": "small",
+                "score": "10",
+                "value": "low",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "ar",
+                "label": "AR",
+                "style": "small",
+                "score": "55",
+                "value": "avg",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              }
+              ]
+            },
+            {
+              "label": "Numbers",
+              "divider": "line",
+              "aptitudes": [
+              {
+                "id": "ns",
+                "label": "NS",
+                "style": "small",
+                "score": "70",
+                "value": "high",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "nf",
+                "label": "NF",
+                "style": "small",
+                "score": "30",
+                "value": "low",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "nm",
+                "label": "NM",
+                "style": "small",
+                "score": "10",
+                "value": "low",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "gra",
+                "label": "GRA",
+                "style": "small",
+                "score": "15",
+                "value": "low",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              }
+              ]
+            },
+            {
+              "label": "Visual",
+              "divider": "none",
+              "aptitudes": [
+              {
+                "id": "md",
+                "label": "MD",
+                "style": "small",
+                "score": "90",
+                "value": "high",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "obs",
+                "label": "OBS",
+                "style": "small",
+                "score": "30",
+                "value": "low",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "vdt1",
+                "label": "VDT1",
+                "style": "small",
+                "score": "30",
+                "value": "low",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "vdt2",
+                "label": "VDT2",
+                "style": "small",
+                "score": "30",
+                "value": "low",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                "label": "AVG",
+                "value": "avg"
+              },
+              "label": "HIGH",
+              "value": "high"
+            }
+                ]
+                },
+            {
+              "id": "cd",
+              "label": "CD",
+              "style": "small",
+              "score": "70",
+              "value": "high",
+              "options": [
+              {
+                "label": "LOW",
+                "value": "low"
+              },
+              {
+                "label": "AVG",
+                "value": "avg"
+              },
+              {
+                "label": "HIGH",
+                "value": "high"
+              }
+              ]
+            }
+            ]
+            },
+            {
+              "label": "Auditory",
+              "divider": "none",
+              "aptitudes": [
+              {
+                "id": "tm",
+                "label": "TM",
+                "style": "small",
+                "score": "95",
+                "value": "high",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "pd",
+                "label": "PD",
+                "style": "small",
+                "score": "50",
+                "value": "avg",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "rm",
+                "label": "RM",
+                "style": "small",
+                "score": "85",
+                "value": "low",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              }
+              ]
+            },
+            {
+              "label": "Dexterity",
+              "divider": "line",
+              "aptitudes": [
+              {
+                "id": "td",
+                "label": "TD",
+                "style": "small",
+                "score": "45",
+                "value": "high",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "fd",
+                "label": "FD",
+                "style": "small",
+                "score": "10",
+                "value": "avg",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              }
+              ]
+            },
+            {
+              "label": "",
+              "divider": "line",
+              "aptitudes": [
+              {
+                "id": "fo",
+                "label": "Foresight",
+                "style": "small",
+                "score": "80",
+                "value": "high",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "silo",
+                "label": "Silograms",
+                "style": "small",
+                "score": "30",
+                "value": "low",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "color-vision",
+                "label": "Red-Green Vision",
+                "style": "small",
+                "score": "14",
+                "value": "normal",
+                "options": []
+              },
+              {
+                "id": "grip-left",
+                "label": "Grip Left",
+                "style": "small",
+                "score": "70",
+                "value": "high",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              },
+              {
+                "id": "grip-right",
+                "label": "Grip Right",
+                "style": "small",
+                "score": "90",
+                "value": "high",
+                "options": [
+                {
+                  "label": "LOW",
+                  "value": "low"
+                },
+                {
+                  "label": "AVG",
+                  "value": "avg"
+                },
+                {
+                  "label": "HIGH",
+                  "value": "high"
+                }
+                ]
+              }
+              ]
+            }
+            ]
 
 ## Client Summary Report [/api/clients/{id}/summary-report]
 
 + Parameters
-+ id: 199 (number) - Client ID
+    + id: 199 (number) - Client ID
 
 ### Fetch Client Summary Report [GET]
 
@@ -1800,1620 +1791,1620 @@ These values come from the Aptitude UI
 
 + Request (application/json)
 
-{
-  "personality": "int",
-    "vocab": "high",
-    "sv": "high",
-    "id": "avg",
-    "ir": "low",
-    "ar": "avg",
-    "ns": "high",
-    "nf": "low",
-    "nm": "low",
-    "gra": "low",
-    "md": "high",
-    "obs": "low",
-    "vdt1": "low",
-    "vdt2": "low",
-    "cd": "high",
-    "tm": "high",
-    "pd": "avg",
-    "rm": "low",
-    "td": "high",
-    "fd": "avg",
-    "fo": "high",
-    "silo": "low",
-    "color-vision": "normal",
-    "grip-left": "high",
-    "grip-right": "high"
-}
+            {
+              "personality": "int",
+                "vocab": "high",
+                "sv": "high",
+                "id": "avg",
+                "ir": "low",
+                "ar": "avg",
+                "ns": "high",
+                "nf": "low",
+                "nm": "low",
+                "gra": "low",
+                "md": "high",
+                "obs": "low",
+                "vdt1": "low",
+                "vdt2": "low",
+                "cd": "high",
+                "tm": "high",
+                "pd": "avg",
+                "rm": "low",
+                "td": "high",
+                "fd": "avg",
+                "fo": "high",
+                "silo": "low",
+                "color-vision": "normal",
+                "grip-left": "high",
+                "grip-right": "high"
+            }
 
 + Response 200 (application/json)
 
   + Body
 
-{
-  "summary": [
-  {
-    "label": "Core",
-      "value": [
-        "Structural Visualization",
-      "Intermediate Personality"
-      ]
-  },
-  {
-    "label": "Emphasis",
-    "value": [
-      "Visual"
-    ]
-  },
-  {
-    "label": "Personality",
-    "value": [
-      "Intermediate Personality"
-    ]
-  },
-  {
-    "label": "Vocabulary",
-    "value": [
-      "Vocabulary"
-    ]
-  }
-  ],
-  "primary": [
-  {
-    "id": 2507,
-    "abbvr": "SV",
-    "label": "Structural Visualization",
-    "pattern": "SV",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2747,
-        "label": "Chief Tactics Representative"
-      },
-      {
-        "id": 2216,
-        "label": "Human Program Architect"
-      },
-      {
-        "id": 1775,
-        "label": "Human Data Director"
-      },
-      {
-        "id": 3201,
-        "label": "Forward Implementation Developer"
-      }
-      ],
-      "optional": [
-      {
-        "id": 3198,
-        "label": "Dynamic Optimization Facilitator"
-      },
-      {
-        "id": 2567,
-        "label": "Product Identity Associate"
-      },
-      {
-        "id": 2422,
-        "label": "National Intranet Manager"
-      },
-      {
-        "id": 2804,
-        "label": "Future Program Administrator"
-      },
-      {
-        "id": 2785,
-        "label": "District Quality Facilitator"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 2453,
-    "abbvr": "int",
-    "label": "Intermediate Personality",
-    "pattern": "Intermediate",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2585,
-        "label": "Internal Security Producer"
-      },
-      {
-        "id": 3196,
-        "label": "District Paradigm Representative"
-      },
-      {
-        "id": 2967,
-        "label": "Legacy Implementation Director"
-      },
-      {
-        "id": 3199,
-        "label": "Dynamic Functionality Specialist"
-      },
-      {
-        "id": 2413,
-        "label": "Regional Research Liaison"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2562,
-        "label": "Senior Usability Associate"
-      },
-      {
-        "id": 1990,
-        "label": "Dynamic Factors Agent"
-      },
-      {
-        "id": 2344,
-        "label": "Product Mobility Officer"
-      },
-      {
-        "id": 2241,
-        "label": "Customer Accounts Agent"
-      },
-      {
-        "id": 2756,
-        "label": "Chief Interactions Executive"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  }
-  ],
-  "emphasis": [
-  {
-    "id": 628,
-    "abbvr": "vis",
-    "label": "Visual",
-    "pattern": "MD+CD",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2667,
-        "label": "Forward Intranet Specialist"
-      },
-      {
-        "id": 3007,
-        "label": "Dynamic Quality Representative"
-      },
-      {
-        "id": 1883,
-        "label": "Legacy Metrics Agent"
-      },
-      {
-        "id": 3214,
-        "label": "Regional Interactions Strategist"
-      },
-      {
-        "id": 2330,
-        "label": "Central Brand Strategist"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2866,
-        "label": "Internal Integration Designer"
-      },
-      {
-        "id": 2017,
-        "label": "Central Quality Agent"
-      },
-      {
-        "id": 2290,
-        "label": "Future Group Strategist"
-      },
-      {
-        "id": 2255,
-        "label": "Senior Response Planner"
-      },
-      {
-        "id": 2955,
-        "label": "Principal Paradigm Coordinator"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  }
-  ],
-  "discussion": [
-  {
-    "id": 1445,
-    "abbvr": "personality",
-    "label": "INT Personality",
-    "pattern": "PERSONALITY int",
-    "careers": {
-      "defaults": [
-      {
-        "id": 3284,
-        "label": "Internal Accountability Associate"
-      },
-      {
-        "id": 3012,
-        "label": "Direct Applications Supervisor"
-      },
-      {
-        "id": 3302,
-        "label": "Global Integration Representative"
-      },
-      {
-        "id": 2257,
-        "label": "Regional Web Supervisor"
-      }
-      ],
-      "optional": [
-      {
-        "id": 1973,
-        "label": "Chief Program Officer"
-      },
-      {
-        "id": 3143,
-        "label": "District Optimization Assistant"
-      },
-      {
-        "id": 2858,
-        "label": "International Markets Manager"
-      },
-      {
-        "id": 3267,
-        "label": "Customer Solutions Administrator"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1368,
-    "abbvr": "vocab",
-    "label": "HIGH Vocabulary",
-    "pattern": "VOCAB high",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2450,
-        "label": "Product Research Producer"
-      },
-      {
-        "id": 3398,
-        "label": "Corporate Accountability Associate"
-      },
-      {
-        "id": 3132,
-        "label": "National Integration Supervisor"
-      },
-      {
-        "id": 3758,
-        "label": "International Intranet Representative"
-      },
-      {
-        "id": 2220,
-        "label": "Dynamic Metrics Planner"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2571,
-        "label": "Human Factors Orchestrator"
-      },
-      {
-        "id": 3358,
-        "label": "Investor Integration Orchestrator"
-      },
-      {
-        "id": 3066,
-        "label": "Legacy Interactions Facilitator"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 2827,
-    "abbvr": "sv",
-    "label": "HIGH Structural Visualization",
-    "pattern": "SV high",
-    "careers": {
-      "defaults": [
-      {
-        "id": 3214,
-        "label": "Regional Infrastructure Director"
-      },
-      {
-        "id": 2313,
-        "label": "Dynamic Mobility Manager"
-      },
-      {
-        "id": 2962,
-        "label": "Direct Accountability Director"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2296,
-        "label": "Global Tactics Associate"
-      },
-      {
-        "id": 2959,
-        "label": "Central Paradigm Administrator"
-      },
-      {
-        "id": 2656,
-        "label": "Legacy Tactics Orchestrator"
-      },
-      {
-        "id": 2709,
-        "label": "Product Mobility Consultant"
-      },
-      {
-        "id": 3174,
-        "label": "Human Accountability Facilitator"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1268,
-    "abbvr": "id",
-    "label": "AVG Ideaphoria",
-    "pattern": "ID avg",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2500,
-        "label": "Senior Solutions Producer"
-      },
-      {
-        "id": 2544,
-        "label": "Dynamic Intranet Developer"
-      },
-      {
-        "id": 3211,
-        "label": "Internal Infrastructure Engineer"
-      },
-      {
-        "id": 2858,
-        "label": "Dynamic Branding Orchestrator"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2381,
-        "label": "Investor Group Developer"
-      },
-      {
-        "id": 3087,
-        "label": "International Creative Producer"
-      },
-      {
-        "id": 2565,
-        "label": "Dynamic Operations Analyst"
-      },
-      {
-        "id": 2287,
-        "label": "Lead Marketing Architect"
-      },
-      {
-        "id": 2961,
-        "label": "Lead Functionality Facilitator"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 2179,
-    "abbvr": "ir",
-    "label": "LOW Inductive Reasoning",
-    "pattern": "IR low",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2787,
-        "label": "Senior Factors Administrator"
-      },
-      {
-        "id": 3168,
-        "label": "Regional Configuration Architect"
-      },
-      {
-        "id": 3150,
-        "label": "Future Infrastructure Executive"
-      },
-      {
-        "id": 2506,
-        "label": "Central Branding Associate"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2666,
-        "label": "Forward Operations Designer"
-      },
-      {
-        "id": 2437,
-        "label": "Dynamic Quality Architect"
-      },
-      {
-        "id": 2391,
-        "label": "Dynamic Branding Engineer"
-      },
-      {
-        "id": 2528,
-        "label": "Chief Response Facilitator"
-      },
-      {
-        "id": 2294,
-        "label": "Legacy Paradigm Director"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 2246,
-    "abbvr": "ar",
-    "label": "AVG Analytical Reasoning",
-    "pattern": "AR avg",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2778,
-        "label": "Legacy Intranet Orchestrator"
-      },
-      {
-        "id": 2717,
-        "label": "Legacy Directives Technician"
-      },
-      {
-        "id": 2748,
-        "label": "Legacy Functionality Officer"
-      },
-      {
-        "id": 3088,
-        "label": "Regional Infrastructure Officer"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2218,
-        "label": "Product Tactics Officer"
-      },
-      {
-        "id": 2665,
-        "label": "Chief Identity Orchestrator"
-      },
-      {
-        "id": 3149,
-        "label": "Internal Solutions Orchestrator"
-      },
-      {
-        "id": 2218,
-        "label": "Direct Creative Analyst"
-      },
-      {
-        "id": 3180,
-        "label": "National Paradigm Representative"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1588,
-    "abbvr": "ns",
-    "label": "HIGH Number Series",
-    "pattern": "NS high",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2336,
-        "label": "Principal Group Designer"
-      },
-      {
-        "id": 2198,
-        "label": "Dynamic Marketing Agent"
-      },
-      {
-        "id": 2454,
-        "label": "Forward Division Director"
-      },
-      {
-        "id": 2187,
-        "label": "Human Paradigm Engineer"
-      }
-      ],
-      "optional": [
-      {
-        "id": 3029,
-        "label": "Senior Infrastructure Producer"
-      },
-      {
-        "id": 2626,
-        "label": "Chief Applications Director"
-      },
-      {
-        "id": 3289,
-        "label": "International Assurance Associate"
-      },
-      {
-        "id": 3410,
-        "label": "District Accountability Specialist"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1744,
-    "abbvr": "nf",
-    "label": "LOW Number Facility",
-    "pattern": "NF low",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2923,
-        "label": "Human Optimization Consultant"
-      },
-      {
-        "id": 2971,
-        "label": "International Division Officer"
-      },
-      {
-        "id": 2658,
-        "label": "Dynamic Creative Strategist"
-      },
-      {
-        "id": 3223,
-        "label": "Future Configuration Coordinator"
-      },
-      {
-        "id": 3005,
-        "label": "Internal Accounts Orchestrator"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2981,
-        "label": "Internal Usability Facilitator"
-      },
-      {
-        "id": 2786,
-        "label": "Forward Marketing Consultant"
-      },
-      {
-        "id": 3223,
-        "label": "Product Assurance Representative"
-      },
-      {
-        "id": 2907,
-        "label": "Customer Intranet Coordinator"
-      },
-      {
-        "id": 2330,
-        "label": "Legacy Security Engineer"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1556,
-    "abbvr": "nm",
-    "label": "LOW Number Memory",
-    "pattern": "NM low",
-    "careers": {
-      "defaults": [
-      {
-        "id": 3171,
-        "label": "Principal Implementation Manager"
-      },
-      {
-        "id": 2761,
-        "label": "Dynamic Accounts Coordinator"
-      },
-      {
-        "id": 2463,
-        "label": "Customer Response Officer"
-      },
-      {
-        "id": 3082,
-        "label": "Dynamic Communications Director"
-      },
-      {
-        "id": 3022,
-        "label": "Investor Optimization Engineer"
-      }
-      ],
-      "optional": [
-      {
-        "id": 3101,
-        "label": "International Mobility Director"
-      },
-      {
-        "id": 2326,
-        "label": "Global Security Engineer"
-      },
-      {
-        "id": 2254,
-        "label": "Senior Group Specialist"
-      },
-      {
-        "id": 2009,
-        "label": "Central Web Executive"
-      },
-      {
-        "id": 2746,
-        "label": "National Creative Specialist"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1199,
-    "abbvr": "gra",
-    "label": "LOW Graphoria",
-    "pattern": "GRA low",
-    "careers": {
-      "defaults": [
-      {
-        "id": 3122,
-        "label": "Product Accounts Representative"
-      },
-      {
-        "id": 2866,
-        "label": "Central Assurance Coordinator"
-      },
-      {
-        "id": 2798,
-        "label": "Dynamic Quality Orchestrator"
-      },
-      {
-        "id": 1873,
-        "label": "Lead Tactics Planner"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2641,
-        "label": "Regional Mobility Architect"
-      },
-      {
-        "id": 2567,
-        "label": "Product Response Architect"
-      },
-      {
-        "id": 2423,
-        "label": "Direct Accounts Associate"
-      },
-      {
-        "id": 2892,
-        "label": "District Solutions Technician"
-      },
-      {
-        "id": 2663,
-        "label": "Regional Tactics Consultant"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1946,
-    "abbvr": "md",
-    "label": "HIGH Memory for Design",
-    "pattern": "MD high",
-    "careers": {
-      "defaults": [
-      {
-        "id": 3092,
-        "label": "Future Applications Facilitator"
-      },
-      {
-        "id": 2837,
-        "label": "Chief Branding Representative"
-      },
-      {
-        "id": 1979,
-        "label": "District Data Manager"
-      }
-      ],
-      "optional": [
-      {
-        "id": 3086,
-        "label": "Global Infrastructure Associate"
-      },
-      {
-        "id": 2989,
-        "label": "Dynamic Markets Representative"
-      },
-      {
-        "id": 2872,
-        "label": "District Accounts Facilitator"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1438,
-    "abbvr": "obs",
-    "label": "LOW Observation",
-    "pattern": "OBS low",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2435,
-        "label": "Dynamic Marketing Analyst"
-      },
-      {
-        "id": 3011,
-        "label": "Product Implementation Analyst"
-      },
-      {
-        "id": 2450,
-        "label": "Senior Directives Planner"
-      },
-      {
-        "id": 2304,
-        "label": "Chief Identity Architect"
-      }
-      ],
-      "optional": [
-      {
-        "id": 1920,
-        "label": "Customer Web Planner"
-      },
-      {
-        "id": 2119,
-        "label": "Lead Metrics Assistant"
-      },
-      {
-        "id": 2873,
-        "label": "Dynamic Configuration Analyst"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 2332,
-    "abbvr": "cd",
-    "label": "HIGH Color Discrimination",
-    "pattern": "CD high",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2121,
-        "label": "District Brand Analyst"
-      },
-      {
-        "id": 3138,
-        "label": "Investor Markets Representative"
-      },
-      {
-        "id": 2965,
-        "label": "Investor Solutions Consultant"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2656,
-        "label": "Global Interactions Analyst"
-      },
-      {
-        "id": 2439,
-        "label": "Human Security Technician"
-      },
-      {
-        "id": 3955,
-        "label": "International Functionality Facilitator"
-      },
-      {
-        "id": 3204,
-        "label": "District Configuration Developer"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1501,
-    "abbvr": "tm",
-    "label": "HIGH Total Memory",
-    "pattern": "TM high",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2899,
-        "label": "Human Mobility Representative"
-      },
-      {
-        "id": 2901,
-        "label": "Principal Mobility Strategist"
-      },
-      {
-        "id": 2460,
-        "label": "Future Identity Architect"
-      },
-      {
-        "id": 2081,
-        "label": "National Data Designer"
-      }
-      ],
-      "optional": [
-      {
-        "id": 1738,
-        "label": "Lead Paradigm Agent"
-      },
-      {
-        "id": 2684,
-        "label": "Forward Branding Supervisor"
-      },
-      {
-        "id": 2795,
-        "label": "Forward Operations Executive"
-      },
-      {
-        "id": 2331,
-        "label": "Legacy Identity Director"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 2259,
-    "abbvr": "pd",
-    "label": "AVG Pitch Discrimination",
-    "pattern": "PD avg",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2443,
-        "label": "Human Usability Associate"
-      },
-      {
-        "id": 2827,
-        "label": "Legacy Accountability Manager"
-      },
-      {
-        "id": 2783,
-        "label": "Human Intranet Administrator"
-      },
-      {
-        "id": 3383,
-        "label": "International Research Facilitator"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2639,
-        "label": "Lead Applications Executive"
-      },
-      {
-        "id": 2474,
-        "label": "Customer Mobility Liaison"
-      },
-      {
-        "id": 2796,
-        "label": "Corporate Solutions Engineer"
-      },
-      {
-        "id": 3210,
-        "label": "International Accounts Executive"
-      },
-      {
-        "id": 2540,
-        "label": "Global Markets Coordinator"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1575,
-    "abbvr": "rm",
-    "label": "LOW Rhythm Memory",
-    "pattern": "RM low",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2700,
-        "label": "Dynamic Intranet Supervisor"
-      },
-      {
-        "id": 2570,
-        "label": "Legacy Identity Consultant"
-      },
-      {
-        "id": 2920,
-        "label": "Corporate Response Strategist"
-      },
-      {
-        "id": 3103,
-        "label": "Lead Functionality Orchestrator"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2912,
-        "label": "Customer Identity Coordinator"
-      },
-      {
-        "id": 3220,
-        "label": "National Interactions Consultant"
-      },
-      {
-        "id": 3465,
-        "label": "Product Optimization Administrator"
-      },
-      {
-        "id": 3376,
-        "label": "Regional Communications Technician"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 2056,
-    "abbvr": "td",
-    "label": "HIGH Tweezer Dexterity",
-    "pattern": "TD high",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2177,
-        "label": "Legacy Data Facilitator"
-      },
-      {
-        "id": 2654,
-        "label": "Human Paradigm Orchestrator"
-      },
-      {
-        "id": 2002,
-        "label": "Chief Markets Analyst"
-      },
-      {
-        "id": 2546,
-        "label": "Dynamic Creative Assistant"
-      }
-      ],
-      "optional": [
-      {
-        "id": 3094,
-        "label": "Customer Implementation Officer"
-      },
-      {
-        "id": 3155,
-        "label": "Customer Optimization Assistant"
-      },
-      {
-        "id": 2671,
-        "label": "Internal Usability Director"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1851,
-    "abbvr": "fd",
-    "label": "AVG Finger Dexterity",
-    "pattern": "FD avg",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2875,
-        "label": "Dynamic Integration Executive"
-      },
-      {
-        "id": 2673,
-        "label": "Forward Usability Developer"
-      },
-      {
-        "id": 2352,
-        "label": "Internal Metrics Analyst"
-      },
-      {
-        "id": 2406,
-        "label": "Dynamic Branding Director"
-      },
-      {
-        "id": 2658,
-        "label": "Principal Response Designer"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2571,
-        "label": "Direct Division Consultant"
-      },
-      {
-        "id": 2746,
-        "label": "Dynamic Implementation Agent"
-      },
-      {
-        "id": 3226,
-        "label": "Regional Security Representative"
-      },
-      {
-        "id": 3127,
-        "label": "Customer Functionality Director"
-      },
-      {
-        "id": 2990,
-        "label": "Central Assurance Orchestrator"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1259,
-    "abbvr": "fo",
-    "label": "HIGH Foresight",
-    "pattern": "FO high",
-    "careers": {
-      "defaults": [
-      {
-        "id": 2309,
-        "label": "Dynamic Intranet Manager"
-      },
-      {
-        "id": 1864,
-        "label": "Global Brand Planner"
-      },
-      {
-        "id": 3237,
-        "label": "Product Integration Orchestrator"
-      },
-      {
-        "id": 2542,
-        "label": "Product Directives Manager"
-      },
-      {
-        "id": 3553,
-        "label": "International Mobility Orchestrator"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2219,
-        "label": "Chief Factors Assistant"
-      },
-      {
-        "id": 2222,
-        "label": "Investor Branding Agent"
-      },
-      {
-        "id": 2982,
-        "label": "Corporate Division Facilitator"
-      },
-      {
-        "id": 2202,
-        "label": "Human Branding Director"
-      },
-      {
-        "id": 3545,
-        "label": "Regional Optimization Administrator"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  },
-  {
-    "id": 1219,
-    "abbvr": "silo",
-    "label": "LOW Silograms",
-    "pattern": "SILO low",
-    "careers": {
-      "defaults": [
-      {
-        "id": 3308,
-        "label": "National Assurance Representative"
-      },
-      {
-        "id": 3297,
-        "label": "Dynamic Configuration Coordinator"
-      },
-      {
-        "id": 1891,
-        "label": "Central Web Director"
-      }
-      ],
-      "optional": [
-      {
-        "id": 2460,
-        "label": "Direct Metrics Strategist"
-      },
-      {
-        "id": 3079,
-        "label": "Dynamic Implementation Director"
-      },
-      {
-        "id": 2902,
-        "label": "Corporate Branding Supervisor"
-      }
-      ]
-    },
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    }
-  }
-  ]
-}
-
-### Create / Edit Client Summary Report [POST]
-
-+ Request (application/json)
-
-{
-  "primary": [
-  {
-    "id": 2507,
-      "label": "Structural Visualization",
-      "pattern": "SV",
-      "display": {
-        "all": "show",
-        "desc": "show",
-        "careers": "show"
-      },
-      "careers": [
-        "2298",
-      "2878",
-      "2983",
-      "2986"
-      ]
-  },
-  {
-    "id": 2453,
-    "label": "Intermediate Personality",
-    "pattern": "Intermediate",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2204",
-    "2996",
-    "3126"
-    ]
-  }
-  ],
-  "emphasis": [
-  {
-    "id": 628,
-    "label": "Visual",
-    "pattern": "MD+CD",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2426",
-    "2540",
-    "2871"
-    ]
-  }
-  ],
-  "discussion": [
-  {
-    "id": 1445,
-    "label": "INT Personality",
-    "pattern": "PERSONALITY int",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2118",
-    "2242",
-    "2352",
-    "2454"
-    ]
-  },
-  {
-    "id": 1368,
-    "label": "HIGH Vocabulary",
-    "pattern": "VOCAB high",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2434",
-    "2447",
-    "3110"
-    ]
-  },
-  {
-    "id": 2827,
-    "label": "HIGH Structural Visualization",
-    "pattern": "SV high",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2349",
-    "2352",
-    "2902"
-    ]
-  },
-  {
-    "id": 1268,
-    "label": "AVG Ideaphoria",
-    "pattern": "ID avg",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2101",
-    "2934",
-    "2974",
-    "3093"
-    ]
-  },
-  {
-    "id": 2179,
-    "label": "LOW Inductive Reasoning",
-    "pattern": "IR low",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2359",
-    "2972",
-    "3138"
-    ]
-  },
-  {
-    "id": 2246,
-    "label": "AVG Analytical Reasoning",
-    "pattern": "AR avg",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2345",
-    "2381",
-    "2479",
-    "2629"
-    ]
-  },
-  {
-    "id": 1588,
-    "label": "HIGH Number Series",
-    "pattern": "NS high",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2147",
-    "2238",
-    "2422"
-    ]
-  },
-  {
-    "id": 1744,
-    "label": "LOW Number Facility",
-    "pattern": "NF low",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2302",
-    "2426",
-    "2440",
-    "2709"
-    ]
-  },
-  {
-    "id": 1556,
-    "label": "LOW Number Memory",
-    "pattern": "NM low",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": {
-      "2016",
-      "2338",
-      "3018",
-      "3022"
-    }
-  },
-  {
-    "id": 1199,
-    "label": "LOW Graphoria",
-    "pattern": "GRA low",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2109",
-    "2154",
-    "2357",
-    "3139"
-    ]
-  },
-  {
-    "id": 1946,
-    "label": "HIGH Memory for Design",
-    "pattern": "MD high",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2400",
-    "2448",
-    "2554",
-    "3094",
-    "3211"
-    ]
-  },
-  {
-    "id": 1438,
-    "label": "LOW Observation",
-    "pattern": "OBS low",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2314",
-    "2658",
-    "2781",
-    "3062",
-    "3662"
-    ]
-  },
-  {
-    "id": 2332,
-    "label": "HIGH Color Discrimination",
-    "pattern": "CD high",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2468",
-    "2585",
-    "2937"
-    ]
-  },
-  {
-    "id": 1501,
-    "label": "HIGH Total Memory",
-    "pattern": "TM high",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2191",
-    "2390",
-    "2433",
-    "2436",
-    "2595"
-    ]
-  },
-  {
-    "id": 2259,
-    "label": "AVG Pitch Discrimination",
-    "pattern": "PD avg",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "1918",
-    "2623",
-    "3081",
-    "3212"
-    ]
-  },
-  {
-    "id": 1575,
-    "label": "LOW Rhythm Memory",
-    "pattern": "RM low",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "1977",
-    "2196",
-    "2277",
-    "2764"
-    ]
-  },
-  {
-    "id": 2056,
-    "label": "HIGH Tweezer Dexterity",
-    "pattern": "TD high",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2238",
-    "2359",
-    "2994",
-    "3029"
-    ]
-  },
-  {
-    "id": 1851,
-    "label": "AVG Finger Dexterity",
-    "pattern": "FD avg",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2134",
-    "2146",
-    "2311",
-    "2540"
-    ]
-  },
-  {
-    "id": 1259,
-    "label": "HIGH Foresight",
-    "pattern": "FO high",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": [
-      "2462",
-    "2708",
-    "3170"
-    ]
-  },
-  {
-    "id": 1219,
-    "label": "LOW Silograms",
-    "pattern": "SILO low",
-    "display": {
-      "all": "show",
-      "desc": "show",
-      "careers": "show"
-    },
-    "careers": {
-      "1695",
-      "2870",
-      "2983",
-      "3210"
-        ]
-    }
-    ]
-  }
+            {
+              "summary": [
+              {
+                "label": "Core",
+                  "value": [
+                    "Structural Visualization",
+                  "Intermediate Personality"
+                  ]
+              },
+              {
+                "label": "Emphasis",
+                "value": [
+                  "Visual"
+                ]
+              },
+              {
+                "label": "Personality",
+                "value": [
+                  "Intermediate Personality"
+                ]
+              },
+              {
+                "label": "Vocabulary",
+                "value": [
+                  "Vocabulary"
+                ]
+              }
+              ],
+              "primary": [
+              {
+                "id": 2507,
+                "abbvr": "SV",
+                "label": "Structural Visualization",
+                "pattern": "SV",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2747,
+                    "label": "Chief Tactics Representative"
+                  },
+                  {
+                    "id": 2216,
+                    "label": "Human Program Architect"
+                  },
+                  {
+                    "id": 1775,
+                    "label": "Human Data Director"
+                  },
+                  {
+                    "id": 3201,
+                    "label": "Forward Implementation Developer"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 3198,
+                    "label": "Dynamic Optimization Facilitator"
+                  },
+                  {
+                    "id": 2567,
+                    "label": "Product Identity Associate"
+                  },
+                  {
+                    "id": 2422,
+                    "label": "National Intranet Manager"
+                  },
+                  {
+                    "id": 2804,
+                    "label": "Future Program Administrator"
+                  },
+                  {
+                    "id": 2785,
+                    "label": "District Quality Facilitator"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 2453,
+                "abbvr": "int",
+                "label": "Intermediate Personality",
+                "pattern": "Intermediate",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2585,
+                    "label": "Internal Security Producer"
+                  },
+                  {
+                    "id": 3196,
+                    "label": "District Paradigm Representative"
+                  },
+                  {
+                    "id": 2967,
+                    "label": "Legacy Implementation Director"
+                  },
+                  {
+                    "id": 3199,
+                    "label": "Dynamic Functionality Specialist"
+                  },
+                  {
+                    "id": 2413,
+                    "label": "Regional Research Liaison"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2562,
+                    "label": "Senior Usability Associate"
+                  },
+                  {
+                    "id": 1990,
+                    "label": "Dynamic Factors Agent"
+                  },
+                  {
+                    "id": 2344,
+                    "label": "Product Mobility Officer"
+                  },
+                  {
+                    "id": 2241,
+                    "label": "Customer Accounts Agent"
+                  },
+                  {
+                    "id": 2756,
+                    "label": "Chief Interactions Executive"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              }
+              ],
+              "emphasis": [
+              {
+                "id": 628,
+                "abbvr": "vis",
+                "label": "Visual",
+                "pattern": "MD+CD",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2667,
+                    "label": "Forward Intranet Specialist"
+                  },
+                  {
+                    "id": 3007,
+                    "label": "Dynamic Quality Representative"
+                  },
+                  {
+                    "id": 1883,
+                    "label": "Legacy Metrics Agent"
+                  },
+                  {
+                    "id": 3214,
+                    "label": "Regional Interactions Strategist"
+                  },
+                  {
+                    "id": 2330,
+                    "label": "Central Brand Strategist"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2866,
+                    "label": "Internal Integration Designer"
+                  },
+                  {
+                    "id": 2017,
+                    "label": "Central Quality Agent"
+                  },
+                  {
+                    "id": 2290,
+                    "label": "Future Group Strategist"
+                  },
+                  {
+                    "id": 2255,
+                    "label": "Senior Response Planner"
+                  },
+                  {
+                    "id": 2955,
+                    "label": "Principal Paradigm Coordinator"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              }
+              ],
+              "discussion": [
+              {
+                "id": 1445,
+                "abbvr": "personality",
+                "label": "INT Personality",
+                "pattern": "PERSONALITY int",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 3284,
+                    "label": "Internal Accountability Associate"
+                  },
+                  {
+                    "id": 3012,
+                    "label": "Direct Applications Supervisor"
+                  },
+                  {
+                    "id": 3302,
+                    "label": "Global Integration Representative"
+                  },
+                  {
+                    "id": 2257,
+                    "label": "Regional Web Supervisor"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 1973,
+                    "label": "Chief Program Officer"
+                  },
+                  {
+                    "id": 3143,
+                    "label": "District Optimization Assistant"
+                  },
+                  {
+                    "id": 2858,
+                    "label": "International Markets Manager"
+                  },
+                  {
+                    "id": 3267,
+                    "label": "Customer Solutions Administrator"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1368,
+                "abbvr": "vocab",
+                "label": "HIGH Vocabulary",
+                "pattern": "VOCAB high",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2450,
+                    "label": "Product Research Producer"
+                  },
+                  {
+                    "id": 3398,
+                    "label": "Corporate Accountability Associate"
+                  },
+                  {
+                    "id": 3132,
+                    "label": "National Integration Supervisor"
+                  },
+                  {
+                    "id": 3758,
+                    "label": "International Intranet Representative"
+                  },
+                  {
+                    "id": 2220,
+                    "label": "Dynamic Metrics Planner"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2571,
+                    "label": "Human Factors Orchestrator"
+                  },
+                  {
+                    "id": 3358,
+                    "label": "Investor Integration Orchestrator"
+                  },
+                  {
+                    "id": 3066,
+                    "label": "Legacy Interactions Facilitator"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 2827,
+                "abbvr": "sv",
+                "label": "HIGH Structural Visualization",
+                "pattern": "SV high",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 3214,
+                    "label": "Regional Infrastructure Director"
+                  },
+                  {
+                    "id": 2313,
+                    "label": "Dynamic Mobility Manager"
+                  },
+                  {
+                    "id": 2962,
+                    "label": "Direct Accountability Director"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2296,
+                    "label": "Global Tactics Associate"
+                  },
+                  {
+                    "id": 2959,
+                    "label": "Central Paradigm Administrator"
+                  },
+                  {
+                    "id": 2656,
+                    "label": "Legacy Tactics Orchestrator"
+                  },
+                  {
+                    "id": 2709,
+                    "label": "Product Mobility Consultant"
+                  },
+                  {
+                    "id": 3174,
+                    "label": "Human Accountability Facilitator"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1268,
+                "abbvr": "id",
+                "label": "AVG Ideaphoria",
+                "pattern": "ID avg",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2500,
+                    "label": "Senior Solutions Producer"
+                  },
+                  {
+                    "id": 2544,
+                    "label": "Dynamic Intranet Developer"
+                  },
+                  {
+                    "id": 3211,
+                    "label": "Internal Infrastructure Engineer"
+                  },
+                  {
+                    "id": 2858,
+                    "label": "Dynamic Branding Orchestrator"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2381,
+                    "label": "Investor Group Developer"
+                  },
+                  {
+                    "id": 3087,
+                    "label": "International Creative Producer"
+                  },
+                  {
+                    "id": 2565,
+                    "label": "Dynamic Operations Analyst"
+                  },
+                  {
+                    "id": 2287,
+                    "label": "Lead Marketing Architect"
+                  },
+                  {
+                    "id": 2961,
+                    "label": "Lead Functionality Facilitator"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 2179,
+                "abbvr": "ir",
+                "label": "LOW Inductive Reasoning",
+                "pattern": "IR low",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2787,
+                    "label": "Senior Factors Administrator"
+                  },
+                  {
+                    "id": 3168,
+                    "label": "Regional Configuration Architect"
+                  },
+                  {
+                    "id": 3150,
+                    "label": "Future Infrastructure Executive"
+                  },
+                  {
+                    "id": 2506,
+                    "label": "Central Branding Associate"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2666,
+                    "label": "Forward Operations Designer"
+                  },
+                  {
+                    "id": 2437,
+                    "label": "Dynamic Quality Architect"
+                  },
+                  {
+                    "id": 2391,
+                    "label": "Dynamic Branding Engineer"
+                  },
+                  {
+                    "id": 2528,
+                    "label": "Chief Response Facilitator"
+                  },
+                  {
+                    "id": 2294,
+                    "label": "Legacy Paradigm Director"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 2246,
+                "abbvr": "ar",
+                "label": "AVG Analytical Reasoning",
+                "pattern": "AR avg",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2778,
+                    "label": "Legacy Intranet Orchestrator"
+                  },
+                  {
+                    "id": 2717,
+                    "label": "Legacy Directives Technician"
+                  },
+                  {
+                    "id": 2748,
+                    "label": "Legacy Functionality Officer"
+                  },
+                  {
+                    "id": 3088,
+                    "label": "Regional Infrastructure Officer"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2218,
+                    "label": "Product Tactics Officer"
+                  },
+                  {
+                    "id": 2665,
+                    "label": "Chief Identity Orchestrator"
+                  },
+                  {
+                    "id": 3149,
+                    "label": "Internal Solutions Orchestrator"
+                  },
+                  {
+                    "id": 2218,
+                    "label": "Direct Creative Analyst"
+                  },
+                  {
+                    "id": 3180,
+                    "label": "National Paradigm Representative"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1588,
+                "abbvr": "ns",
+                "label": "HIGH Number Series",
+                "pattern": "NS high",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2336,
+                    "label": "Principal Group Designer"
+                  },
+                  {
+                    "id": 2198,
+                    "label": "Dynamic Marketing Agent"
+                  },
+                  {
+                    "id": 2454,
+                    "label": "Forward Division Director"
+                  },
+                  {
+                    "id": 2187,
+                    "label": "Human Paradigm Engineer"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 3029,
+                    "label": "Senior Infrastructure Producer"
+                  },
+                  {
+                    "id": 2626,
+                    "label": "Chief Applications Director"
+                  },
+                  {
+                    "id": 3289,
+                    "label": "International Assurance Associate"
+                  },
+                  {
+                    "id": 3410,
+                    "label": "District Accountability Specialist"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1744,
+                "abbvr": "nf",
+                "label": "LOW Number Facility",
+                "pattern": "NF low",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2923,
+                    "label": "Human Optimization Consultant"
+                  },
+                  {
+                    "id": 2971,
+                    "label": "International Division Officer"
+                  },
+                  {
+                    "id": 2658,
+                    "label": "Dynamic Creative Strategist"
+                  },
+                  {
+                    "id": 3223,
+                    "label": "Future Configuration Coordinator"
+                  },
+                  {
+                    "id": 3005,
+                    "label": "Internal Accounts Orchestrator"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2981,
+                    "label": "Internal Usability Facilitator"
+                  },
+                  {
+                    "id": 2786,
+                    "label": "Forward Marketing Consultant"
+                  },
+                  {
+                    "id": 3223,
+                    "label": "Product Assurance Representative"
+                  },
+                  {
+                    "id": 2907,
+                    "label": "Customer Intranet Coordinator"
+                  },
+                  {
+                    "id": 2330,
+                    "label": "Legacy Security Engineer"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1556,
+                "abbvr": "nm",
+                "label": "LOW Number Memory",
+                "pattern": "NM low",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 3171,
+                    "label": "Principal Implementation Manager"
+                  },
+                  {
+                    "id": 2761,
+                    "label": "Dynamic Accounts Coordinator"
+                  },
+                  {
+                    "id": 2463,
+                    "label": "Customer Response Officer"
+                  },
+                  {
+                    "id": 3082,
+                    "label": "Dynamic Communications Director"
+                  },
+                  {
+                    "id": 3022,
+                    "label": "Investor Optimization Engineer"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 3101,
+                    "label": "International Mobility Director"
+                  },
+                  {
+                    "id": 2326,
+                    "label": "Global Security Engineer"
+                  },
+                  {
+                    "id": 2254,
+                    "label": "Senior Group Specialist"
+                  },
+                  {
+                    "id": 2009,
+                    "label": "Central Web Executive"
+                  },
+                  {
+                    "id": 2746,
+                    "label": "National Creative Specialist"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1199,
+                "abbvr": "gra",
+                "label": "LOW Graphoria",
+                "pattern": "GRA low",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 3122,
+                    "label": "Product Accounts Representative"
+                  },
+                  {
+                    "id": 2866,
+                    "label": "Central Assurance Coordinator"
+                  },
+                  {
+                    "id": 2798,
+                    "label": "Dynamic Quality Orchestrator"
+                  },
+                  {
+                    "id": 1873,
+                    "label": "Lead Tactics Planner"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2641,
+                    "label": "Regional Mobility Architect"
+                  },
+                  {
+                    "id": 2567,
+                    "label": "Product Response Architect"
+                  },
+                  {
+                    "id": 2423,
+                    "label": "Direct Accounts Associate"
+                  },
+                  {
+                    "id": 2892,
+                    "label": "District Solutions Technician"
+                  },
+                  {
+                    "id": 2663,
+                    "label": "Regional Tactics Consultant"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1946,
+                "abbvr": "md",
+                "label": "HIGH Memory for Design",
+                "pattern": "MD high",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 3092,
+                    "label": "Future Applications Facilitator"
+                  },
+                  {
+                    "id": 2837,
+                    "label": "Chief Branding Representative"
+                  },
+                  {
+                    "id": 1979,
+                    "label": "District Data Manager"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 3086,
+                    "label": "Global Infrastructure Associate"
+                  },
+                  {
+                    "id": 2989,
+                    "label": "Dynamic Markets Representative"
+                  },
+                  {
+                    "id": 2872,
+                    "label": "District Accounts Facilitator"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1438,
+                "abbvr": "obs",
+                "label": "LOW Observation",
+                "pattern": "OBS low",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2435,
+                    "label": "Dynamic Marketing Analyst"
+                  },
+                  {
+                    "id": 3011,
+                    "label": "Product Implementation Analyst"
+                  },
+                  {
+                    "id": 2450,
+                    "label": "Senior Directives Planner"
+                  },
+                  {
+                    "id": 2304,
+                    "label": "Chief Identity Architect"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 1920,
+                    "label": "Customer Web Planner"
+                  },
+                  {
+                    "id": 2119,
+                    "label": "Lead Metrics Assistant"
+                  },
+                  {
+                    "id": 2873,
+                    "label": "Dynamic Configuration Analyst"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 2332,
+                "abbvr": "cd",
+                "label": "HIGH Color Discrimination",
+                "pattern": "CD high",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2121,
+                    "label": "District Brand Analyst"
+                  },
+                  {
+                    "id": 3138,
+                    "label": "Investor Markets Representative"
+                  },
+                  {
+                    "id": 2965,
+                    "label": "Investor Solutions Consultant"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2656,
+                    "label": "Global Interactions Analyst"
+                  },
+                  {
+                    "id": 2439,
+                    "label": "Human Security Technician"
+                  },
+                  {
+                    "id": 3955,
+                    "label": "International Functionality Facilitator"
+                  },
+                  {
+                    "id": 3204,
+                    "label": "District Configuration Developer"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1501,
+                "abbvr": "tm",
+                "label": "HIGH Total Memory",
+                "pattern": "TM high",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2899,
+                    "label": "Human Mobility Representative"
+                  },
+                  {
+                    "id": 2901,
+                    "label": "Principal Mobility Strategist"
+                  },
+                  {
+                    "id": 2460,
+                    "label": "Future Identity Architect"
+                  },
+                  {
+                    "id": 2081,
+                    "label": "National Data Designer"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 1738,
+                    "label": "Lead Paradigm Agent"
+                  },
+                  {
+                    "id": 2684,
+                    "label": "Forward Branding Supervisor"
+                  },
+                  {
+                    "id": 2795,
+                    "label": "Forward Operations Executive"
+                  },
+                  {
+                    "id": 2331,
+                    "label": "Legacy Identity Director"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 2259,
+                "abbvr": "pd",
+                "label": "AVG Pitch Discrimination",
+                "pattern": "PD avg",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2443,
+                    "label": "Human Usability Associate"
+                  },
+                  {
+                    "id": 2827,
+                    "label": "Legacy Accountability Manager"
+                  },
+                  {
+                    "id": 2783,
+                    "label": "Human Intranet Administrator"
+                  },
+                  {
+                    "id": 3383,
+                    "label": "International Research Facilitator"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2639,
+                    "label": "Lead Applications Executive"
+                  },
+                  {
+                    "id": 2474,
+                    "label": "Customer Mobility Liaison"
+                  },
+                  {
+                    "id": 2796,
+                    "label": "Corporate Solutions Engineer"
+                  },
+                  {
+                    "id": 3210,
+                    "label": "International Accounts Executive"
+                  },
+                  {
+                    "id": 2540,
+                    "label": "Global Markets Coordinator"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1575,
+                "abbvr": "rm",
+                "label": "LOW Rhythm Memory",
+                "pattern": "RM low",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2700,
+                    "label": "Dynamic Intranet Supervisor"
+                  },
+                  {
+                    "id": 2570,
+                    "label": "Legacy Identity Consultant"
+                  },
+                  {
+                    "id": 2920,
+                    "label": "Corporate Response Strategist"
+                  },
+                  {
+                    "id": 3103,
+                    "label": "Lead Functionality Orchestrator"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2912,
+                    "label": "Customer Identity Coordinator"
+                  },
+                  {
+                    "id": 3220,
+                    "label": "National Interactions Consultant"
+                  },
+                  {
+                    "id": 3465,
+                    "label": "Product Optimization Administrator"
+                  },
+                  {
+                    "id": 3376,
+                    "label": "Regional Communications Technician"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 2056,
+                "abbvr": "td",
+                "label": "HIGH Tweezer Dexterity",
+                "pattern": "TD high",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2177,
+                    "label": "Legacy Data Facilitator"
+                  },
+                  {
+                    "id": 2654,
+                    "label": "Human Paradigm Orchestrator"
+                  },
+                  {
+                    "id": 2002,
+                    "label": "Chief Markets Analyst"
+                  },
+                  {
+                    "id": 2546,
+                    "label": "Dynamic Creative Assistant"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 3094,
+                    "label": "Customer Implementation Officer"
+                  },
+                  {
+                    "id": 3155,
+                    "label": "Customer Optimization Assistant"
+                  },
+                  {
+                    "id": 2671,
+                    "label": "Internal Usability Director"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1851,
+                "abbvr": "fd",
+                "label": "AVG Finger Dexterity",
+                "pattern": "FD avg",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2875,
+                    "label": "Dynamic Integration Executive"
+                  },
+                  {
+                    "id": 2673,
+                    "label": "Forward Usability Developer"
+                  },
+                  {
+                    "id": 2352,
+                    "label": "Internal Metrics Analyst"
+                  },
+                  {
+                    "id": 2406,
+                    "label": "Dynamic Branding Director"
+                  },
+                  {
+                    "id": 2658,
+                    "label": "Principal Response Designer"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2571,
+                    "label": "Direct Division Consultant"
+                  },
+                  {
+                    "id": 2746,
+                    "label": "Dynamic Implementation Agent"
+                  },
+                  {
+                    "id": 3226,
+                    "label": "Regional Security Representative"
+                  },
+                  {
+                    "id": 3127,
+                    "label": "Customer Functionality Director"
+                  },
+                  {
+                    "id": 2990,
+                    "label": "Central Assurance Orchestrator"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1259,
+                "abbvr": "fo",
+                "label": "HIGH Foresight",
+                "pattern": "FO high",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 2309,
+                    "label": "Dynamic Intranet Manager"
+                  },
+                  {
+                    "id": 1864,
+                    "label": "Global Brand Planner"
+                  },
+                  {
+                    "id": 3237,
+                    "label": "Product Integration Orchestrator"
+                  },
+                  {
+                    "id": 2542,
+                    "label": "Product Directives Manager"
+                  },
+                  {
+                    "id": 3553,
+                    "label": "International Mobility Orchestrator"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2219,
+                    "label": "Chief Factors Assistant"
+                  },
+                  {
+                    "id": 2222,
+                    "label": "Investor Branding Agent"
+                  },
+                  {
+                    "id": 2982,
+                    "label": "Corporate Division Facilitator"
+                  },
+                  {
+                    "id": 2202,
+                    "label": "Human Branding Director"
+                  },
+                  {
+                    "id": 3545,
+                    "label": "Regional Optimization Administrator"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              },
+              {
+                "id": 1219,
+                "abbvr": "silo",
+                "label": "LOW Silograms",
+                "pattern": "SILO low",
+                "careers": {
+                  "defaults": [
+                  {
+                    "id": 3308,
+                    "label": "National Assurance Representative"
+                  },
+                  {
+                    "id": 3297,
+                    "label": "Dynamic Configuration Coordinator"
+                  },
+                  {
+                    "id": 1891,
+                    "label": "Central Web Director"
+                  }
+                  ],
+                  "optional": [
+                  {
+                    "id": 2460,
+                    "label": "Direct Metrics Strategist"
+                  },
+                  {
+                    "id": 3079,
+                    "label": "Dynamic Implementation Director"
+                  },
+                  {
+                    "id": 2902,
+                    "label": "Corporate Branding Supervisor"
+                  }
+                  ]
+                },
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                }
+              }
+              ]
+            }
+            
+            ### Create / Edit Client Summary Report [POST]
+            
+            + Request (application/json)
+            
+            {
+              "primary": [
+              {
+                "id": 2507,
+                  "label": "Structural Visualization",
+                  "pattern": "SV",
+                  "display": {
+                    "all": "show",
+                    "desc": "show",
+                    "careers": "show"
+                  },
+                  "careers": [
+                    "2298",
+                  "2878",
+                  "2983",
+                  "2986"
+                  ]
+              },
+              {
+                "id": 2453,
+                "label": "Intermediate Personality",
+                "pattern": "Intermediate",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2204",
+                "2996",
+                "3126"
+                ]
+              }
+              ],
+              "emphasis": [
+              {
+                "id": 628,
+                "label": "Visual",
+                "pattern": "MD+CD",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2426",
+                "2540",
+                "2871"
+                ]
+              }
+              ],
+              "discussion": [
+              {
+                "id": 1445,
+                "label": "INT Personality",
+                "pattern": "PERSONALITY int",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2118",
+                "2242",
+                "2352",
+                "2454"
+                ]
+              },
+              {
+                "id": 1368,
+                "label": "HIGH Vocabulary",
+                "pattern": "VOCAB high",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2434",
+                "2447",
+                "3110"
+                ]
+              },
+              {
+                "id": 2827,
+                "label": "HIGH Structural Visualization",
+                "pattern": "SV high",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2349",
+                "2352",
+                "2902"
+                ]
+              },
+              {
+                "id": 1268,
+                "label": "AVG Ideaphoria",
+                "pattern": "ID avg",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2101",
+                "2934",
+                "2974",
+                "3093"
+                ]
+              },
+              {
+                "id": 2179,
+                "label": "LOW Inductive Reasoning",
+                "pattern": "IR low",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2359",
+                "2972",
+                "3138"
+                ]
+              },
+              {
+                "id": 2246,
+                "label": "AVG Analytical Reasoning",
+                "pattern": "AR avg",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2345",
+                "2381",
+                "2479",
+                "2629"
+                ]
+              },
+              {
+                "id": 1588,
+                "label": "HIGH Number Series",
+                "pattern": "NS high",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2147",
+                "2238",
+                "2422"
+                ]
+              },
+              {
+                "id": 1744,
+                "label": "LOW Number Facility",
+                "pattern": "NF low",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2302",
+                "2426",
+                "2440",
+                "2709"
+                ]
+              },
+              {
+                "id": 1556,
+                "label": "LOW Number Memory",
+                "pattern": "NM low",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": {
+                  "2016",
+                  "2338",
+                  "3018",
+                  "3022"
+                }
+              },
+              {
+                "id": 1199,
+                "label": "LOW Graphoria",
+                "pattern": "GRA low",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2109",
+                "2154",
+                "2357",
+                "3139"
+                ]
+              },
+              {
+                "id": 1946,
+                "label": "HIGH Memory for Design",
+                "pattern": "MD high",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2400",
+                "2448",
+                "2554",
+                "3094",
+                "3211"
+                ]
+              },
+              {
+                "id": 1438,
+                "label": "LOW Observation",
+                "pattern": "OBS low",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2314",
+                "2658",
+                "2781",
+                "3062",
+                "3662"
+                ]
+              },
+              {
+                "id": 2332,
+                "label": "HIGH Color Discrimination",
+                "pattern": "CD high",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2468",
+                "2585",
+                "2937"
+                ]
+              },
+              {
+                "id": 1501,
+                "label": "HIGH Total Memory",
+                "pattern": "TM high",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2191",
+                "2390",
+                "2433",
+                "2436",
+                "2595"
+                ]
+              },
+              {
+                "id": 2259,
+                "label": "AVG Pitch Discrimination",
+                "pattern": "PD avg",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "1918",
+                "2623",
+                "3081",
+                "3212"
+                ]
+              },
+              {
+                "id": 1575,
+                "label": "LOW Rhythm Memory",
+                "pattern": "RM low",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "1977",
+                "2196",
+                "2277",
+                "2764"
+                ]
+              },
+              {
+                "id": 2056,
+                "label": "HIGH Tweezer Dexterity",
+                "pattern": "TD high",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2238",
+                "2359",
+                "2994",
+                "3029"
+                ]
+              },
+              {
+                "id": 1851,
+                "label": "AVG Finger Dexterity",
+                "pattern": "FD avg",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2134",
+                "2146",
+                "2311",
+                "2540"
+                ]
+              },
+              {
+                "id": 1259,
+                "label": "HIGH Foresight",
+                "pattern": "FO high",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": [
+                  "2462",
+                "2708",
+                "3170"
+                ]
+              },
+              {
+                "id": 1219,
+                "label": "LOW Silograms",
+                "pattern": "SILO low",
+                "display": {
+                  "all": "show",
+                  "desc": "show",
+                  "careers": "show"
+                },
+                "careers": {
+                  "1695",
+                  "2870",
+                  "2983",
+                  "3210"
+                    ]
+                }
+                ]
+              }tic
 
 # Group Locations
 
@@ -3423,20 +3414,20 @@ These values come from the Aptitude UI
 
   + Response 200 (application/json)
 
-  {
-    "1": {
-      "id": "1",
-        "label": "Atlanta",
-        "email": "atlanta@jocrf.org",
-        "phone": "555-555-1212",
-        "timezone": "America/New_York",
-        "timezone_offset": -18000
-    },
-      "2": {
-        "id": "2",
-        "label": "Boston",
-        "email": "boston@jocrf.org",
-        "timezone": "America/New_York",
-        "timezone_offset": -18000
-      }
-  }
+          {
+            "1": {
+              "id": "1",
+                "label": "Atlanta",
+                "email": "atlanta@jocrf.org",
+                "phone": "555-555-1212",
+                "timezone": "America/New_York",
+                "timezone_offset": -18000
+            },
+              "2": {
+                "id": "2",
+                "label": "Boston",
+                "email": "boston@jocrf.org",
+                "timezone": "America/New_York",
+                "timezone_offset": -18000
+              }
+          }
