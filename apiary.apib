@@ -414,55 +414,14 @@ This should return the full client object for the detail page.
 + Response 200 (application/json)
 
         {
-          "id": 199,
-          "name": "Leroy Shelton",
-          "folder": "23088-18",
-          "appointments": [{
-              "appointment": 1,
-              "date": {
-                "start": "2018-07-02T08:30:00-600",
-                "end": "2018-07-02T12:00:00-600"
-              },
-              "location": {
-                "id": 1,
-                "name": "Denver"
-              },
-              "complete": true
-            },
-            {
-              "appointment": 2,
-              "date": {
-                "start": "2018-07-02T13:00:00-600",
-                "end": "2018-07-02T16:30:00-600"
-              },
-              "location": {
-                "id": 1,
-                "name": "Denver"
-              },
-              "complete": false
-            },
-            {
-              "appointment": 3,
-              "date": {
-                "start": "2018-07-03T08:30:00-600",
-                "end": "2018-07-03T12:00:00-600"
-              },
-              "location": {
-                "id": 1,
-                "name": "Denver"
-              },
-              "complete": false
-            }
-          ],
-          "info": {
-            "complete": true
-          },
-          "personal": {
+            "id": 199,
+            "fullName": "Leroy Shelton",
             "name": {
-              "first": "Leroy",
-              "middle": "",
-              "last": "Shelton"
+                "first": "Leroy",
+                "middle": "",
+                "last": "Shelton"
             },
+            "folder": "23088-18",
             "sex": "male",
             "pronouns": "He, Him",
             "birthdate": "1988-10-12",
@@ -473,7 +432,46 @@ This should return the full client object for the detail page.
               "state": "CO",
               "zip": "80202"
             }
-          },
+            "appointments": [{
+                "appointment": 1,
+                "date": {
+                    "start": "2018-07-02T08:30:00-600",
+                    "end": "2018-07-02T12:00:00-600"
+                },
+                "location": {
+                    "id": 1,
+                    "name": "Denver"
+                },
+                "complete": true
+            },
+            {
+                "appointment": 2,
+                "date": {
+                    "start": "2018-07-02T13:00:00-600",
+                    "end": "2018-07-02T16:30:00-600"
+                },
+                "location": {
+                    "id": 1,
+                    "name": "Denver"
+                },
+                "complete": false
+            },
+            {
+                "appointment": 3,
+                "date": {
+                    "start": "2018-07-03T08:30:00-600",
+                    "end": "2018-07-03T12:00:00-600"
+                },
+                "location": {
+                    "id": 1,
+                    "name": "Denver"
+                },
+                "complete": false
+            }
+            ],
+            "info": {
+                "complete": true
+            },
           "contacts": [{
               "email": "test@example.com",
               "phone": "555-555-1212",
@@ -703,66 +701,6 @@ This should return the full client object for the detail page.
             {
                 "id": "199",
                 "method": "7777"
-            }
-
-
-## Client Personal [/api/clients/{id}/personal]
-
-+ Parameters
-    + id: 199 (number) - Client ID
-
-### Fetch Client Personal [GET]
-
-+ Response 200 (application/json)
-
-  + Body
-
-            {
-                "id": 199,
-                "name": {
-                  "first": "Leroy",
-                  "middle": "",
-                  "last": "Shelton"
-                },
-                "sex": "male",
-                "pronouns": "He, Him",
-                "birthdate": "1988-10-12",
-                "preferred": "email",
-                "address": {
-                  "street1": "123 Anystreet",
-                  "city": "Denver",
-                  "state": "CO",
-                  "zip": "80202"
-                }
-            }
-
-### Create/Edit Client Personal [POST]
-
-+ Request (application/json)
-
-            {
-                "id": 199,
-                "name": {
-                  "first": "Leroy",
-                  "middle": "",
-                  "last": "Shelton"
-                },
-                "sex": "male",
-                "pronouns": "He, Him",
-                "birthdate": "1988-10-12",
-                "preferred": "email",
-                "address": "123 Anystreet",
-                "city": "Denver",
-                "state": "CO",
-                "zip": "80202"
-            }
-
-+ Response 201 (application/json)
-
-  + Body
-
-            {
-              "id": "199"
             }
 
 ## Client Education [/api/clients/{id}/education]
