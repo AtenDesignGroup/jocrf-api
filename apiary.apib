@@ -427,142 +427,148 @@ This should return the full client object for the detail page.
             "birthdate": "1988-10-12",
             "preferred": "email",
             "address": {
-              "street1": "123 Anystreet",
-              "city": "Denver",
-              "state": "CO",
-              "zip": "80202"
-            }
-            "appointments": [{
-                "appointment": 1,
-                "date": {
-                    "start": "2018-07-02T08:30:00-600",
-                    "end": "2018-07-02T12:00:00-600"
-                },
-                "location": {
-                    "id": 1,
-                    "name": "Denver"
-                },
-                "complete": true
+                "street1": "123 Anystreet",
+                "city": "Denver",
+                "state": "CO",
+                "zip": "80202"
             },
-            {
-                "appointment": 2,
-                "date": {
-                    "start": "2018-07-02T13:00:00-600",
-                    "end": "2018-07-02T16:30:00-600"
+            "appointments": [
+                {
+                    "appointment": 1,
+                    "date": {
+                        "start": "2018-07-02T08:30:00-600",
+                        "end": "2018-07-02T12:00:00-600"
+                    },
+                    "location": {
+                        "id": 1,
+                        "name": "Denver"
+                    },
+                    "complete": true
                 },
-                "location": {
-                    "id": 1,
-                    "name": "Denver"
+                {
+                    "appointment": 2,
+                    "date": {
+                        "start": "2018-07-02T13:00:00-600",
+                        "end": "2018-07-02T16:30:00-600"
+                    },
+                    "location": {
+                        "id": 1,
+                        "name": "Denver"
+                    },
+                    "complete": false
                 },
-                "complete": false
-            },
-            {
-                "appointment": 3,
-                "date": {
-                    "start": "2018-07-03T08:30:00-600",
-                    "end": "2018-07-03T12:00:00-600"
-                },
-                "location": {
-                    "id": 1,
-                    "name": "Denver"
-                },
-                "complete": false
-            }
+                {
+                    "appointment": 3,
+                    "date": {
+                        "start": "2018-07-03T08:30:00-600",
+                        "end": "2018-07-03T12:00:00-600"
+                    },
+                    "location": {
+                        "id": 1,
+                        "name": "Denver"
+                    },
+                    "complete": false
+                }
             ],
             "info": {
                 "complete": true
             },
-          "contacts": [{
-              "email": "test@example.com",
-              "phone": "555-555-1212",
-              "first_name": "Leroy",
-              "last_name": "Shelton"
-            },
-            {
-              "email": "dad@example.com",
-              "phone": "555-555-1213",
-              "first_name": "Dad",
-              "last_name": "Aten"
-            },
-            {
-              "email": "mom@example.com",
-              "phone": "555-555-1214",
-              "first_name": "Mom",
-              "last_name": "Aten"
-            }
-          ],
-          "education": {
-            "gradeCompleted": "college-4",
-            "lastSchool": "University of Pittsburgh",
-            "degree": "Bachelor's of Science",
-            "fieldOfStudy": "Biology",
-            "likelyToChangeMajor": 3,
-            "changeMajorTo": "",
-            "fieldOfStudy2": "Chemistry",
-            "likelyToContinueEdu": 5
-          },
-          "family": {
-            "parents": [{
-                "occupation": "Landscaper",
-                "education": "college-some"
-              },
-              {
-                "occupation": "Professor",
-                "education": "advanced"
-              }
+            "contacts": [
+                {
+                    "email": "test@example.com",
+                    "phone": "555-555-1212",
+                    "first_name": "Leroy",
+                    "last_name": "Shelton"
+                },
+                {
+                    "email": "dad@example.com",
+                    "phone": "555-555-1213",
+                    "first_name": "Dad",
+                    "last_name": "Aten"
+                },
+                {
+                    "email": "mom@example.com",
+                    "phone": "555-555-1214",
+                    "first_name": "Mom",
+                    "last_name": "Aten"
+                }
             ],
-            "twin": false,
-            "triplet": false,
-            "familyTested": "yes",
-            "name": "Fred Shelton",
-            "relationship": "Uncle",
-            "yearTested": "1977"
-          },
-          "employment": {
-            "job": {
-              "title": "Coordinating Manager",
-              "years": 4,
-              "liked": 4
+            "education": {
+                "gradeCompleted": "college-4",
+                "lastSchool": "University of Pittsburgh",
+                "degree": "Bachelor's of Science",
+                "fieldOfStudy": "Biology",
+                "likelyToChangeMajor": 3,
+                "changeMajorTo": "",
+                "fieldOfStudy2": "Chemistry",
+                "likelyToContinueEdu": 5
             },
-            "roles": [{
-                "title": "Supervising",
-                "liked": 5
-              },
-              {
-                "title": "Managing",
-                "liked": 3
-              }
+            "family": {
+                "parents": [
+                    {
+                        "occupation": "Landscaper",
+                        "education": "college-some"
+                    },
+                    {
+                        "occupation": "Professor",
+                        "education": "advanced"
+                    }
+                ],
+                "twin": false,
+                "triplet": false,
+                "familyTested": "yes",
+                "name": "Fred Shelton",
+                "relationship": "Uncle",
+                "yearTested": "1977"
+            },
+            "employment": {
+                "job": {
+                    "title": "Coordinating Manager",
+                    "years": 4,
+                    "liked": 4
+                },
+                "roles": [
+                    {
+                        "title": "Supervising",
+                        "liked": 5
+                    },
+                    {
+                        "title": "Managing",
+                        "liked": 3
+                    }
+                ],
+                "prevJobs": [
+                    {
+                        "title": "Coordinating Assistant",
+                        "years": 2,
+                        "liked": 3
+                    },
+                    {
+                        "title": "Assistant Coordinater",
+                        "years": 3,
+                        "liked": 2
+                    }
+                ]
+            },
+            "interests": [
+                {
+                    "title": "Bike Riding",
+                    "duration": "10 years"
+                },
+                {
+                  "title": "Amateur Rocketry",
+                  "duration": "5 months"
+                }
             ],
-            "prevJobs": [{
-                "title": "Coordinating Assistant",
-                "years": 2,
-                "liked": 3
-              },
-              {
-                "title": "Assistant Coordinater",
-                "years": 3,
-                "liked": 2
-              }
-            ]
-          },
-          "interests": [{
-              "title": "Bike Riding",
-              "duration": "10 years"
+            "final": {
+                "referred": "familyMemberTested",
+                "notes": "Uncle got tested and recommended I try it out"
             },
-            {
-              "title": "Amateur Rocketry",
-              "duration": "5 months"
+            "payment": {
+                "amount": 750,
+                "remaining": 0,
+                "complete": true
             }
-          ],
-          "final": {
-            "referred": "familyMemberTested",
-            "notes": "Uncle got tested and recommended I try it out"
-          },
-          "payment": {
-            "amount": 750,
-            "remaining": 0,
-            "complete": true
-          }
         }
         
         ### Edit Client [POST]
