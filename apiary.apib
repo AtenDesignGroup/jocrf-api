@@ -241,9 +241,100 @@ dateMin and dateMax must be submitted together, defaults to current week.
             "appointment": 1,
             "date": {
               "start": "2018-07-04T08:30:00-600",
-              "end": "2018-07-04T12:00:00-600",
+              "end": "2018-07-04T12:00:00-600"
             }
         }
+
+## Logs [/api/logs{?location,dateStart,dateEnd}]
+
+### Logs for single Location [GET]
+
++ Parameters
+  + location (optional) - The location id (Defaults to current user location)
+  + dateStart  (optional) - Start range of week YYYY-MM-DD
+  + dateEnd  (optional) - End range of week YYYY-MM-DD
+
++ Response 200 (application/json)
+
+        {
+            "logs": [
+              {
+                "id": 4555,
+                "availability": 2,
+                "date": "2018-07-04T08:30:00-600",
+                "location": 1,
+                "note": "Fred out early\n Sally has an appointment"
+              },
+              {
+                "id": 4565,
+                "availability": 3,
+                "date": "2018-07-04T12:30:00-600",
+                "location": 1,
+                "note": "Saundra doctor appointment"
+              },
+              {
+                "id": 4565,
+                "availability": 3,
+                "date": "2018-08-04T08:30:00-600",
+                "location": 1,
+                "note": "Mindi picking up kids all morning"
+              }
+            ]
+        }
+
+### Create Log [POST]
+
++ Request (application/json)
+
+        {
+            "availability" 2,
+            "date": "2018-07-03T08:30:00-600"
+            "location": 1,
+            "note": "Mindi picking up kids all morning"
+        }
+
++ Response 201 (application/json)
+
+        {
+          "id": 4565
+        }
+
+## Log [/api/logs/{id}]
+
++ Parameters
+    + id: 3719 (number) - Appointment ID
+
+### Fetch Log [GET]
+
++ Response 200 (application/json)
+
+        {
+          "id": 4565,
+          "availability": 3,
+          "date": "2018-08-04T08:30:00-600",
+          "location": 1,
+          "note": "Mindi picking up kids all morning"
+        }
+
+
+### Edit Log [POST]
+
++ Request (application/json)
+
+        {
+            "id": 4565,
+            "availability" 1,
+            "date": "2018-07-03T08:30:00-600"
+            "location": 1,
+            "note": "Mindi picking up kids all morning, Fredericka has a Drs appointment"
+        }
+
++ Response 201 (application/json)
+
+        {
+          "id": 3719,
+        }
+
 
 # Group Clients
 
