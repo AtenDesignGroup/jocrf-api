@@ -198,7 +198,7 @@ dateMin and dateMax must be submitted together, defaults to current week.
 + Response 200 (application/json)
 
         {
-        "id": 3719,
+            "id": 3719,
             "appointment": 1,
             "date": {
                 "start": "2018-07-03T08:30:00-600",
@@ -230,27 +230,17 @@ dateMin and dateMax must be submitted together, defaults to current week.
             {
                 "id": 3719,
                 "appointment": 1,
-                "client": {
-                    "id": 201
-                },
-                "location": {
-                    "id": 1
-                },
                 "date": {
                     "start": "2018-07-04T08:30:00-600",
                     "end": "2018-07-04T12:00:00-600",
                 }
+                "complete": true
             }
 
 + Response 201 (application/json)
 
         {
-            "id": 3719,
-            "appointment": 1,
-            "date": {
-                "start": "2018-07-04T08:30:00-600",
-                "end": "2018-07-04T12:00:00-600"
-            }
+            "id": 3719
         }
 
 ## Logs [/api/logs{?location,dateStart,dateEnd}]
@@ -266,28 +256,28 @@ dateMin and dateMax must be submitted together, defaults to current week.
 + Response 200 (application/json)
 
         {
+            "id": 1
+            "location": {
+                "id": 1,
+                "name": "Denver"
+            }
             "logs": [
               {
                 "id": 4555,
                 "availability": 2,
                 "date": "2018-07-04T08:30:00-600",
-                "location": {
-                    "id": 1
-                },
                 "note": "Fred out early\n Sally has an appointment"
               },
               {
                 "id": 4565,
                 "availability": 3,
                 "date": "2018-07-04T12:30:00-600",
-                "location": 1,
                 "note": "Saundra doctor appointment"
               },
               {
                 "id": 4565,
                 "availability": 3,
                 "date": "2018-08-04T08:30:00-600",
-                "location": 1,
                 "note": "Mindi picking up kids all morning"
               }
             ]
@@ -300,7 +290,7 @@ dateMin and dateMax must be submitted together, defaults to current week.
     + Body
 
             {
-                "availability" 2,
+                "availability": 2,
                 "date": "2018-07-03T08:30:00-600"
                 "location": 1,
                 "note": "Mindi picking up kids all morning"
@@ -316,20 +306,7 @@ dateMin and dateMax must be submitted together, defaults to current week.
 
 + Parameters
 
-    + id: 3719 (number) - Appointment ID
-
-### Fetch Log [GET]
-
-+ Response 200 (application/json)
-
-        {
-          "id": 4565,
-          "availability": 3,
-          "date": "2018-08-04T08:30:00-600",
-          "location": 1,
-          "note": "Mindi picking up kids all morning"
-        }
-
+    + id: 4565 (number) - Log ID
 
 ### Edit Log [POST]
 
@@ -339,16 +316,15 @@ dateMin and dateMax must be submitted together, defaults to current week.
 
             {
                 "id": 4565,
-                "availability" 1,
+                "availability": 1,
                 "date": "2018-07-03T08:30:00-600"
-                "location": 1,
                 "note": "Mindi picking up kids all morning, Fredericka has a Drs appointment"
             }
 
 + Response 201 (application/json)
 
         {
-          "id": 3719,
+          "id": 4565
         }
 
 
