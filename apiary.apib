@@ -915,69 +915,50 @@ Edit client should match Create client
 
 + Response 200 (application/json)
 
-            {
-                "id": 199,
-                "job": {
-                    "title": "Coordinating Manager",
-                    "years": 4,
-                    "liked": 4
-                },
-                "roles": [
-                    {
-                        "title": "Supervising",
-                        "liked": 5
-                    },
-                    {
-                        "title": "Managing",
-                        "liked": 3
-                    }
-                ],
-                "prevJobs": [
-                    {
-                        "title": "Coordinating Assistant",
-                        "years": 2,
-                        "liked": 3
-                    },
-                    {
-                        "title": "Assistant Coordinater",
-                        "years": 3,
-                        "liked": 2
-                    }
-                ]
-            }
+          [{
+              "id": 45,
+              "title": "Dunder Mifflin",
+              "years": 4,
+              "liked": 4,
+              "current": "true",
+              "roles": [{
+                  "title": "Assistant Manager",
+                  "liked": 5
+              },
+              {
+                  "title": "Secretary",
+                  "liked": 3
+              }]
+          },
+          {
+              "id": 55,
+              "title": "Grin Reaper Dentistry",
+              "years": ".5",
+              "liked": "4",
+              "current": "false",
+              "roles": [{
+                "title": "Intern",
+                "liked": 5
+              }]
+          }]
 
 ### Create/Edit Client Employment [POST]
 
 + Request (application/json)
 
         {
-            "job": {
-                "title": "Coordinating Manager",
-                "years": 4,
-                "liked": 4
+            "title": "Shoes Hound",
+            "years": 1,
+            "liked": 2,
+            "current": "true",
+            "roles": [{
+              "title": "Assistant Manager",
+              "liked": 5
             },
-            "roles": [
-                {
-                    "title": "Supervising",
-                    "liked": 5
-                },
-                {
-                    "title": "Managing",
-                    "liked": 3
-                }
-            ],
-            "prevJobs": [
-                {
-                    "title": "Coordinating Assistant",
-                    "years": 2,
-                    "liked": 3
-                },
-                {
-                    "title": "Assistant Coordinater",
-                    "years": 3,
-                    "liked": 2
-                }
-            ]
+            {
+              "title": "Secretary",
+              "liked": 3
+            }]
         }
 
 + Response 201 (application/json)
