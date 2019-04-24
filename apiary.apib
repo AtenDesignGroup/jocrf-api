@@ -619,10 +619,15 @@ This should return the full client object for the detail page.
                 ],
                 "twin": false,
                 "triplet": false,
-                "familyTested": "yes",
-                "name": "Fred Shelton",
-                "relationship": "Uncle",
-                "yearTested": "1977"
+                "familyTested": [
+                    {
+                        "tested": "1",
+                        "name": "Fred Shelton",
+                        "date": "2017-08-09",
+                        # "relationship": "Uncle",
+                        "city": "Seattle"
+                    }
+                ]
             },
             "employment": {
                 "job": {
@@ -888,10 +893,15 @@ Edit client should match Create client
                 ],
                 "twin": false,
                 "triplet": false,
-                "familyTested": "yes",
-                "name": "Fred Shelton",
-                "relationship": "Uncle",
-                "yearTested": "1977"
+                "familyTested": [
+                    {
+                        "tested": "1",
+                        "name": "Fred Shelton",
+                        "date": "2017-08-09",
+                        # "relationship": "Uncle",
+                        "city": "Seattle"
+                    }
+                ]
             }
 
 ### Create/Edit Client Family [POST]
@@ -912,10 +922,15 @@ Edit client should match Create client
                 ],
                 "twin": false,
                 "triplet": false,
-                "familyTested": "yes",
-                "name": "Fred Shelton",
-                "relationship": "Uncle",
-                "yearTested": "1977"
+                "familyTested": [
+                    {
+                        "tested": "1",
+                        "name": "Fred Shelton",
+                        "date": "2017-08-09",
+                        # "relationship": "Uncle",
+                        "city": "Seattle"
+                    }
+                ]
             }
 
 + Response 201 (application/json)
