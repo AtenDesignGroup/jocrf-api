@@ -424,7 +424,7 @@ Client objects are truncated to info used on clients list page.
                 }
             ],
             "location": {
-            "id": 1,
+                "id": 1,
                 "name": "Denver"
             },
             "links": {
@@ -446,12 +446,35 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
     + Body
 
             {
+        
+                "email": "alan+test+client@aten.io",
+                "firstName": "Alan",
+                "lastName": "TestClient",
+                "location": 5,
+                "sex": "female",
+                "pronouns": "Her, Hers",
+                "address": {
+                    "address_line1": "1234 Test Client Dr.",
+                    "city": "Denver",
+                    "state": "CO",
+                    "postal_code": "10709"
+                },
+                "education": {
+                    "gradeCompleted": "college-4",
+                    "lastSchool": "University of Pittsburgh",
+                    "degree": "Bachelor's of Science",
+                    "fieldOfStudy": "Biology",
+                    "likelyToChangeMajor": 3,
+                    "changeMajorTo": "",
+                    "fieldOfStudy2": "Chemistry",
+                    "likelyToContinueEdu": 5
+                },
                 "contacts": [
                     {
                         "email": "test@example.com",
                         "phone": "555-555-1212",
                         "first_name": "Test",
-                        "last_name": "Aten",
+                        "last_name": "Aten"
                     },
                     {
                         "email": "dad@example.com",
