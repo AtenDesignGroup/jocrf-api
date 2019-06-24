@@ -784,18 +784,27 @@ Edit client should match Create client
             {
                 "methods": [
                     {
-                        "id": "243",
+                        "id": 243,
                         "last4": "7777",
-                        "type": "visa",
+                        "type": "visa"
                     }
                 ]
             }
-
 
 ### Create Client Payment Methods [POST]
 
 + Request (application/json)
 
+    + Attributes
+        + card (object)
+          + type - Type of credit card
+          Autopopulated from number if empty
+          + name - Name on card
+          + number (number) - Card number with no spaces
+          + expMonth (number) - Expiration month two digits
+          + expYear (number) - Expiration year 4 digits
+          + cvv (number) - Security code
+n
     + Body
 
             {
@@ -824,7 +833,7 @@ Edit client should match Create client
             {
                 "id": "199",
                 "last4": "7777",
-                "type": "visa",
+                "type": "visa"
             }
 
 ## Client Education [/api/clients/{id}/education]
