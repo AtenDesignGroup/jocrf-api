@@ -782,10 +782,12 @@ Edit client should match Create client
     + Body
 
             {
-                "id": "199",
                 "methods": [
-                    "8444",
-                    "5566"
+                    {
+                        "id": "243",
+                        "last4": "7777",
+                        "type": "visa",
+                    }
                 ]
             }
 
@@ -797,19 +799,21 @@ Edit client should match Create client
     + Body
 
             {
-                "id": 199,
-                "name": {
-                    "first": "Leroy",
-                    "last": "Shelton"
-                },
-                "address": "123 Anystreet",
-                "city": "Denver",
-                "state": "CO",
-                "zip": "80202",
                 "card": {
-                    "number": "4444 5555 6666 7777",
-                    "expiration": "12 / 25",
+                    "type": "visa",
+                    "name": "Leroy Shelton",
+                    "number": "4444555566667777",
+                    "expMonth": "12",
+                    "expYear": "25",
                     "cvv": "808"
+                },
+                "billingAddress": {
+                    "firstName": "Leroy",
+                    "lastName": "Shelton",
+                    "address": "123 Anystreet",
+                    "city": "Denver",
+                    "state": "CO",
+                    "postalCode": "80202"
                 }
             }
 
@@ -819,7 +823,8 @@ Edit client should match Create client
 
             {
                 "id": "199",
-                "method": "7777"
+                "last4": "7777",
+                "type": "visa",
             }
 
 ## Client Education [/api/clients/{id}/education]
