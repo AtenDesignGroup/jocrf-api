@@ -741,7 +741,7 @@ Edit client should match Create client
             "payments": [
             {
                 "date": "2018-07-03T17:35:00-600",
-                "method": "8444",
+                "payment_method": "8444",
                 "amount": 100
             },
             {
@@ -757,7 +757,8 @@ Edit client should match Create client
 
         {
             "date": "2018-07-03T17:35:00-600",
-            "method": "8444",
+            "payment_method": "8444",
+            "skip_payment_gateway": true,
             "amount": 100
         }
 
