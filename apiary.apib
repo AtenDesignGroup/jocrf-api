@@ -1110,7 +1110,7 @@ n
 
 + Parameters
 
-    + id: 199 (number) - Client ID
+    + id: 199 (number) - Assessment ID. Include this ID for updates
 
 ### Fetch Client Scores [GET]
 
@@ -1166,7 +1166,10 @@ The object received should contain config information, such as test "options" li
                     "score": "185",
                     "norm": "85",
                     "date": "11/28/2018",
-                    "admin": 'Lisa Cook',
+                    "admin": {
+                      "id": 5,
+                      "name": "Lisa Cook"
+                    },
                     "inc": false,
                     "nt": false,
                     "nfr": false,
@@ -1178,7 +1181,7 @@ The object received should contain config information, such as test "options" li
                         "code": "EN",
                         "name": 'Wiggly Block',
                         "options": {
-                            "number": [
+                            "wigglyBlockNumber": [
                                 "",
                                 "4",
                                 "45",
@@ -1195,7 +1198,8 @@ The object received should contain config information, such as test "options" li
                     "inc": false,
                     "nt": false,
                     "nfr": false,
-                    "tried": ""
+                    "tried": "",
+                    "wigglyBlockNumber": "45"
                 }
             ]
         }
@@ -1218,7 +1222,9 @@ The object sent matches the received object exactly, except with additional valu
                     "score": "220",
                     "norm": "85",
                     "date": "11/28/2018",
-                    "admin": "Lisa Cook",
+                    "admin": {
+                      "id": 5
+                    },
                     "inc": false,
                     "nt": false,
                     "nfr": false,
@@ -1240,7 +1246,9 @@ The object sent matches the received object exactly, except with additional valu
                     "score": "800",
                     "norm": "75",
                     "date": "11/27/2018",
-                    "admin": "Lisa Cook",
+                    "admin": {
+                      "id": 5
+                    },
                     "inc": true,
                     "nt": false,
                     "nfr": false,
@@ -1280,7 +1288,6 @@ The object sent matches the received object exactly, except with additional valu
                     "score": "185",
                     "norm": "85",
                     "date": "11/28/2018",
-                    "admin": "Lisa Cook",
                     "inc": false,
                     "nt": true,
                     "nfr": false,
