@@ -446,7 +446,7 @@ Optional 2nd and 3rd objects are Parent / Guardian contact info.
     + Body
 
             {
-        
+
                 "email": "alan+test+client@aten.io",
                 "firstName": "Alan",
                 "lastName": "TestClient",
@@ -677,7 +677,7 @@ This should return the full client object for the detail page.
                 "complete": true
             }
         }
-        
+
 ### Edit Client [POST]
 
 Edit client should match Create client
@@ -1034,44 +1034,60 @@ n
 
 + Response 200 (application/json)
 
-        {
-            "id": 199,
-            "interests": [
-                {
-                    "title": "Bike Riding",
-                    "duration": "10 years"
-                },
-                {
-                    "title": "Amateur Rocketry",
-                    "duration": "5 months"
-                }
-            ]
-        }
+      [
+          {
+              "id": "1229",
+              "title": "Cooking",
+              "duration": "2"
+          },
+          {
+              "id": "1231",
+              "title": "Candle Making",
+              "duration": "3"
+          },
+          {
+              "id": "1233",
+              "title": "Amateur Rocketry",
+              "duration": "5"
+          },
+          {
+              "id": "1234",
+              "title": "Poetry",
+              "duration": "5"
+          }
+      ]
 
 ### Create/Edit Client Interests [POST]
 
 + Request (application/json)
 
-        {
-            "interests": [
-                {
-                "title": "Bike Riding",
-                    "duration": "10 years"
-                },
-                {
-                "title": "Amateur Rocketry",
-                "duration": "5 months"
-                }
-            ]
-        }
+      [
+          {
+          "title": "Cooking",
+              "duration": "10"
+          },
+          {
+          "title": "Candle Making",
+          "duration": "5"
+          }
+      ]
 
 + Response 201 (application/json)
 
   + Body
 
-            {
-              "id": "199"
-            }
+      [
+          {
+              "id": "1229",
+              "title": "Cooking",
+              "duration": "2"
+          },
+          {
+              "id": "1231",
+              "title": "Candle Making",
+              "duration": "3"
+          }
+      ]
 
 ## Client Final [/api/clients/{id}/final]
 
