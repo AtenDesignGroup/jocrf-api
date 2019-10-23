@@ -4075,3 +4075,51 @@ These values come from the Aptitude UI
                 "timezone_offset": -14400
             }
         }
+
+# Group Notifications
+
+## Confirmation [/api/clients/{{client_user_id}}/send/confirmation]
+
+Send a temporary login link to the client that will redirect them back to the application /client-info?code=XXXXXX.
+
+### Send the confirmation email [POST]
+
++ Attributes
+    + NONE
+
++ Response 200 (application/json)
+
+        {
+            "message": "The email was successfully sent to example@example.com."
+        }
+
+## Report [/api/clients/{{client_user_id}}/send/report]
+
+Send a temporary login link to the client that will redirect them back to the application /api/clients/{client_user_id}/report-download?code=XXXXXX.
+
+### Send the report email [POST]
+
++ Attributes
+    + NONE
+
++ Response 200 (application/json)
+
+        {
+            "message": "The email was successfully sent to example@example.com."
+        }
+
+## Resend Email [/api/clients/resend]
+
+This endpoint will resend a report or confirmation email if a user with the applicable email address is found in the system.
+
+### Resend available client emails [POST]
+
++ Attributes
+    + email - example@example.com
+    + type (string) Currently "report" or "confirmation"
+
++ Response 200 (application/json)
+
+        {
+            "message": "The email was successfully sent to example@example.com."
+        }
