@@ -4078,9 +4078,9 @@ These values come from the Aptitude UI
 
 # Group Notifications
 
-## Confirmation [/api/clients/{{client_user_id}}/send/confirmation]
+## Confirmation [/api/clients/{{client_user_id}}/send/clientinfo]
 
-Send a temporary login link to the client that will redirect them back to the application /client-info?code=XXXXXX.
+Send a temporary login link to the client that will redirect them back to the application /client-info?code=XXXXXX. Note: This email is sent in jocrf_core_user_insert automatically. Manual sending could use this endpoint.
 
 ### Send the confirmation email [POST]
 
@@ -4095,28 +4095,31 @@ Send a temporary login link to the client that will redirect them back to the ap
 
 ## Report [/api/clients/{{client_user_id}}/send/report]
 
-Send a temporary login link to the client that will redirect them back to the application /api/clients/{client_user_id}/report-download?code=XXXXXX.
+A PDF of the report is attached to the email.
 
 ### Send the report email [POST]
 
 + Attributes
-    + NONE
+    + client_id (int)
+    + test (bool) Will use a DocRaptor test PDF.
+    + regenerate (bool) Will force regenerating a report.
+    + emails (array) An array of email addresses.
 
 + Response 200 (application/json)
 
         {
-            "message": "The email was successfully sent to example@example.com."
+            "message": "The email was successfully sent to example@example.com, example2@example.com."
         }
 
-## Resend Email [/api/clients/resend]
+## Resend Email [/api/clients/{{client_user_id}}/resend]
 
-This endpoint will resend a report or confirmation email if a user with the applicable email address is found in the system.
+This endpoint will currently resend the client info email. The client info id and email attached to the client user are validated.
 
 ### Resend available client emails [POST]
 
 + Attributes
     + email - example@example.com
-    + type (string) Currently "report" or "confirmation"
+    + type (string) Currently "clientinfo"
 
 + Response 200 (application/json)
 
