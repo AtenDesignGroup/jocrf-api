@@ -458,22 +458,22 @@ Note, all client data can tecnically be passed. This documentation focusses on Y
 
     + Body
 
-          {
-              "location": "6",
-              "email": "dave@example.com",
-              "firstName": "Dave",
-              "middleName": "Curtis",
-              "lastName": "Park",
-              "sex": "Male",
-              "pronouns": "His, Him",
-              "contacts": [
-                  {
-                      "name": "Mr Park",
-                      "type": "guardian",
-                      "email": "email@example.com",
-                      "phone": "555-555-6785",
-                      "preferred": "phone"
-                  },
+            {
+                "location": "6",
+                "email": "dave@example.com",
+                "firstName": "Dave",
+                "middleName": "Curtis",
+                "lastName": "Park",
+                "sex": "Male",
+                "pronouns": "His, Him",
+                "contacts": [
+                    {
+                        "name": "Mr Park",
+                        "type": "guardian",
+                        "email": "email@example.com",
+                        "phone": "555-555-6785",
+                        "preferred": "phone"
+                    },
                   {
                       "name": "Mrs Park",
                       "type": "guardian",
@@ -490,7 +490,7 @@ Note, all client data can tecnically be passed. This documentation focusses on Y
                 "state": "CO",
                 "zip": "80014"
               }
-          }
+            }
 
 + Response 201 (application/json)
 
@@ -1088,7 +1088,7 @@ Only the first job should get flagged as "current". Additional jobs do not have 
 
 + Response 200 (application/json)
 
-      [
+        [
           {
               "id": "1229",
               "title": "Cooking",
@@ -1109,7 +1109,7 @@ Only the first job should get flagged as "current". Additional jobs do not have 
               "title": "Poetry",
               "duration": "5"
           }
-      ]
+        ]
 
 ### Create/Edit Client Interests [POST]
 
