@@ -269,21 +269,27 @@ dateMin and dateMax must be submitted together, defaults to current week.
             "logs": [
               {
                 "id": 4555,
-                "availability": 2,
                 "date": "2018-07-04T08:30:00-600",
-                "note": "Fred out early\n Sally has an appointment"
+                "am": {
+                    "availability": 2,
+                    "note": "Fred out early\n Sally has an appointment"
+                },
+                "pm": {
+                    "availability": 3,
+                    "note": "No notes",
+                }
               },
               {
                 "id": 4565,
-                "availability": 3,
                 "date": "2018-07-04T12:30:00-600",
-                "note": "Saundra doctor appointment"
-              },
-              {
-                "id": 4565,
-                "availability": 3,
-                "date": "2018-08-04T08:30:00-600",
-                "note": "Mindi picking up kids all morning"
+                "am": {
+                    "availability": 3,
+                    "note": "Saundra doctor appointment"
+                },
+                {
+                    "availability": 3,
+                    "note": "Mindi picking up kids all morning"
+                }
               }
             ]
         }
@@ -295,10 +301,16 @@ dateMin and dateMax must be submitted together, defaults to current week.
     + Body
 
             {
-                "availability": 2,
-                "date": "2018-07-03T08:30:00-600"
                 "location": 1,
-                "note": "Mindi picking up kids all morning"
+                "date": "2018-07-03T08:30:00-600",
+                "am": {
+                    "availability": 2,
+                    "note": "Mindi picking up kids all morning",
+                },
+                "pm": {
+                    "availability": 2,
+                    "note": "",
+                },
             }
 
 + Response 201 (application/json)
@@ -321,9 +333,15 @@ dateMin and dateMax must be submitted together, defaults to current week.
 
             {
                 "id": 4565,
-                "availability": 1,
-                "date": "2018-07-03T08:30:00-600"
-                "note": "Mindi picking up kids all morning, Fredericka has a Drs appointment"
+                "date": "2018-07-03T08:30:00-600",
+                "am": {
+                    "availability": 1,
+                    "note": "Mindi picking up kids all morning, Fredericka has a Drs appointment",
+                },
+                "pm": {
+                    "availability": 3,
+                    "note": "",
+                },
             }
 
 + Response 201 (application/json)
