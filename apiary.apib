@@ -765,6 +765,25 @@ Edit client should match Create client
             {
                 "id": "199"
             }
+            
+### Add Client Payment (with Payment Method) [POST]
+
++ Request (application/json)
+    
+    + Attributes (object)
+    
+        + date: `2018-07-03T17:35:00-600`
+        + method: (Payment Method)
+        + `skip_payment_gateway`: true
+        + amount: 100
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "id": "199"
+            }
 
 ## Client Payment Methods [/api/clients/{id}/payment-methods]
 
@@ -774,71 +793,32 @@ Edit client should match Create client
 
 ### Fetch Client Payment Methods [GET]
 
+
+    
 + Response 200 (application/json)
 
-    + Body
+    + Attributes
+        
+        + methods (array)
+        
+            - (Payment Method)
+                - id: 243
+                - card: 7777
+                - type: visa
 
-            {
-                "methods": [
-                    {
-                        "id": 243,
-                        "card": "7777",
-                        "type": "visa",
-                        "billingAddress": {
-                          "street": "4321 Test Dr",
-                          "city": "Denver",
-                          "state": "CO",
-                          "zip": "80014"
 
-                        }
-                    }
-                ]
-            }
 
 ### Create Client Payment Methods [POST]
 
 + Request (application/json)
 
-    + Attributes
-        + card (object)
-          + type - Type of credit card
-          Autopopulated from number if empty
-          + name - Name on card
-          + number (number) - Card number with no spaces
-          + expMonth (number) - Expiration month two digits
-          + expYear (number) - Expiration year 4 digits
-          + cvv (number) - Security code
-n
-    + Body
-
-            {
-                "card": {
-                    "type": "visa",
-                    "name": "Leroy Shelton",
-                    "number": "4444555566667777",
-                    "expMonth": "12",
-                    "expYear": "25",
-                    "cvv": "808"
-                },
-                "billingAddress": {
-                    "firstName": "Leroy",
-                    "lastName": "Shelton",
-                    "address": "123 Anystreet",
-                    "city": "Denver",
-                    "state": "CO",
-                    "postalCode": "80202"
-                }
-            }
+    + Attributes (Payment Method)
 
 + Response 201 (application/json)
 
-    + Body
-
-            {
-                "id": "199",
-                "last4": "7777",
-                "type": "visa"
-            }
+    + Attributes (Payment Method)
+        + id: 199
+        + card: 7777
 
 ## Client Education [/api/clients/{id}/education]
 
@@ -4152,3 +4132,22 @@ This endpoint will currently resend the client info email. The client info id an
         {
             "message": "The email was successfully sent to example@example.com."
         }
+        
+# Data Structures
+
+## Payment Method
++ card (object)
+    + type: visa - Type of credit card. Autopopulated from number if empty
+    + name: Jane Doe - Full name on card
+    + number: 4111111111111111 - Card number with no spaces
+    + expMonth: 12 - Expiration month two digits
+    + expYear: 26 - Expiration year 4 digits
+    + cvv: 417 - Security code
++ billingAddress (object)
+    + firstName: Leroy - Billing address first name
+    + lastName: Shelton - Billing address last name
+    + street1: 4321 Test Dr - Billing street
+    + city: Denver - Billing city/province
+    + state: CO - Billing state/province
+    + zip: 80014 - Billing zip/postal code
+    + countryCode: US - Two digit country code
