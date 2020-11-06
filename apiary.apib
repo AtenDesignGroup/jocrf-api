@@ -719,71 +719,6 @@ Edit client should match Create client
               "id": "199"
             }
 
-## Client Payment [/api/clients/{id}/payments]
-
-+ Parameters
-
-    + id: 199 (number) - Client ID
-
-### Fetch Client Payments [GET]
-
-+ Response 200 (application/json)
-
-        {
-            "id": 199,
-            "amount": 750,
-            "remaining": 0,
-            "complete": true,
-            "payments": [
-            {
-                "date": "2018-07-03T17:35:00-600",
-                "method": "8444",
-                "amount": 100
-            },
-            {
-                "date": "2018-07-04T08:30:00-600",
-                "method": "8444",
-                "amount": 650
-            }]
-        }
-
-### Add Client Payment [POST]
-
-+ Request (application/json)
-
-        {
-            "date": "2018-07-03T17:35:00-600",
-            "method": "8444",
-            "skip_payment_gateway": true,
-            "amount": 100
-        }
-
-+ Response 201 (application/json)
-
-    + Body
-
-            {
-                "id": "199"
-            }
-            
-### Add Client Payment (with Payment Method) [POST]
-
-+ Request (application/json)
-    
-    + Attributes (object)
-    
-        + date: `2018-07-03T17:35:00-600`
-        + method: (Payment Method)
-        + `skip_payment_gateway`: true
-        + amount: 100
-
-+ Response 201 (application/json)
-
-    + Body
-
-            {
-                "id": "199"
-            }
 
 ## Client Payment Methods [/api/clients/{id}/payment-methods]
 
@@ -791,9 +726,8 @@ Edit client should match Create client
 
     + id: 199 (number) - Client ID
 
+
 ### Fetch Client Payment Methods [GET]
-
-
     
 + Response 200 (application/json)
 
@@ -3994,6 +3928,81 @@ These values come from the Aptitude UI
                 "id": "199"
             }
 
+# Group Client Orders
+
+## Client Orders [/api/clients/{user}/orders]
+
++ Parameters
+
+    + user: 199 (number) - Client ID
+
+### Fetch client orders [GET]
+
++ Response 200 (application/json)
+
+    + Attributes
+        + orders (array)
+            - (Order)
+              + id: 1234
+
+    + Body
+
+### Create client order [POST]
+
++ Request (application/json)
+
+    + Attributes (Order)
+
++ Response 201 (application/json)
+
+    + Attributes (Order)
+
+
+## Client Order Payments [/api/clients/{user}/orders/{order}/payments]
+
++ Parameters
+
+    + user: 199 (number) - Client ID
+    + order: 2949 (number) - Order ID
+
+### Fetch client order payments [GET]
+
+Get a list of orders for a specific client
+
++ Response 200 (application/json)
+
+    + Attributes (array[Payment])
+
+### Add client order payment [POST]
+
++ Request (application/json)
+
+        {
+            "date": "2018-07-03T17:35:00-600",
+            "method": "8444",
+            "skip_payment_gateway": true,
+            "amount": 100
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (array[Payment])
+
+### Add Client Payment (with Payment Method) [POST]
+
++ Request (application/json)
+
+    + Attributes (object)
+
+        + date: `2018-07-03T17:35:00-600`
+        + method: (Payment Method)
+        + `skip_payment_gateway`: true
+        + amount: 100
+
++ Response 201 (application/json)
+
+    + Attributes (array[Payment])
+
 # Group Locations
 
 ## Location collection [/api/locations]
@@ -4151,3 +4160,38 @@ This endpoint will currently resend the client info email. The client info id an
     + state: CO - Billing state/province
     + zip: 80014 - Billing zip/postal code
     + countryCode: US - Two digit country code
+
+## Payment
++ id: 1234 - Payment entity ID
++ amount: 100 - Payment amount
++ currencyCode: USD - Currency code 3 digits
++ date: 2020-11-07T20:55:02+0000 - Datetime of transaction with offset
++ method: Check - Payment method type
++ methodId: 24 - Payment method ID
++ status: completed - Payment status
++ statusLabel: Completed - Payment status label
+
+## Order
++ amount: 750 - Order amount (deprecated, should use subtotal or remaining)
++ subtotal: 750 - Price before coupons and adjustments
++ remaining: 0 - Remaining balance dollar amount
++ items (array)
+  - (Order Item)
++ coupons (array)
+  - (Coupon)
++ adjustments (array)
+  - (Adjustment)
+
+## Order Item
+  + id: 23 - Order item entity id
+  + quantity: 1 - Item quantity
+  + sku: default - Product variation sku
+
+## Coupon
+  + id: 1234 - The coupon entity id, automatically looked up
+  + code: ccterminal - The coupon code, ccterminal, scholarship, training, or publicinfo
+  + promotion_id: 1 - The promotion connected to the coupon, automatically looked up
+
+## Adjustment
+  + type: gift_card - Type of adjustment, only gift_card at the time
+  + amount: 150 - Positive number to deduct from order total
