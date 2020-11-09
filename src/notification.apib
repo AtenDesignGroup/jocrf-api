@@ -1,0 +1,50 @@
+# Group Notifications
+
+## Confirmation [/api/clients/{{client_user_id}}/send/clientinfo]
+
+Send a temporary login link to the client that will redirect them back to the application /client-info?code=XXXXXX. Note: This email is sent in jocrf_core_user_insert automatically. Manual sending could use this endpoint.
+
+### Send the confirmation email [POST]
+
++ Attributes
+    + NONE
+
++ Response 200 (application/json)
+
+        {
+            "message": "The email was successfully sent to example@example.com."
+        }
+
+## Report [/api/clients/{{client_user_id}}/send/report]
+
+A PDF of the report is attached to the email.
+
+### Send the report email [POST]
+
++ Attributes
+    + client_id (int)
+    + test (bool) Will use a DocRaptor test PDF.
+    + regenerate (bool) Will force regenerating a report.
+    + emails (array) An array of email addresses.
+
++ Response 200 (application/json)
+
+        {
+            "message": "The email was successfully sent to example@example.com, example2@example.com."
+        }
+
+## Resend Email [/api/clients/{{client_user_id}}/resend]
+
+This endpoint will currently resend the client info email. The client info id and email attached to the client user are validated.
+
+### Resend available client emails [POST]
+
++ Attributes
+    + email - example@example.com
+    + type (string) Currently "clientinfo"
+
++ Response 200 (application/json)
+
+        {
+            "message": "The email was successfully sent to example@example.com."
+        }

@@ -1,0 +1,291 @@
+# Group Scheduling
+
+## Appointments [/api/appointments{?location,dateStart,dateEnd}]
+
+Example: `?dateStart=2019-01-28&dateEnd=2019-02-03`
+dateMin and dateMax must be submitted together, defaults to current week.
+
+### Appointments for single Location [GET]
+
++ Parameters
+
+    + location (optional) - The location id (Defaults to current user location)
+    + dateStart  (optional) - Start range of week YYYY-MM-DD
+    + dateEnd  (optional) - End range of week YYYY-MM-DD
+
++ Response 200 (application/json)
+
+        {
+            "appointments": [
+                {
+                    "id": 3706,
+                    "appointment": 1,
+                    "date": {
+                        "start": "2018-07-02T08:30:00-600",
+                        "end": "2018-07-02T12:00:00-600"
+                    },
+                    "client": {
+                        "id": 199,
+                        "name": "Leroy Shelton",
+                        "folder": "23088-18"
+                    },
+                    "ta": {
+                        "id": 309,
+                        "name": "Rodney Schwartz",
+                        "image": "http://example.com/bio/309.jpg"
+                    },
+                    "room": 25
+                },
+                {
+                    "id": 3709,
+                    "appointment": 2,
+                    "date": {
+                        "start": "2018-07-02T13:00:00-600",
+                        "end": "2018-07-02T16:30:00-600"
+                    },
+                    "client": {
+                        "id": 199,
+                        "name": "Leroy Shelton",
+                        "folder": "23088-18"
+                    },
+                    "ta": {
+                        "id": 309,
+                        "name": "Rodney Schwartz",
+                        "image": "http://example.com/bio/309.jpg"
+                    },
+                    "room": 28
+                },
+                {
+                    "id": 3713,
+                    "appointment": 3,
+                    "date": {
+                        "start": "2018-07-03T08:30:00-600",
+                        "end": "2018-07-03T12:00:00-600"
+                    },
+                    "client": {
+                        "id": 199,
+                        "name": "Leroy Shelton",
+                        "folder": "23088-18"
+                    },
+                    "ta": {
+                        "id": 309,
+                        "name": "Rodney Schwartz",
+                        "image": "http://example.com/bio/309.jpg"
+                    },
+                    "room": 28
+                },
+                {
+                    "id": 3719,
+                    "appointment": 1,
+                    "date": {
+                        "start": "2018-07-03T08:30:00-600",
+                        "end": "2018-07-03T12:00:00-600"
+                    },
+                    "client": {
+                        "id": 201,
+                        "name": "Melvin Doyle",
+                        "folder": "23089-18"
+                    },
+                    "ta": {
+                        "id": 211,
+                        "name": "Lillie Gibson",
+                        "image": "http://example.com/bio/211.jpg"
+                    },
+                    "room": 26
+                }
+            ],
+            "dateMin": "2018-07-02T00:00:00-6:00",
+            "dateMax": "2018-07-06T11:59:59-6:00",
+            "location": {
+                "id": 1,
+                "name": "Denver"
+            }
+        }
+
+### Create Appointment [POST]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "appointment": 1,
+                "client": {
+                    "id": 201
+                },
+                "location": {
+                    "id": 1
+                },
+                "date": {
+                    "start": "2018-07-03T08:30:00-600",
+                    "end": "2018-07-03T12:00:00-600",
+                }
+            }
+
++ Response 201 (application/json)
+
+        {
+            "id": 3719,
+            "date": {
+                "start": "2018-07-03T08:30:00-600",
+                "end": "2018-07-03T12:00:00-600",
+            }
+        }
+
+## Appointment [/api/appointments/{id}]
+
++ Parameters
+
+    + id: 3719 (number) - Appointment ID
+
+### Fetch Appointment [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 3719,
+            "appointment": 1,
+            "date": {
+                "start": "2018-07-03T08:30:00-600",
+                "end": "2018-07-03T12:00:00-600"
+            },
+            "client": {
+                "id": 201,
+                "name": "Melvin Doyle",
+                "folder": "23089-18"
+            },
+            "ta": {
+                "id": 211,
+                "name": "Lillie Gibson",
+                "image": "http://example.com/bio/211.jpg"
+            },
+            "location": {
+                "id": 1,
+                "name": "Denver"
+            },
+            "complete": true
+        }
+
+### Edit Appointment [POST]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "id": 3719,
+                "appointment": 1,
+                "date": {
+                    "start": "2018-07-04T08:30:00-600",
+                    "end": "2018-07-04T12:00:00-600",
+                }
+                "complete": true
+            }
+
++ Response 201 (application/json)
+
+        {
+            "id": 3719
+        }
+
+## Logs [/api/logs{?location,dateStart,dateEnd}]
+
+### Logs for single Location [GET]
+
++ Parameters
+
+    + location (optional) - The location id (Defaults to current user location)
+    + dateStart  (optional) - Start range of week YYYY-MM-DD
+    + dateEnd  (optional) - End range of week YYYY-MM-DD
+
++ Response 200 (application/json)
+
+        {
+            "id": 1
+            "location": {
+                "id": 1,
+                "name": "Denver"
+            }
+            "logs": [
+              {
+                "id": 4555,
+                "date": "2018-07-04T08:30:00-600",
+                "am": {
+                    "availability": 2,
+                    "note": "Fred out early\n Sally has an appointment"
+                },
+                "pm": {
+                    "availability": 3,
+                    "note": "No notes",
+                }
+              },
+              {
+                "id": 4565,
+                "date": "2018-07-04T12:30:00-600",
+                "am": {
+                    "availability": 3,
+                    "note": "Saundra doctor appointment"
+                },
+                {
+                    "availability": 3,
+                    "note": "Mindi picking up kids all morning"
+                }
+              }
+            ]
+        }
+
+### Create Log [POST]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "location": 1,
+                "date": "2018-07-03T08:30:00-600",
+                "am": {
+                    "availability": 2,
+                    "note": "Mindi picking up kids all morning",
+                },
+                "pm": {
+                    "availability": 2,
+                    "note": "",
+                },
+            }
+
++ Response 201 (application/json)
+
+        {
+          "id": 4565
+        }
+
+## Log [/api/logs/{id}]
+
++ Parameters
+
+    + id: 4565 (number) - Log ID
+
+### Edit Log [POST]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "id": 4565,
+                "date": "2018-07-03T08:30:00-600",
+                "am": {
+                    "availability": 1,
+                    "note": "Mindi picking up kids all morning, Fredericka has a Drs appointment",
+                },
+                "pm": {
+                    "availability": 3,
+                    "note": "",
+                },
+            }
+
++ Response 201 (application/json)
+
+        {
+          "id": 4565
+        }

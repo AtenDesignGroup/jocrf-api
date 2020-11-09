@@ -1,0 +1,67 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# jocrf
+
+API Endpoints and resources for JOCRF dashboard app.
+
+<!-- include(login.apib) -->
+<!-- include(scheduling.apib) -->
+<!-- include(client.apib) -->
+<!-- include(client_order.apib) -->
+<!-- include(location.apib) -->
+<!-- include(notification.apib) -->
+
+# Data Structures
+
+## Payment Method
++ card (object)
+    + type: visa - Type of credit card. Autopopulated from number if empty
+    + name: Jane Doe - Full name on card
+    + number: 4111111111111111 - Card number with no spaces
+    + expMonth: 12 - Expiration month two digits
+    + expYear: 26 - Expiration year 4 digits
+    + cvv: 417 - Security code
++ billingAddress (object)
+    + firstName: Leroy - Billing address first name
+    + lastName: Shelton - Billing address last name
+    + street1: 4321 Test Dr - Billing street
+    + city: Denver - Billing city/province
+    + state: CO - Billing state/province
+    + zip: 80014 - Billing zip/postal code
+    + countryCode: US - Two digit country code
+
+## Payment
++ id: 1234 - Payment entity ID
++ amount: 100 - Payment amount
++ currencyCode: USD - Currency code 3 digits
++ date: 2020-11-07T20:55:02+0000 - Datetime of transaction with offset
++ method: Check - Payment method type
++ methodId: 24 - Payment method ID
++ status: completed - Payment status
++ statusLabel: Completed - Payment status label
+
+## Order
++ amount: 750 - Order amount (deprecated, should use subtotal or remaining)
++ subtotal: 750 - Price before coupons and adjustments
++ remaining: 0 - Remaining balance dollar amount
++ items (array)
+  - (Order Item)
++ coupons (array)
+  - (Coupon)
++ adjustments (array)
+  - (Adjustment)
+
+## Order Item
+  + id: 23 - Order item entity id
+  + quantity: 1 - Item quantity
+  + sku: default - Product variation sku
+
+## Coupon
+  + id: 1234 - The coupon entity id, automatically looked up
+  + code: ccterminal - The coupon code, ccterminal, scholarship, training, or publicinfo
+  + promotion_id: 1 - The promotion connected to the coupon, automatically looked up
+
+## Adjustment
+  + type: gift_card - Type of adjustment, only gift_card at the time
+  + amount: 150 - Positive number to deduct from order total

@@ -1,0 +1,74 @@
+# Group Client Orders
+
+## Client Orders [/api/clients/{user}/orders]
+
++ Parameters
+
+    + user: 199 (number) - Client ID
+
+### Fetch client orders [GET]
+
++ Response 200 (application/json)
+
+    + Attributes
+        + orders (array)
+            - (Order)
+              + id: 1234
+
+    + Body
+
+### Create client order [POST]
+
++ Request (application/json)
+
+    + Attributes (Order)
+
++ Response 201 (application/json)
+
+    + Attributes (Order)
+
+
+## Client Order Payments [/api/clients/{user}/orders/{order}/payments]
+
++ Parameters
+
+    + user: 199 (number) - Client ID
+    + order: 2949 (number) - Order ID
+
+### Fetch client order payments [GET]
+
+Get a list of orders for a specific client
+
++ Response 200 (application/json)
+
+    + Attributes (array[Payment])
+
+### Add client order payment [POST]
+
++ Request (application/json)
+
+        {
+            "date": "2018-07-03T17:35:00-600",
+            "method": "8444",
+            "skip_payment_gateway": true,
+            "amount": 100
+        }
+
++ Response 201 (application/json)
+
+    + Attributes (array[Payment])
+
+### Add Client Payment (with Payment Method) [POST]
+
++ Request (application/json)
+
+    + Attributes (object)
+
+        + date: `2018-07-03T17:35:00-600`
+        + method: (Payment Method)
+        + `skip_payment_gateway`: true
+        + amount: 100
+
++ Response 201 (application/json)
+
+    + Attributes (array[Payment])
