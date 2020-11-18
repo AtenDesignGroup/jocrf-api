@@ -7,6 +7,7 @@ API Endpoints and resources for JOCRF dashboard app.
 
 <!-- include(login.apib) -->
 <!-- include(scheduling.apib) -->
+<!-- include(store.apib) -->
 <!-- include(client.apib) -->
 <!-- include(client_order.apib) -->
 <!-- include(location.apib) -->
@@ -31,16 +32,6 @@ API Endpoints and resources for JOCRF dashboard app.
     + zip: 80014 - Billing zip/postal code
     + countryCode: US - Two digit country code
 
-## Payment
-+ id: 1234 - Payment entity ID
-+ amount: 100 - Payment amount
-+ currencyCode: USD - Currency code 3 digits
-+ date: 2020-11-07T20:55:02+0000 - Datetime of transaction with offset
-+ method: Check - Payment method type
-+ methodId: 24 - Payment method ID
-+ status: completed - Payment status
-+ statusLabel: Completed - Payment status label
-
 ## Order
 + amount: 750 - Order amount (deprecated, should use subtotal or remaining)
 + subtotal: 750 - Price before coupons and adjustments
@@ -56,6 +47,16 @@ API Endpoints and resources for JOCRF dashboard app.
   + id: 23 - Order item entity id
   + quantity: 1 - Item quantity
   + sku: default - Product variation sku
+
+## Payment
++ id: 1234 - Payment entity ID
++ amount: 100 - Payment amount
++ currencyCode: USD - Currency code 3 digits
++ date: 2020-11-07T20:55:02+0000 - Datetime of transaction with offset
++ method: Check - Payment method type
++ methodId: 24 - Payment method ID
++ status: completed - Payment status
++ statusLabel: Completed - Payment status label
 
 ## Coupon
   + id: 1234 - The coupon entity id, automatically looked up

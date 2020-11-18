@@ -1,0 +1,118 @@
+# Group Store
+
+## Products [/api/products]
+
+### Products collection [GET]
+
++ Response 200 (application/json)
+
+        {
+            "products": [
+                {
+                    "title": "Aptitude Testing",
+                    "uuid": "cfa2283f-dfdf-48af-9c82-0d1d863e7562",
+                    "sku": "default",
+                    "id": "1",
+                    "price": "750.000000"
+                },
+                {
+                    "title": "Aptitude Follow-up - Default",
+                    "uuid": "63b62c1c-e785-42b5-870c-e6be9a632206",
+                    "sku": "aptitude-followup",
+                    "id": "2",
+                    "price": "200.000000"
+                },
+                {
+                    "title": "Aptitude Re-print - Default",
+                    "uuid": "da7c12ca-dbfb-4914-a46c-e97e37097715",
+                    "sku": "aptitude-reprint",
+                    "id": "3",
+                    "price": "100.000000"
+                },
+                {
+                    "title": "Aptitude Testing - Florida",
+                    "uuid": "2b77feb2-4a31-41ce-87b8-82d26ebad06d",
+                    "sku": "aptitude-testing-florida",
+                    "id": "4",
+                    "price": "850.000000"
+                },
+                {
+                    "title": "Aptitude Testing - Austin",
+                    "uuid": "e7ee0479-92d0-4405-93a8-72678a034bd1",
+                    "sku": "aptitude-testing-austin",
+                    "id": "5",
+                    "price": "850.000000"
+                },
+                {
+                    "title": "Aptitude Testing - San Francisco",
+                    "uuid": "badc23c7-cef9-4622-bf39-d6b71ca2d778",
+                    "sku": "aptitude-testing-san-francisco",
+                    "id": "6",
+                    "price": "850.000000"
+                }
+            ],
+            "links" {
+                 "self": "http://admin.jocrf.test/api/products?XDEBUG_SESSION_START=PHPSTORM"
+            }
+        }
+
+## Adjustments [/api/adjustments]
+
+### Adjustments collection [GET]
+
++ Response 200 (application/json)
+
+        {
+            "adjustments": [
+                {
+                    "id": "gift_card",
+                    "label": "Gift Card",
+                    "singular_label": "Gift Card",
+                    "plural_label": "Gift Cards",
+                    "has_ui": true,
+                    "weight": 0,
+                    "class": "Drupal\commerce_order\Plugin\Commerce\AdjustmentType\AdjustmentType",
+                    "provider": "jocrf_payment"
+                }
+            ],
+            "links": {
+                "self": "http://admin.jocrf.test/api/adjustments?XDEBUG_SESSION_START=PHPSTORM"
+            }
+        }
+
+
+## Coupons [/api/coupons]
+
+### Coupons collection [GET]
+
++ Response 200 (application/json)
+
+        {
+            "coupons": [
+                {
+                    "promotion_id":"1",
+                    "promotaion_name":"Free testing",
+                    "coupon_id":"1",
+                    "code":"scholarship"
+                },
+                {
+                    "promotion_id":"1",
+                    "promotaion_name":"Free testing",
+                    "coupon_id":"2",
+                    "code":"publicinfo"
+                },
+                {
+                    "promotion_id":"1",
+                    "promotaion_name":"Free testing",
+                    "coupon_id":"3",
+                    "code":"training"
+                },
+                {
+                    "promotion_id":"1",
+                    "promotaion_name":"Free testing",
+                    "coupon_id":"4",
+                    "code":"ccterminal"
+                }
+            ]
+        }
+
