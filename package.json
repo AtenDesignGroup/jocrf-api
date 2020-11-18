@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zrpnr/jocrf-api.git"
+    "url": "git+https://github.com/atendesigngroup/jocrf-api.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zrpnr/jocrf-api/issues"
+    "url": "https://github.com/atendesigngroup/jocrf-api/issues"
   },
-  "homepage": "https://github.com/zrpnr/jocrf-api#readme",
+  "homepage": "https://github.com/atendesigngroup/jocrf-api#readme",
   "dependencies": {
     "aglio": "^2.3.0",
     "npm-watch": "^0.7.0"
