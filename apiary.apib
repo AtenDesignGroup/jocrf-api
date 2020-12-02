@@ -4049,13 +4049,13 @@ These values come from the Aptitude UI
 
 # Group Client Orders
 
-## Client Orders [/api/clients/{user}/orders]
+## Order collection [/api/clients/{user}/orders]
 
 + Parameters
 
     + user: 199 (number) - Client ID
 
-### Fetch client orders [GET]
+### Fetch multiple orders [GET]
 
 + Response 200 (application/json)
 
@@ -4066,7 +4066,7 @@ These values come from the Aptitude UI
 
     + Body
 
-### Create client order [POST]
+### Create order [POST]
 
 + Request (application/json)
 
@@ -4076,15 +4076,33 @@ These values come from the Aptitude UI
 
     + Attributes (Order)
 
+## Order individual [/api/clients/{user}/orders/{order}]
 
-## Client Order Payments [/api/clients/{user}/orders/{order}/payments]
++ Parameters
+
+    + user: 300215 (number) - Client ID
+    + order: 2493 (number) - Order ID
+
+### Fetch order [GET]
+
++ Response 200 (application/json)
+
+  + Attributes (Order)
+
+### Update order [POST]
+
++ Response 200 (application/json)
+
+  + Attributes (Order)
+
+## Order Payments [/api/clients/{user}/orders/{order}/payments]
 
 + Parameters
 
     + user: 199 (number) - Client ID
     + order: 2949 (number) - Order ID
 
-### Fetch client order payments [GET]
+### Fetch multiple order payments [GET]
 
 Get a list of orders for a specific client
 
@@ -4092,7 +4110,8 @@ Get a list of orders for a specific client
 
     + Attributes (array[Payment])
 
-### Add client order payment [POST]
+### Create order payment [POST]
+Create a new order payment using an existing payment method ID.
 
 + Request (application/json)
 
@@ -4107,7 +4126,8 @@ Get a list of orders for a specific client
 
     + Attributes (array[Payment])
 
-### Add Client Payment (with Payment Method) [POST]
+### Create order payment (new payment method) [POST]
+Create a new order payment and create the payment method simultaneously.
 
 + Request (application/json)
 
