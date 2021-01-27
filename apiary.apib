@@ -4074,7 +4074,9 @@ These values come from the Aptitude UI
 
 + Response 201 (application/json)
 
-    + Attributes (Order)
+    + Attributes (object)
+      + id: 1234
+      - Include Order
 
 ## Order individual [/api/clients/{user}/orders/{order}]
 
@@ -4308,37 +4310,37 @@ This endpoint will currently resend the client info email. The client info id an
     + zip: 80014 - Billing zip/postal code
     + countryCode: US - Two digit country code
 
-## Order
-+ amount: 750 - Order amount (deprecated, should use subtotal or remaining)
-+ subtotal: 750 - Price before coupons and adjustments
-+ remaining: 0 - Remaining balance dollar amount
-+ items (array)
-  - (Order Item)
-+ coupons (array)
-  - (Coupon)
-+ adjustments (array)
-  - (Adjustment)
+## Order (object)
+  + amount: 750 - Order amount (deprecated, should use subtotal or remaining)
+  + subtotal: 750 - Price before coupons and adjustments
+  + remaining: 0 - Remaining balance dollar amount
+  + items (array)
+    - (Order Item)
+  + coupons (array)
+    - (Coupon)
+  + adjustments (array)
+    - (Adjustment)
 
-## Order Item
+## Order Item (object)
   + id: 23 - Order item entity id
   + quantity: 1 - Item quantity
   + sku: default - Product variation sku
 
-## Payment
-+ id: 1234 - Payment entity ID
-+ amount: 100 - Payment amount
-+ currencyCode: USD - Currency code 3 digits
-+ date: 2020-11-07T20:55:02+0000 - Datetime of transaction with offset
-+ method: Check - Payment method type
-+ methodId: 24 - Payment method ID
-+ status: completed - Payment status
-+ statusLabel: Completed - Payment status label
+## Payment (object)
+  + id: 1234 - Payment entity ID
+  + amount: 100 - Payment amount
+  + currencyCode: USD - Currency code 3 digits
+  + date: 2020-11-07T20:55:02+0000 - Datetime of transaction with offset
+  + method: Check - Payment method type
+  + methodId: 24 - Payment method ID
+  + status: completed - Payment status
+  + statusLabel: Completed - Payment status label
 
-## Coupon
+## Coupon (object)
   + id: 1234 - The coupon entity id, automatically looked up
   + code: ccterminal - The coupon code, ccterminal, scholarship, training, or publicinfo
-  + promotion_id: 1 - The promotion connected to the coupon, automatically looked up
+  + `promotion_id`: 1 - The promotion connected to the coupon, automatically looked up
 
-## Adjustment
-  + type: gift_card - Type of adjustment, only gift_card at the time
+## Adjustment (object)
+  + type: `gift_card` - Type of adjustment, only gift_card at the time
   + amount: 150 - Positive number to deduct from order total
